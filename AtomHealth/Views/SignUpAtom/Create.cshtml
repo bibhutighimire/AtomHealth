@@ -1,0 +1,121 @@
+﻿@model AtomHealth.Models.Atom
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Atom</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                First Name
+                <input asp-for="firstname" class="form-control" />
+                <span asp-validation-for="firstname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                Middle Name
+                <input asp-for="middlename" class="form-control" />
+                <span asp-validation-for="middlename" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                Last Name
+                <input asp-for="lastname" class="form-control" />
+                <span asp-validation-for="lastname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                Healthcare ID
+                <input asp-for="healthid" class="form-control" />
+                <span asp-validation-for="healthid" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                Date of Birth
+                <input asp-for="dob" class="form-control" />
+                <span asp-validation-for="dob" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                Sex
+                <input asp-for="sex" class="form-control" />
+                <span asp-validation-for="sex" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                Height(inch)
+                <input asp-for="height" class="form-control" />
+                <span asp-validation-for="height" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                Weight(lbs)
+                <input asp-for="weight" class="form-control" />
+                <span asp-validation-for="weight" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                Phone
+                <input asp-for="phone" class="form-control" />
+                <span asp-validation-for="phone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                Email
+                <input asp-for="email" class="form-control" />
+                <span asp-validation-for="email" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                Marital Status
+                <input asp-for="ismarried" class="form-control" />
+                <span asp-validation-for="ismarried" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                Emergency Contact Number
+                <input asp-for="emergencyphone" class="form-control" />
+                <span asp-validation-for="emergencyphone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                Relationship with Emergency Contact Person
+                <input asp-for="relationship" class="form-control" />
+                <span asp-validation-for="relationship" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                Are you in Medication now?
+                <input asp-for="inmedicationnow" class="form-control" />
+                <span asp-validation-for="inmedicationnow" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                List all the Medications below
+                <input asp-for="medication" class="form-control" />
+                <span asp-validation-for="medication" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                If applicable, list the name of all your diseases below
+                <input asp-for="diseases" class="form-control" />
+                <span asp-validation-for="diseases" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                Username
+                <input asp-for="username" class="form-control" />
+                <span asp-validation-for="username" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                Password
+                <input asp-for="password" class="form-control" />
+                <span asp-validation-for="password" class="text-danger"></span>
+            </div>
+
+ <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
