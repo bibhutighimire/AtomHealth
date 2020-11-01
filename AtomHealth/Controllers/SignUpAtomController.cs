@@ -259,6 +259,19 @@ namespace AtomHealth.Controllers
             
         }
 
+        public IActionResult Signout()
+        {
+            ViewBag.firstname = HttpContext.Session.GetString("firstname");
+            ViewBag.lastname = HttpContext.Session.GetString("lastname");
+            ViewBag.positionid = HttpContext.Session.GetString("positionid");
+            ViewBag.firstname = null;
+            ViewBag.lastname = null;
+            ViewBag.positionid = null;
+
+            return RedirectToAction("Signin");
+
+        }
+
 
 
 
