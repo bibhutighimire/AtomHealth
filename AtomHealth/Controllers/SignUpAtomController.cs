@@ -38,14 +38,36 @@ namespace AtomHealth.Controllers
         [HttpPost]
         public IActionResult Signin(Atom atom)
         {
+            //checks if user is patient
             var rightAtom = _context.tblAtom.Where(x => x.username == atom.username && x.password == atom.password).FirstOrDefault();
-            ViewBag.firstname=
+            
             if(rightAtom!=null)
             {
+                ViewBag.firstname = rightAtom.firstname;
+                ViewBag.lastname = rightAtom.lastname;
+                ViewBag.positionid = rightAtom.positionid;
                 return View();
             }
+            //checks if user is employee
+            var rightEmployee =_context.tblEmployee.Where(x => x.username == atom.username && x.password == atom.password).FirstOrDefault();
+            if (rightEmployee != null)
+            {
+                ViewBag.firstname = rightEmployee.firstname;
+                ViewBag.lastname = rightEmployee.lastname;
+                ViewBag.positionid = rightEmployee.positionid;
+                return View();
+            }
+            //checks if user is admin
+            //var rightEmployee = _context.tblEmployee.Where(x => x.username == atom.username && x.password == atom.password).FirstOrDefault();
+            //if (rightEmployee != null)
+            //{
+            //    ViewBag.firstname = rightEmployee.firstname;
+            //    ViewBag.lastname = rightEmployee.lastname;
+            //    ViewBag.positionid = rightEmployee.positionid;
+            //    return View();
+            //}
 
-            return View();
+            return RedirectToAction("Home/Index");
         }
 
         [HttpGet]

@@ -14,6 +14,8 @@ namespace AtomHealth.Models
         }
         public DbSet<Atom> tblAtom { get; set; }
         public DbSet<Position> tblPosition { get; set; }
+        public DbSet<Employee> tblEmployee { get; set; }
+
 
     }
 }

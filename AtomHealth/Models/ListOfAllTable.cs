@@ -9,5 +9,7 @@ namespace AtomHealth.Models
     {
         public Atom ListOfAtom { get; set; }
         public Position ListOfPosition { get; set; }
+        public Employee ListOfEmployee { get; set; }
+
     }
 }
