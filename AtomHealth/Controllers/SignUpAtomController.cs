@@ -6,10 +6,11 @@ using AtomHealth.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using System.Net;
-using System.Management;
+
 using System.Net.Sockets;
 using System.Threading;
 using System.Net.NetworkInformation;
+using System.Management;
 
 namespace AtomHealth.Controllers
 {
@@ -34,40 +35,41 @@ namespace AtomHealth.Controllers
 
             return View();
         }
-
+       
         [HttpPost]
-        public IActionResult Signin(Atom atom)
+        public IActionResult SigninPost(string username, string password)
         {
             //checks if user is patient
-            var rightAtom = _context.tblAtom.Where(x => x.username == atom.username && x.password == atom.password).FirstOrDefault();
+            var rightAtom = _context.tblAtom.Where(x => x.username == username && x.password == password).FirstOrDefault();
             
             if(rightAtom!=null)
             {
                 ViewBag.firstname = rightAtom.firstname;
                 ViewBag.lastname = rightAtom.lastname;
                 ViewBag.positionid = rightAtom.positionid;
+
                 return View();
             }
             //checks if user is employee
-            var rightEmployee =_context.tblEmployee.Where(x => x.username == atom.username && x.password == atom.password).FirstOrDefault();
+            var rightEmployee =_context.tblEmployee.Where(x => x.username == username && x.password == password).FirstOrDefault();
             if (rightEmployee != null)
             {
                 ViewBag.firstname = rightEmployee.firstname;
                 ViewBag.lastname = rightEmployee.lastname;
                 ViewBag.positionid = rightEmployee.positionid;
                 return View();
-            }
-            //checks if user is admin
-            //var rightEmployee = _context.tblEmployee.Where(x => x.username == atom.username && x.password == atom.password).FirstOrDefault();
-            //if (rightEmployee != null)
-            //{
-            //    ViewBag.firstname = rightEmployee.firstname;
-            //    ViewBag.lastname = rightEmployee.lastname;
-            //    ViewBag.positionid = rightEmployee.positionid;
-            //    return View();
-            //}
 
-            return RedirectToAction("Home/Index");
+                //checks if user is admin
+                //var rightEmployee = _context.tblEmployee.Where(x => x.username == atom.username && x.password == atom.password).FirstOrDefault();
+                //if (rightEmployee != null)
+                //{
+                //    ViewBag.firstname = rightEmployee.firstname;
+                //    ViewBag.lastname = rightEmployee.lastname;
+                //    ViewBag.positionid = rightEmployee.positionid;
+                //    return RedirectToAction("Index", "Home");
+                //}
+            }
+                return RedirectToAction("Home");
         }
 
         [HttpGet]
