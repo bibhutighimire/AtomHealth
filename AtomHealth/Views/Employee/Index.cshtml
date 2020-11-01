@@ -1,0 +1,149 @@
+﻿@model IEnumerable<AtomHealth.Models.Atom>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>View List of all Patients</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.firstname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.middlename)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.lastname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.healthid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.phone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sex)
+            </th>
+           
+            <th>
+                @Html.DisplayNameFor(model => model.height)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.weight)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ismarried)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.emergencyphone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.relationship)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.inmedicationnow)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.medication)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.username)
+            </th>
+           
+            <th>
+                @Html.DisplayNameFor(model => model.registrationdate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.dob)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.registeredby)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.diseases)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.firstname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.middlename)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.lastname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.healthid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sex)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.height)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.weight)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ismarried)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.emergencyphone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.relationship)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.inmedicationnow)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.medication)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.username)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.registrationdate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dob)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.registeredby)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.diseases)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.atomid">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.atomid">Details</a> 
+               
+        </tr>
+}
+    </tbody>
+</table>

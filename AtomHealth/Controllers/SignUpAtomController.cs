@@ -47,7 +47,12 @@ namespace AtomHealth.Controllers
                 ViewBag.firstname = rightAtom.firstname;
                 ViewBag.lastname = rightAtom.lastname;
                 ViewBag.positionid = rightAtom.positionid;
-
+                HttpContext.Session.SetString("firstname", rightAtom.firstname);
+                ViewBag.firstname = HttpContext.Session.GetString("firstname");
+                HttpContext.Session.SetString("lastname", rightAtom.lastname);
+                ViewBag.lastname = HttpContext.Session.GetString("lastname");
+                HttpContext.Session.SetString("positionid", Convert.ToString(rightAtom.positionid));
+                ViewBag.positionid = HttpContext.Session.GetString("positionid");
                 return View();
             }
             //checks if user is employee
@@ -57,6 +62,12 @@ namespace AtomHealth.Controllers
                 ViewBag.firstname = rightEmployee.firstname;
                 ViewBag.lastname = rightEmployee.lastname;
                 ViewBag.positionid = rightEmployee.positionid;
+                HttpContext.Session.SetString("firstname", rightEmployee.firstname);
+                ViewBag.firstname = HttpContext.Session.GetString("firstname");
+                HttpContext.Session.SetString("lastname", rightEmployee.lastname);
+                ViewBag.lastname = HttpContext.Session.GetString("lastname");
+                HttpContext.Session.SetString("positionid", Convert.ToString(rightEmployee.positionid));
+                ViewBag.positionid = HttpContext.Session.GetString("positionid");
                 return View();
 
                 //checks if user is admin
@@ -75,13 +86,18 @@ namespace AtomHealth.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-
+            ViewBag.firstname = HttpContext.Session.GetString("firstname");
+            ViewBag.lastname = HttpContext.Session.GetString("lastname");
+            ViewBag.positionid = HttpContext.Session.GetString("positionid");
             return View();
         }
         // Create method will add entire record of patient along with IP address
         [HttpPost]
         public IActionResult Create(Atom atom)
         {
+            ViewBag.firstname = HttpContext.Session.GetString("firstname");
+            ViewBag.lastname = HttpContext.Session.GetString("lastname");
+            ViewBag.positionid = HttpContext.Session.GetString("positionid");
             Atom tblAtom = new Atom();
 
             tblAtom.positionid = Convert.ToInt32("4");
@@ -112,14 +128,18 @@ namespace AtomHealth.Controllers
         [HttpGet]
         public IActionResult CreateForUserWhoNeedHelp()
         {
-
+            ViewBag.firstname = HttpContext.Session.GetString("firstname");
+            ViewBag.lastname = HttpContext.Session.GetString("lastname");
+            ViewBag.positionid = HttpContext.Session.GetString("positionid");
             return View();
         }
         [HttpPost]
 
         public IActionResult CreateForUserWhoNeedHelpPost(Atom atom)
         {
-
+            ViewBag.firstname = HttpContext.Session.GetString("firstname");
+            ViewBag.lastname = HttpContext.Session.GetString("lastname");
+            ViewBag.positionid = HttpContext.Session.GetString("positionid");
             Atom tblAtom = new Atom();
             tblAtom.positionid = Convert.ToInt32("4");
             tblAtom.firstname = atom.firstname;
@@ -166,6 +186,9 @@ namespace AtomHealth.Controllers
         [HttpGet]
         public IActionResult Delete(int id)
         {
+            ViewBag.firstname = HttpContext.Session.GetString("firstname");
+            ViewBag.lastname = HttpContext.Session.GetString("lastname");
+            ViewBag.positionid = HttpContext.Session.GetString("positionid");
             var targetToBeDeleted = _context.tblAtom.Where(x=>x.atomid==id).FirstOrDefault();
 
             return View(targetToBeDeleted);
@@ -173,6 +196,9 @@ namespace AtomHealth.Controllers
         [HttpPost]
         public IActionResult Delete(Atom atom)
         {
+            ViewBag.firstname = HttpContext.Session.GetString("firstname");
+            ViewBag.lastname = HttpContext.Session.GetString("lastname");
+            ViewBag.positionid = HttpContext.Session.GetString("positionid");
             var targetToBeDeleted = _context.tblAtom.Where(x => x.atomid == atom.atomid).FirstOrDefault();
             _context.tblAtom.Remove(targetToBeDeleted);
             _context.SaveChanges();
@@ -182,6 +208,9 @@ namespace AtomHealth.Controllers
         [HttpGet]
         public IActionResult Details(int id)
         {
+            ViewBag.firstname = HttpContext.Session.GetString("firstname");
+            ViewBag.lastname = HttpContext.Session.GetString("lastname");
+            ViewBag.positionid = HttpContext.Session.GetString("positionid");
             var targetToBeDeleted = _context.tblAtom.Where(x => x.atomid == id).FirstOrDefault();
 
             return View(targetToBeDeleted);
@@ -190,6 +219,9 @@ namespace AtomHealth.Controllers
         [HttpGet]
         public IActionResult Edit(int id)
         {
+            ViewBag.firstname = HttpContext.Session.GetString("firstname");
+            ViewBag.lastname = HttpContext.Session.GetString("lastname");
+            ViewBag.positionid = HttpContext.Session.GetString("positionid");
             var targetToBeDeleted = _context.tblAtom.Where(x => x.atomid == id).FirstOrDefault();
 
             return View(targetToBeDeleted);
@@ -198,6 +230,9 @@ namespace AtomHealth.Controllers
         [HttpPost]
         public IActionResult Edit(Atom atom)
         {
+            ViewBag.firstname = HttpContext.Session.GetString("firstname");
+            ViewBag.lastname = HttpContext.Session.GetString("lastname");
+            ViewBag.positionid = HttpContext.Session.GetString("positionid");
             var targetToBeDeleted = _context.tblAtom.Where(x => x.atomid == atom.atomid).FirstOrDefault();
             targetToBeDeleted.positionid = Convert.ToInt32("4");
             targetToBeDeleted.firstname = atom.firstname;

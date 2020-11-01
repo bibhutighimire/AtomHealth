@@ -8,20 +8,21 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AtomHealth.Controllers
 {
-    public class HomeController : Controller
+    public class EmployeeController : Controller
     {
         private readonly ConnectionDB _context;
 
-        public HomeController(ConnectionDB context)
+        public EmployeeController(ConnectionDB context)
         {
             _context = context;
         }
+
         public IActionResult Index()
-        {           
+        {
             ViewBag.firstname = HttpContext.Session.GetString("firstname");
             ViewBag.lastname = HttpContext.Session.GetString("lastname");
             ViewBag.positionid = HttpContext.Session.GetString("positionid");
-            return View();
+            return View(_context.tblAtom.ToList());
         }
     }
 }
