@@ -71,7 +71,7 @@ namespace AtomHealth.Controllers
                 return View();
 
                 //checks if user is admin
-                //var rightEmployee = _context.tblEmployee.Where(x => x.username == atom.username && x.password == atom.password).FirstOrDefault();
+                //var rightEmployee = _context.tblAdmin.Where(x => x.username == atom.username && x.password == atom.password).FirstOrDefault();
                 //if (rightEmployee != null)
                 //{
                 //    ViewBag.firstname = rightEmployee.firstname;
@@ -128,6 +128,7 @@ namespace AtomHealth.Controllers
         [HttpGet]
         public IActionResult CreateForUserWhoNeedHelp()
         {
+            ViewBag.checkyouremail = HttpContext.Session.GetString("checkyouremail");
             ViewBag.firstname = HttpContext.Session.GetString("firstname");
             ViewBag.lastname = HttpContext.Session.GetString("lastname");
             ViewBag.positionid = HttpContext.Session.GetString("positionid");
@@ -137,6 +138,8 @@ namespace AtomHealth.Controllers
 
         public IActionResult CreateForUserWhoNeedHelpPost(Atom atom)
         {
+            HttpContext.Session.SetString("checkyouremail", "Please check your email for validation") ;
+            ViewBag.checkyouremail = HttpContext.Session.GetString("checkyouremail");
             ViewBag.firstname = HttpContext.Session.GetString("firstname");
             ViewBag.lastname = HttpContext.Session.GetString("lastname");
             ViewBag.positionid = HttpContext.Session.GetString("positionid");
@@ -180,7 +183,7 @@ namespace AtomHealth.Controllers
 
             _context.tblAtom.Add(tblAtom);
             _context.SaveChanges();
-            return RedirectToAction("Signin");
+            return RedirectToAction("CreateForUserWhoNeedHelp");
         }
 
         [HttpGet]
