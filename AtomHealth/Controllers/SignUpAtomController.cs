@@ -180,7 +180,7 @@ namespace AtomHealth.Controllers
 
             _context.tblAtom.Add(tblAtom);
             _context.SaveChanges();
-            return View();
+            return RedirectToAction("Signin");
         }
 
         [HttpGet]
