@@ -1,11 +1,11 @@
 ﻿@model IEnumerable<AtomHealth.Models.Atom>
 <link rel="stylesheet" href="~/css/site.css" />
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "List of all Patients";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>View List of all Patients</h1>
+<h1 style="color:deepskyblue; font-size:large; font-weight:bold">View List of all Patients</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -75,11 +75,6 @@
             @Html.DisplayFor(modelItem => item.relationship)
         </td>
       
-        <td>
-            @Html.DisplayFor(modelItem => item.username)
-        </td>
-
-     
         <td>
             @Html.DisplayFor(modelItem => item.dob)
         </td>

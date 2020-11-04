@@ -1,10 +1,11 @@
 ﻿@model AtomHealth.Models.Atom
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Add New Patient";
+    Layout = "~/Views/Shared/_LayoutWithoutBanner.cshtml";
 }
 
-<h1>Add New Patient</h1>
+<h1 style="color:deepskyblue; font-size:large; font-weight:bold">Add New Patient</h1>
 
 
 <hr />
@@ -94,18 +95,14 @@
                 <input asp-for="diseases" class="form-control" />
                 <span asp-validation-for="diseases" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                Username
-                <input asp-for="username" class="form-control" />
-                <span asp-validation-for="username" class="text-danger"></span>
-            </div>
+
             <div class="form-group">
                 Password
                 <input asp-for="password" type="password" class="form-control" />
                 <span asp-validation-for="password" class="text-danger"></span>
             </div>
 
- <div class="form-group">
+            <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>

@@ -1,88 +1,80 @@
 ﻿@model IEnumerable<AtomHealth.Models.Atom>
-
+    <link rel="stylesheet" href="~/css/layoutpage.css" />
 @{
     ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutWithoutBanner.cshtml";
 }
 
-<h1>Index</h1>
+<h1 style="color:deepskyblue; font-size:large; font-weight:bold">List of Patients</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table" border="1">
-    <thead>
-        <tr>
-            <th>
-                Firstname
-            </th>
-            <th>
-                Middlename
-            </th>
-            <th>
-                Lastname
-            </th>
-            <th>
-                Healthcare ID
-            </th>
-            <th>
-                Phone
-            </th>
-            <th>
-                Email
-            </th>
-            <th>
-                Sex
-            </th>
-            <th>
-                Height(inch)
-            </th>
-            <th>
-                Weight(lbs)
-            </th>
-            <th>
-                Status
-            </th>
-            <th>
-                Emergency Cntact No.
-            </th>
-            <th>
-                Relationship
-            </th>
-            <th>
-                In medication now?
-            </th>
-            <th>
-                Medications
-            </th>
-            <th>
-                Username
-            </th>
-            <th>
-                Password
-            </th>
-            <th>
-                Registration Date
-            </th>
-            <th>
-                Date of Birth
-            </th>
-            <th>
-                Registered by
-            </th>
-            <th>
-                Diseases
-            </th>
-            <th>
-                IP Address
-            </th>
-            <th>
-                Mac Address
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
+<table id="customers">
+    <tr>
+        <th>
+            Firstname
+        </th>
+        <th>
+            Middlename
+        </th>
+        <th>
+            Lastname
+        </th>
+        <th>
+            Healthcare ID
+        </th>
+        <th>
+            Phone
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            Sex
+        </th>
+        <th>
+            Height(inch)
+        </th>
+        <th>
+            Weight(lbs)
+        </th>
+        <th>
+            Status
+        </th>
+        <th>
+            Emergency Cntact No.
+        </th>
+        <th>
+            Relationship
+        </th>
+        <th>
+            In medication now?
+        </th>
+        <th>
+            Medications
+        </th>
+       
+        <th>
+            Password
+        </th>
+        <th>
+            Registration Date
+        </th>
+        <th>
+            Date of Birth
+        </th>
+        <th>
+            Registered by
+        </th>
+        <th>
+            Diseases
+        </th>
+
+        <th></th>
+    </tr>
+
+
+
+    @foreach (var item in Model)
+    {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.firstname)
@@ -126,9 +118,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.medication)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.username)
-            </td>
+
             <td>
                 @Html.DisplayFor(modelItem => item.password)
             </td>
@@ -144,19 +134,15 @@
             <td>
                 @Html.DisplayFor(modelItem => item.diseases)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ipadd)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.macadd)
-            </td>
+
 
             <td>
                 <a asp-action="Edit" asp-route-id="@item.atomid">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.atomid">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.atomid">Delete</a>
+                <a asp-action="Details" asp-route-id="@item.atomid">Details</a>
+                @*|
+                    <a asp-action="Delete" asp-route-id="@item.atomid">Delete</a>*@
             </td>
         </tr>
-}
-    </tbody>
+    }
+
 </table>

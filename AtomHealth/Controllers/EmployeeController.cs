@@ -69,7 +69,7 @@ namespace AtomHealth.Controllers
             targetToBeDeleted.relationship = atom.relationship;
             targetToBeDeleted.inmedicationnow = atom.inmedicationnow;
             targetToBeDeleted.medication = atom.medication;
-            targetToBeDeleted.username = atom.username;
+       
             
             targetToBeDeleted.dob = atom.dob;
             

@@ -15,10 +15,7 @@ namespace AtomHealth.Models
         public long phone { get; set; }
         public string email { get; set; }
         public string sex { get; set; }
-        public string ipadd { get; set; }
-        public string macadd { get; set; }
-
-        public string username { get; set; }
+      
         public string password { get; set; }
         public DateTime registrationdate { get; set; }
         public DateTime dob { get; set; }

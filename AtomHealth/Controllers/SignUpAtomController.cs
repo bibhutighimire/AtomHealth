@@ -37,10 +37,10 @@ namespace AtomHealth.Controllers
         }
        
         [HttpPost]
-        public IActionResult SigninPost(string username, string password)
+        public IActionResult SigninPost(string email, string password)
         {
             //checks if user is patient
-            var rightAtom = _context.tblAtom.Where(x => x.username == username && x.password == password).FirstOrDefault();
+            var rightAtom = _context.tblAtom.Where(x => x.email == email && x.password == password).FirstOrDefault();
             
             if(rightAtom!=null)
             {
@@ -56,7 +56,7 @@ namespace AtomHealth.Controllers
                 return View();
             }
             //checks if user is employee
-            var rightEmployee =_context.tblEmployee.Where(x => x.username == username && x.password == password).FirstOrDefault();
+            var rightEmployee =_context.tblEmployee.Where(x => x.email == email && x.password == password).FirstOrDefault();
             if (rightEmployee != null)
             {
                 ViewBag.firstname = rightEmployee.firstname;
@@ -70,15 +70,6 @@ namespace AtomHealth.Controllers
                 ViewBag.positionid = HttpContext.Session.GetString("positionid");
                 return View();
 
-                //checks if user is admin
-                //var rightEmployee = _context.tblAdmin.Where(x => x.username == atom.username && x.password == atom.password).FirstOrDefault();
-                //if (rightEmployee != null)
-                //{
-                //    ViewBag.firstname = rightEmployee.firstname;
-                //    ViewBag.lastname = rightEmployee.lastname;
-                //    ViewBag.positionid = rightEmployee.positionid;
-                //    return RedirectToAction("Index", "Home");
-                //}
             }
                 return RedirectToAction("Home");
         }
@@ -115,7 +106,7 @@ namespace AtomHealth.Controllers
             tblAtom.relationship = atom.relationship;
             tblAtom.inmedicationnow = atom.inmedicationnow;
             tblAtom.medication = atom.medication;
-            tblAtom.username = atom.username;
+           
             tblAtom.password = atom.password;
             tblAtom.registrationdate = DateTime.Now;
             tblAtom.dob = atom.dob;
@@ -151,7 +142,7 @@ namespace AtomHealth.Controllers
                 tblAtom.healthid = atom.healthid;
                 tblAtom.phone = atom.phone;
                 tblAtom.email = atom.email;
-                tblAtom.username = atom.username;
+               
                 tblAtom.password = atom.password;
                 tblAtom.registrationdate = DateTime.Now;
                 tblAtom.dob = atom.dob;
@@ -229,7 +220,7 @@ namespace AtomHealth.Controllers
             targetToBeDeleted.relationship = atom.relationship;
             targetToBeDeleted.inmedicationnow = atom.inmedicationnow;
             targetToBeDeleted.medication = atom.medication;
-            targetToBeDeleted.username = atom.username;
+          
             
             targetToBeDeleted.dob = atom.dob;
             
