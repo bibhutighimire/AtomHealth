@@ -43,16 +43,16 @@
                         <a asp-controller="Home" asp-action="Index">HOME</a>
                     </li>
                     <li>
-                        <a asp-controller="Services" asp-action="Index">SERVICES</a>
+                        <a asp-controller="Doctor" asp-action="Index">DOCTORS</a>
                     </li>
                     <li>
-                        <a asp-controller="Home" asp-action="Index">PATIENT</a>
+                        <a asp-controller="Patient" asp-action="Index">PATIENT</a>
                     </li>
                     <li>
-                        <a asp-controller="Home" asp-action="Index">TELEMEDICINE / EMR</a>
+                        <a asp-controller="EMR" asp-action="Index">TELEMEDICINE / EMR</a>
                     </li>
                     <li>
-                        <a asp-controller="Home" asp-action="Index">MEDICAL INSURANCE</a>
+                        <a asp-controller="Insurance" asp-action="Index">MEDICAL INSURANCE</a>
                     </li>
                 </ul>
                 <div class="rightMenu">
@@ -67,7 +67,7 @@
                 @*Admin Login *@
                 @if (ViewBag.positionid == "1")
                 {
-              
+
 
                 <ul class="navContainer">
                     <li class="liSpace">
@@ -92,7 +92,7 @@
                 @*Employee Login with Position ID: 2*@
                 @if (ViewBag.positionid == "2")
                     {
-             
+
                 <ul class="navContainer">
                     <li class="liSpace">
                         <a asp-controller="Home" asp-action="Index">HOME</a>
@@ -117,7 +117,7 @@
                 @*Patient Login with Position ID: 4*@
                 @if (ViewBag.positionid == "4")
                     {
-           
+
                 <ul class="navContainer">
                     <li class="liSpace">
                         <a asp-controller="Home" asp-action="Index">HOME</a>

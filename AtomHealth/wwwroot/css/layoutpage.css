@@ -179,3 +179,14 @@ p .footerParagraph {
         background-color: #4CAF50;
         color: white;
     }
+.listDesign ul {
+    margin:15px 0px;
+   
+
+}
+    .listDesign ul li {
+        margin: 15px 0px;
+        font-size: 18px;
+        list-style-type: square;
+        margin-left:25px;
+    }

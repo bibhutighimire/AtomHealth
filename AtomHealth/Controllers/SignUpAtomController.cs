@@ -275,6 +275,7 @@ namespace AtomHealth.Controllers
 
         public IActionResult Signout()
         {
+            HttpContext.Session.Clear();
             ViewBag.firstname = HttpContext.Session.GetString("firstname");
             ViewBag.lastname = HttpContext.Session.GetString("lastname");
             ViewBag.positionid = HttpContext.Session.GetString("positionid");
