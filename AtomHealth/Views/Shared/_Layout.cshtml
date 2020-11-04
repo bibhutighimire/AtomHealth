@@ -27,10 +27,10 @@
                     <p>Edmonton, Alberta</p>
                 </div>
                 <div class="socialMedia">
-                    <img src="~/images/linkedin.png" style="width:30px; height:30px; margin-right:10px;" />
-                    <img src="~/images/facebook.png" style="width:30px; height:30px;margin-right:10px;" />
-                    <img src="~/images/instagram.png" style="width:30px; height:30px;margin-right:10px;" />
-                    <img src="~/images/twitter.png" style="width:30px; height:30px" />
+                    <a href="https://www.linkedin.com/" target="_blank"></a>  <img src="~/images/linkedin.png" style="width:30px; height:30px; margin-right:10px;" />
+                    <a href="https://www.facebook.com/" target="_blank"><img src="~/images/facebook.png" style="width:30px; height:30px;margin-right:10px;" /></a>
+                    <a href="https://www.instagram.com/" target="_blank"><img src="~/images/instagram.png" style="width:30px; height:30px;margin-right:10px;" /></a>
+                    <a href="https://www.twitter.com/" target="_blank"><img src="~/images/twitter.png" style="width:30px; height:30px" /></a>
                 </div>
             </div>
             <div class="bottomHeader">
@@ -38,103 +38,103 @@
                 @if (ViewBag.positionid == null)
                 {
 
-                <ul class="navContainer">
-                    <li class="liSpace">
-                        <a asp-controller="Home" asp-action="Index">HOME</a>
-                    </li>
-                    <li>
-                        <a asp-controller="Doctor" asp-action="Index">DOCTORS</a>
-                    </li>
-                    <li>
-                        <a asp-controller="Patient" asp-action="Index">PATIENT</a>
-                    </li>
-                    <li>
-                        <a asp-controller="EMR" asp-action="Index">TELEMEDICINE / EMR</a>
-                    </li>
-                    <li>
-                        <a asp-controller="Insurance" asp-action="Index">MEDICAL INSURANCE</a>
-                    </li>
-                </ul>
-                <div class="rightMenu">
+                    <ul class="navContainer">
+                        <li class="liSpace">
+                            <a asp-controller="Home" asp-action="Index">HOME</a>
+                        </li>
+                        <li>
+                            <a asp-controller="Doctor" asp-action="Index">DOCTORS</a>
+                        </li>
+                        <li>
+                            <a asp-controller="Patient" asp-action="Index">PATIENT</a>
+                        </li>
+                        <li>
+                            <a asp-controller="EMR" asp-action="Index">TELEMEDICINE / EMR</a>
+                        </li>
+                        <li>
+                            <a asp-controller="Insurance" asp-action="Index">MEDICAL INSURANCE</a>
+                        </li>
+                    </ul>
+                    <div class="rightMenu">
 
-                    <p style="color:white; font-size:14px;">Hi Visitor!</p><br />
+                        <p style="color:white; font-size:14px;">Hi Visitor!</p><br />
 
-                    <a asp-controller="SignupAtom" asp-action="Signin">Signin</a>
-                    <a asp-controller="SignupAtom" asp-action="CreateForUserWhoNeedHelp">Signup</a>
-                </div>
+                        <a asp-controller="SignupAtom" asp-action="Signin">Signin</a>
+                        <a asp-controller="SignupAtom" asp-action="CreateForUserWhoNeedHelp">Signup</a>
+                    </div>
                 }
 
                 @*Admin Login *@
                 @if (ViewBag.positionid == "1")
                 {
-              
-                <ul class="navContainer">
-                    <li class="liSpace">
-                        <a asp-controller="Home" asp-action="Index">HOME</a>
-                    </li>
-                    <li>
-                        <a asp-controller="Services" asp-action="Index">SERVICES</a>
-                    </li>
-                    <li>
-                        <a asp-controller="SignupAtom" asp-action="Index">Show all Patient Data</a>
 
-                    </li>
+                    <ul class="navContainer">
+                        <li class="liSpace">
+                            <a asp-controller="Home" asp-action="Index">HOME</a>
+                        </li>
+                        <li>
+                            <a asp-controller="Services" asp-action="Index">SERVICES</a>
+                        </li>
+                        <li>
+                            <a asp-controller="SignupAtom" asp-action="Index">Show all Patient Data</a>
 
-                </ul>
-                <div class="rightMenu">
+                        </li>
 
-                    <p style="color:white; font-size:14px;">Hi Visitor!</p><br />
+                    </ul>
+                    <div class="rightMenu">
 
-                    <a asp-controller="SignupAtom" asp-action="Signout">Signout</a>
-                </div>
+                        <p style="color:white; font-size:14px;">Hi Visitor!</p><br />
+
+                        <a asp-controller="SignupAtom" asp-action="Signout">Signout</a>
+                    </div>
                 }
                 @*Employee Login with Position ID: 2*@
                 @if (ViewBag.positionid == "2")
-                    {
-             
-                <ul class="navContainer">
-                    <li class="liSpace">
-                        <a asp-controller="Home" asp-action="Index">HOME</a>
-                    </li>
-                    <li>
-                        <a asp-controller="Services" asp-action="Index">SERVICES</a>
-                    </li>
-                    <li>
-                        <a asp-controller="SignupAtom" asp-action="Index">Show all Patient Data</a>
+                {
 
-                    </li>
+                    <ul class="navContainer">
+                        <li class="liSpace">
+                            <a asp-controller="Home" asp-action="Index">HOME</a>
+                        </li>
+                        <li>
+                            <a asp-controller="Services" asp-action="Index">SERVICES</a>
+                        </li>
+                        <li>
+                            <a asp-controller="SignupAtom" asp-action="Index">Show all Patient Data</a>
 
-                </ul>
-                <div class="rightMenu">
+                        </li>
 
-                    <p style="color:white; font-size:14px;">Hi @ViewBag.firstname!</p><br />
+                    </ul>
+                    <div class="rightMenu">
 
-                    <a asp-controller="SignupAtom" asp-action="Signout">Signout</a>
-                </div>
-                    }
+                        <p style="color:white; font-size:14px;">Hi @ViewBag.firstname!</p><br />
+
+                        <a asp-controller="SignupAtom" asp-action="Signout">Signout</a>
+                    </div>
+                }
 
                 @*Patient Login with Position ID: 4*@
                 @if (ViewBag.positionid == "4")
-                    {
-              
-                <ul class="navContainer">
-                    <li class="liSpace">
-                        <a asp-controller="Home" asp-action="Index">HOME</a>
-                    </li>
-                    <li>
-                        <a asp-controller="Services" asp-action="Index">SERVICES</a>
-                    </li>
-                    <li>
-                        <a asp-controller="Atom" asp-route-id="@ViewBag.atomid" asp-action="Profile">View Your Profile</a>
-                    </li>
-                </ul>
-                <div class="rightMenu">
+                {
 
-                    <p style="color:white; font-size:14px;">Hi @ViewBag.firstname!</p><br />
+                    <ul class="navContainer">
+                        <li class="liSpace">
+                            <a asp-controller="Home" asp-action="Index">HOME</a>
+                        </li>
+                        <li>
+                            <a asp-controller="Services" asp-action="Index">SERVICES</a>
+                        </li>
+                        <li>
+                            <a asp-controller="Atom" asp-route-id="@ViewBag.atomid" asp-action="Profile">View Your Profile</a>
+                        </li>
+                    </ul>
+                    <div class="rightMenu">
 
-                    <a asp-controller="SignupAtom" asp-action="Signout">Signout</a>
-                </div>
-                    }
+                        <p style="color:white; font-size:14px;">Hi @ViewBag.firstname!</p><br />
+
+                        <a asp-controller="SignupAtom" asp-action="Signout">Signout</a>
+                    </div>
+                }
 
 
             </div>
@@ -156,7 +156,7 @@
             <div class="bottom-bottom">
                 <div class="blockBox">
                     <h1>For Doctors</h1><br />
-                                        <p>"Atom Health works on helping Patients and integrate patient data with EMR. We use cutting edge technology for safe and secure data transfer." Read More..</p>
+                    <p>"Atom Health works on helping Patients and integrate patient data with EMR. We use cutting edge technology for safe and secure data transfer." Read More..</p>
                 </div>
 
                 <div class="blockBox">
@@ -166,12 +166,12 @@
 
                 <div class="blockBox">
                     <h1>For EMR's</h1><br />
-                                      <p>"Atom Health works on helping Patients and integrate patient data with EMR. We use cutting edge technology for safe and secure data transfer." Read More..</p>
+                    <p>"Atom Health works on helping Patients and integrate patient data with EMR. We use cutting edge technology for safe and secure data transfer." Read More..</p>
                 </div>
 
                 <div class="blockBox">
                     <h1>For Patients</h1><br />
-                                         <p>"Atom Health works on helping Patients and integrate patient data with EMR. We use cutting edge technology for safe and secure data transfer." Read More..</p>
+                    <p>"Atom Health works on helping Patients and integrate patient data with EMR. We use cutting edge technology for safe and secure data transfer." Read More..</p>
                 </div>
 
             </div>
