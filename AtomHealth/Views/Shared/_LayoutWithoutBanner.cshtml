@@ -4,8 +4,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - AtomHealth</title>
-    @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-        <link rel="stylesheet" href="~/css/site.css" />*@
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    @*<link rel="stylesheet" href="~/css/site.css" />*@
     <link rel="stylesheet" href="~/css/layoutpage.css" />
     <link rel="stylesheet" href="~/css/reset.css" />
 </head>
@@ -88,102 +88,69 @@
                         <a asp-controller="SignupAtom" asp-action="Signout">Signout</a>
                     </div>
                 }
-                @*Employee Login with Position ID: 2*@
-                @if (ViewBag.positionid == "2")
-                {
+                    @*Employee Login with Position ID: 2*@
+                    @if (ViewBag.positionid == "2")
+                    {
 
-                    <ul class="navContainer">
-                        <li class="liSpace">
-                            <a asp-controller="Home" asp-action="Index">HOME</a>
-                        </li>
-                        <li>
-                            <a asp-controller="Services" asp-action="Index">SERVICES</a>
-                        </li>
-                        <li>
-                            <a asp-controller="SignupAtom" asp-action="Index">Show all Patient Data</a>
+                        <ul class="navContainer">
+                            <li class="liSpace">
+                                <a asp-controller="Home" asp-action="Index">HOME</a>
+                            </li>
+                            <li>
+                                <a asp-controller="Services" asp-action="Index">SERVICES</a>
+                            </li>
+                            <li>
+                                <a asp-controller="SignupAtom" asp-action="Index">Show all Patient Data</a>
 
-                        </li>
+                            </li>
 
-                    </ul>
-                    <div class="rightMenu">
+                        </ul>
+                        <div class="rightMenu">
 
-                        <p style="color:white; font-size:14px;">Hi @ViewBag.firstname!</p><br />
+                            <p style="color:white; font-size:14px;">Hi @ViewBag.firstname!</p><br />
 
-                        <a asp-controller="SignupAtom" asp-action="Signout">Signout</a>
-                    </div>
-                }
+                            <a asp-controller="SignupAtom" asp-action="Signout">Signout</a>
+                        </div>
+                    }
 
-                @*Patient Login with Position ID: 4*@
-                @if (ViewBag.positionid == "4")
-                {
+                    @*Patient Login with Position ID: 4*@
+                    @if (ViewBag.positionid == "4")
+                    {
 
-                    <ul class="navContainer">
-                        <li class="liSpace">
-                            <a asp-controller="Home" asp-action="Index">HOME</a>
-                        </li>
-                        <li>
-                            <a asp-controller="Services" asp-action="Index">SERVICES</a>
-                        </li>
-                        <li>
-                            <a asp-area="" asp-controller="Profile" asp-action="Index">View Your Profile</a>
+                        <ul class="navContainer">
+                            <li class="liSpace">
+                                <a asp-controller="Home" asp-action="Index">HOME</a>
+                            </li>
+                            <li>
+                                <a asp-controller="Services" asp-action="Index">SERVICES</a>
+                            </li>
+                            <li>
+                                <a asp-area="" asp-controller="Profile" asp-action="Index">View Your Profile</a>
 
-                        </li>
+                            </li>
 
-                    </ul>
-                    <div class="rightMenu">
+                        </ul>
+                        <div class="rightMenu">
 
-                        <p style="color:white; font-size:14px;">Hi @ViewBag.firstname!</p><br />
+                            <p style="color:white; font-size:14px;">Hi @ViewBag.firstname!</p><br />
 
-                        <a asp-controller="SignupAtom" asp-action="Signout">Signout</a>
-                    </div>
-                }
+                            <a asp-controller="SignupAtom" asp-action="Signout">Signout</a>
+                        </div>
+                    }
 
 
-            </div>
+                </div>
         </div>
-
+      
 
     </header>
-    <div class="containerBox">
-
-        <div class="container">
-            <img src="~/images/banner.jpg" style="width:100%; height:550px;" />
-        </div>
-
-        <div class="bottom-left">
-            <h1>ATOM Health Cares About You</h1>
-            <p>"Atom Health works on helping Patients and integrate patient data with EMR. We use cutting edge technology for safe and secure data transfer. Atom Health works on helping Patients and integrate patient data with EMR"</p>
-        </div>
-        <div class="midSector">
-            <div class="bottom-bottom">
-                <div class="blockBox">
-                    <h1>ATOM Health Cares</h1><br />
-                                              <p>"Atom Health works on helping Patients and integrate patient data with EMR. We use cutting edge technology for safe and secure data transfer. Atom Health works on helping Patients and integrate patient data with EMR"</p>
-                </div>
-
-                <div class="blockBox">
-                    <h1>Data Sharing Easy</h1><br />
-                                              <p>"Atom Health works on helping Patients and integrate patient data with EMR. We use cutting edge technology for safe and secure data transfer. Atom Health works on helping Patients and integrate patient data with EMR"</p>
-                </div>
-
-                <div class="blockBox">
-                    <h1>Contact Us</h1><br/>
-                                       <p>"Atom Health works on helping Patients and integrate patient data with EMR. We use cutting edge technology for safe and secure data transfer. Atom Health works on helping Patients and integrate patient data with EMR"</p>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-
-
 
     <main role="main" class="pb-3">
         <div class="bodyContainer">
             @RenderBody()
         </div>
     </main>
-    </div>
+
     <div class="footer">
         <p class="footerParagraph">&copy; 2020 - AtomHealth - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a></p>
     </div>

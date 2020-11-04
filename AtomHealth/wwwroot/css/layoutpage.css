@@ -1,0 +1,152 @@
+﻿
+.headerContainer {
+    width:65%;
+    margin:0 auto;
+    padding:25px;
+}
+.container {
+    width: 100%;
+    margin: 25px auto;   
+}
+.topHeader {
+    height: 110px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    border-bottom: 1px solid gray;
+}
+.bottomHeader {
+    height: 35px;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+}
+.logoHolder {
+    margin-top:0px;
+}
+.workDay {
+    margin-top:15px;
+    display: flex;
+    flex-direction: column;
+}
+.phone {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+}
+.address {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+}
+.socialMedia {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: row;
+}
+.navContainer {
+    display: flex;
+    flex-direction: row;
+    margin-top: 25px;
+}
+
+li a {
+    margin-right: 25px;
+    font-size: large;
+    color: deepskyblue;
+    text-decoration: none;
+    margin-top: 25px;
+}
+.rightMenu {
+    height: 67px;
+    padding:10px;
+    background-color: deepskyblue;
+    float:right;
+}
+    .rightMenu a {
+        margin-right: 15px;
+        text-decoration: none;
+        text-decoration:none;
+        color:white;
+    }
+.bodyContainer {
+    width: 65%;
+    margin: 20px auto;
+    padding: 25px;
+    min-height: 660px;
+}
+.containerBox {
+  
+}
+
+.footer {
+    width: 65%;
+    margin: 0 auto;
+    padding: 25px;
+    height: 30px;
+    background-color: deepskyblue;
+}
+p .footerParagraph {
+    width: 65%;
+    margin: 0 auto;
+    padding: 25px;
+    color:white;
+}
+
+
+.container {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+.midSector {
+    margin:0 auto;
+}
+.bottom-left {
+    position: absolute;
+    bottom: 400px;
+    left: 400px;
+    border: 2px solid white;
+    border-radius: 15px;
+    padding: 12px;
+}
+    .bottom-left h1 {
+        font-size: 35px;
+        color: deepskyblue;
+    }
+    .bottom-left p {
+        width: 449px;
+        margin-top:10px;
+        font-size:20px;
+        color:black;
+    }
+
+.bottom-bottom {
+    margin: 0 auto;
+    position: relative;
+    bottom: 112px;
+    width: 900px;
+    height: 250px;
+    display: flex;
+    align-content: space-evenly;
+}
+.blockBox {
+    background-color:white;
+    color:gray;
+    border-radius: 15px;
+    padding: 12px;
+    margin-right: 25px;
+    border:8px solid lightgrey;
+    
+}
+    .blockBox h1 {
+        font-size: 23px;
+        text-decoration: underline;
+        color: deepskyblue;
+        text-align:center;
+        
+    }
+    .blockBox p {
+        margin-top:14px;
+        font-size: 18px;
+    }

@@ -125,7 +125,7 @@ namespace AtomHealth.Controllers
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
-        [HttpGet]
+      [HttpGet]
         public IActionResult CreateForUserWhoNeedHelp()
         {
             ViewBag.checkyouremail = HttpContext.Session.GetString("checkyouremail");
@@ -135,54 +135,31 @@ namespace AtomHealth.Controllers
             return View();
         }
         [HttpPost]
-
-        public IActionResult CreateForUserWhoNeedHelpPost(Atom atom)
+        public IActionResult CreateForUserWhoNeedHelp(Atom atom)
         {
-            HttpContext.Session.SetString("checkyouremail", "Please check your email for validation") ;
-            ViewBag.checkyouremail = HttpContext.Session.GetString("checkyouremail");
-            ViewBag.firstname = HttpContext.Session.GetString("firstname");
-            ViewBag.lastname = HttpContext.Session.GetString("lastname");
-            ViewBag.positionid = HttpContext.Session.GetString("positionid");
-            Atom tblAtom = new Atom();
-            tblAtom.positionid = Convert.ToInt32("4");
-            tblAtom.firstname = atom.firstname;
-            tblAtom.middlename = atom.middlename;
-            tblAtom.lastname = atom.lastname;
-            tblAtom.healthid = atom.healthid;
-            tblAtom.phone = atom.phone;
-            tblAtom.email = atom.email;
-            tblAtom.username = atom.username;
-            tblAtom.password = atom.password;
-            tblAtom.registrationdate = DateTime.Now;
-            tblAtom.dob = atom.dob;
-            tblAtom.registeredby = tblAtom.firstname;
-            
-            
-            //IPV4 Address code start
-            IPHostEntry IPHostInfo = Dns.GetHostEntry(Dns.GetHostName());
-            string IpAddress = Convert.ToString(IPHostInfo.AddressList.FirstOrDefault(Address => Address.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork));
-            tblAtom.ipadd = IpAddress;
-            //IPV4 Address code ends
+           
+                HttpContext.Session.SetString("checkyouremail", "Please check your email for validation");
+                //ViewBag.checkyouremail = HttpContext.Session.GetString("checkyouremail");
+                ViewBag.firstname = HttpContext.Session.GetString("firstname");
+                ViewBag.lastname = HttpContext.Session.GetString("lastname");
+                ViewBag.positionid = HttpContext.Session.GetString("positionid");
+                Atom tblAtom = new Atom();
+                tblAtom.positionid = Convert.ToInt32("4");
+                tblAtom.firstname = atom.firstname;
+                tblAtom.middlename = atom.middlename;
+                tblAtom.lastname = atom.lastname;
+                tblAtom.healthid = atom.healthid;
+                tblAtom.phone = atom.phone;
+                tblAtom.email = atom.email;
+                tblAtom.username = atom.username;
+                tblAtom.password = atom.password;
+                tblAtom.registrationdate = DateTime.Now;
+                tblAtom.dob = atom.dob;
+                tblAtom.registeredby = tblAtom.firstname;
 
-            //MAC Address code STARTS
-            ManagementClass mc = new ManagementClass("Win32_NetworkAdapterConfiguration");
-            ManagementObjectCollection moc = mc.GetInstances();
-            string MACAddress = string.Empty;
+                _context.tblAtom.Add(tblAtom);
+                _context.SaveChanges();               
             
-            foreach(ManagementObject mo in moc)
-            {
-                if(MACAddress==string.Empty)
-                {
-                    if ((bool)mo["IPEnabled"] == true) MACAddress = mo["MacAddress"].ToString();
-                }
-                mo.Dispose();
-            }
-            MACAddress = MACAddress.Replace(":", "-");
-            tblAtom.macadd = MACAddress;
-            //MAC Address code ends
-
-            _context.tblAtom.Add(tblAtom);
-            _context.SaveChanges();
             return RedirectToAction("CreateForUserWhoNeedHelp");
         }
 
