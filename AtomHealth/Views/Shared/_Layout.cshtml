@@ -67,7 +67,7 @@
                 @*Admin Login *@
                 @if (ViewBag.positionid == "1")
                 {
-
+              
                 <ul class="navContainer">
                     <li class="liSpace">
                         <a asp-controller="Home" asp-action="Index">HOME</a>
@@ -90,8 +90,8 @@
                 }
                 @*Employee Login with Position ID: 2*@
                 @if (ViewBag.positionid == "2")
-                {
-
+                    {
+             
                 <ul class="navContainer">
                     <li class="liSpace">
                         <a asp-controller="Home" asp-action="Index">HOME</a>
@@ -111,12 +111,12 @@
 
                     <a asp-controller="SignupAtom" asp-action="Signout">Signout</a>
                 </div>
-                }
+                    }
 
                 @*Patient Login with Position ID: 4*@
                 @if (ViewBag.positionid == "4")
-                {
-
+                    {
+              
                 <ul class="navContainer">
                     <li class="liSpace">
                         <a asp-controller="Home" asp-action="Index">HOME</a>
@@ -125,10 +125,8 @@
                         <a asp-controller="Services" asp-action="Index">SERVICES</a>
                     </li>
                     <li>
-                        <a asp-area="" asp-controller="Profile" asp-action="Index">View Your Profile</a>
-
+                        <a asp-controller="Atom" asp-route-id="@ViewBag.atomid" asp-action="Profile">View Your Profile</a>
                     </li>
-
                 </ul>
                 <div class="rightMenu">
 
@@ -136,7 +134,7 @@
 
                     <a asp-controller="SignupAtom" asp-action="Signout">Signout</a>
                 </div>
-                }
+                    }
 
 
             </div>
@@ -183,7 +181,7 @@
             @RenderBody()
         </div>
     </main>
-  
+
     <div class="footer">
         <p class="footerParagraph">&copy; 2020 - AtomHealth - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a></p>
     </div>

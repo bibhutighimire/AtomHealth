@@ -25,8 +25,15 @@ namespace AtomHealth.Controllers
  
         public IActionResult Index()
         {
-          
-            return View(_context.tblAtom.ToList());
+            ViewBag.positionid = HttpContext.Session.GetString("positionid");
+            if (ViewBag.positionid=="1" || ViewBag.positionid == "2")
+            {
+                ViewBag.firstname = HttpContext.Session.GetString("firstname");
+                ViewBag.lastname = HttpContext.Session.GetString("lastname");
+                ViewBag.positionid = HttpContext.Session.GetString("positionid");
+                return View(_context.tblAtom.ToList());
+            }
+            return RedirectToAction("Signin");
         }
 
         [HttpGet]
@@ -53,6 +60,8 @@ namespace AtomHealth.Controllers
                 ViewBag.lastname = HttpContext.Session.GetString("lastname");
                 HttpContext.Session.SetString("positionid", Convert.ToString(rightAtom.positionid));
                 ViewBag.positionid = HttpContext.Session.GetString("positionid");
+                HttpContext.Session.SetString("atomid", Convert.ToString(rightAtom.atomid));
+                ViewBag.atomid = HttpContext.Session.GetString("atomid");
                 return View();
             }
             //checks if user is employee
@@ -77,44 +86,54 @@ namespace AtomHealth.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            ViewBag.firstname = HttpContext.Session.GetString("firstname");
-            ViewBag.lastname = HttpContext.Session.GetString("lastname");
             ViewBag.positionid = HttpContext.Session.GetString("positionid");
-            return View();
+            if (ViewBag.positionid == "1" || ViewBag.positionid == "2")
+            {
+                ViewBag.firstname = HttpContext.Session.GetString("firstname");
+                ViewBag.lastname = HttpContext.Session.GetString("lastname");
+                ViewBag.positionid = HttpContext.Session.GetString("positionid");
+                return View();
+            }
+            return RedirectToAction("Signin");
         }
         // Create method will add entire record of patient along with IP address
         [HttpPost]
         public IActionResult Create(Atom atom)
         {
-            ViewBag.firstname = HttpContext.Session.GetString("firstname");
-            ViewBag.lastname = HttpContext.Session.GetString("lastname");
             ViewBag.positionid = HttpContext.Session.GetString("positionid");
-            Atom tblAtom = new Atom();
+            if (ViewBag.positionid == "1" || ViewBag.positionid == "2")
+            {
+                ViewBag.firstname = HttpContext.Session.GetString("firstname");
+                ViewBag.lastname = HttpContext.Session.GetString("lastname");
+                ViewBag.positionid = HttpContext.Session.GetString("positionid");
+                Atom tblAtom = new Atom();
 
-            tblAtom.positionid = Convert.ToInt32("4");
-            tblAtom.firstname = atom.firstname;
-            tblAtom.middlename = atom.middlename;
-            tblAtom.lastname = atom.lastname;
-            tblAtom.healthid = atom.healthid;
-            tblAtom.phone = atom.phone;
-            tblAtom.email = atom.email;
-            tblAtom.sex = atom.sex;
-            tblAtom.height = atom.height;
-            tblAtom.weight = atom.weight;
-            tblAtom.ismarried = atom.ismarried;
-            tblAtom.emergencyphone = atom.emergencyphone;
-            tblAtom.relationship = atom.relationship;
-            tblAtom.inmedicationnow = atom.inmedicationnow;
-            tblAtom.medication = atom.medication;
-           
-            tblAtom.password = atom.password;
-            tblAtom.registrationdate = DateTime.Now;
-            tblAtom.dob = atom.dob;
-            tblAtom.registeredby = tblAtom.firstname;
-            
-            _context.tblAtom.Add(tblAtom);
-            _context.SaveChanges();
-            return RedirectToAction("Index");
+                tblAtom.positionid = Convert.ToInt32("4");
+                tblAtom.firstname = atom.firstname;
+                tblAtom.middlename = atom.middlename;
+                tblAtom.lastname = atom.lastname;
+                tblAtom.healthid = atom.healthid;
+                tblAtom.phone = atom.phone;
+                tblAtom.email = atom.email;
+                tblAtom.sex = atom.sex;
+                tblAtom.height = atom.height;
+                tblAtom.weight = atom.weight;
+                tblAtom.ismarried = atom.ismarried;
+                tblAtom.emergencyphone = atom.emergencyphone;
+                tblAtom.relationship = atom.relationship;
+                tblAtom.inmedicationnow = atom.inmedicationnow;
+                tblAtom.medication = atom.medication;
+
+                tblAtom.password = atom.password;
+                tblAtom.registrationdate = DateTime.Now;
+                tblAtom.dob = atom.dob;
+                tblAtom.registeredby = tblAtom.firstname;
+
+                _context.tblAtom.Add(tblAtom);
+                _context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return RedirectToAction("Signin");
         }
       [HttpGet]
         public IActionResult CreateForUserWhoNeedHelp()
@@ -157,77 +176,101 @@ namespace AtomHealth.Controllers
         [HttpGet]
         public IActionResult Delete(int id)
         {
-            ViewBag.firstname = HttpContext.Session.GetString("firstname");
-            ViewBag.lastname = HttpContext.Session.GetString("lastname");
             ViewBag.positionid = HttpContext.Session.GetString("positionid");
-            var targetToBeDeleted = _context.tblAtom.Where(x=>x.atomid==id).FirstOrDefault();
+            if (ViewBag.positionid == "1" || ViewBag.positionid == "2")
+            {
+                ViewBag.firstname = HttpContext.Session.GetString("firstname");
+                ViewBag.lastname = HttpContext.Session.GetString("lastname");
+                ViewBag.positionid = HttpContext.Session.GetString("positionid");
+                var targetToBeDeleted = _context.tblAtom.Where(x => x.atomid == id).FirstOrDefault();
 
-            return View(targetToBeDeleted);
+                return View(targetToBeDeleted);
+            }
+            return RedirectToAction("Signin");
         }
         [HttpPost]
         public IActionResult Delete(Atom atom)
         {
-            ViewBag.firstname = HttpContext.Session.GetString("firstname");
-            ViewBag.lastname = HttpContext.Session.GetString("lastname");
             ViewBag.positionid = HttpContext.Session.GetString("positionid");
-            var targetToBeDeleted = _context.tblAtom.Where(x => x.atomid == atom.atomid).FirstOrDefault();
-            _context.tblAtom.Remove(targetToBeDeleted);
-            _context.SaveChanges();
-            return RedirectToAction("Index");
+            if (ViewBag.positionid == "1" || ViewBag.positionid == "2")
+            {
+                ViewBag.firstname = HttpContext.Session.GetString("firstname");
+                ViewBag.lastname = HttpContext.Session.GetString("lastname");
+                ViewBag.positionid = HttpContext.Session.GetString("positionid");
+                var targetToBeDeleted = _context.tblAtom.Where(x => x.atomid == atom.atomid).FirstOrDefault();
+                _context.tblAtom.Remove(targetToBeDeleted);
+                _context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return RedirectToAction("Signin");
         }
 
         [HttpGet]
         public IActionResult Details(int id)
         {
-            ViewBag.firstname = HttpContext.Session.GetString("firstname");
-            ViewBag.lastname = HttpContext.Session.GetString("lastname");
             ViewBag.positionid = HttpContext.Session.GetString("positionid");
-            var targetToBeDeleted = _context.tblAtom.Where(x => x.atomid == id).FirstOrDefault();
+            if (ViewBag.positionid == "1" || ViewBag.positionid == "2")
+            {
+                ViewBag.firstname = HttpContext.Session.GetString("firstname");
+                ViewBag.lastname = HttpContext.Session.GetString("lastname");
+                ViewBag.positionid = HttpContext.Session.GetString("positionid");
+                var targetToBeDeleted = _context.tblAtom.Where(x => x.atomid == id).FirstOrDefault();
 
-            return View(targetToBeDeleted);
+                return View(targetToBeDeleted);
+            }
+            return RedirectToAction("Signin");
         }
 
         [HttpGet]
         public IActionResult Edit(int id)
         {
-            ViewBag.firstname = HttpContext.Session.GetString("firstname");
-            ViewBag.lastname = HttpContext.Session.GetString("lastname");
             ViewBag.positionid = HttpContext.Session.GetString("positionid");
-            var targetToBeDeleted = _context.tblAtom.Where(x => x.atomid == id).FirstOrDefault();
-
-            return View(targetToBeDeleted);
+            if (ViewBag.positionid == "1" || ViewBag.positionid == "2")
+            {
+                ViewBag.firstname = HttpContext.Session.GetString("firstname");
+                ViewBag.lastname = HttpContext.Session.GetString("lastname");
+                ViewBag.positionid = HttpContext.Session.GetString("positionid");
+                var targetToBeDeleted = _context.tblAtom.Where(x => x.atomid == id).FirstOrDefault();
+                return View(targetToBeDeleted);
+            }
+            return RedirectToAction("Signin");
         }
 
         [HttpPost]
         public IActionResult Edit(Atom atom)
         {
-            ViewBag.firstname = HttpContext.Session.GetString("firstname");
-            ViewBag.lastname = HttpContext.Session.GetString("lastname");
             ViewBag.positionid = HttpContext.Session.GetString("positionid");
-            var targetToBeDeleted = _context.tblAtom.Where(x => x.atomid == atom.atomid).FirstOrDefault();
-            targetToBeDeleted.positionid = Convert.ToInt32("4");
-            targetToBeDeleted.firstname = atom.firstname;
-            targetToBeDeleted.middlename = atom.middlename;
-            targetToBeDeleted.lastname = atom.lastname;
-            targetToBeDeleted.healthid = atom.healthid;
-            targetToBeDeleted.phone = atom.phone;
-            targetToBeDeleted.email = atom.email;
-            targetToBeDeleted.sex = atom.sex;
-            targetToBeDeleted.height = atom.height;
-            targetToBeDeleted.weight = atom.weight;
-            targetToBeDeleted.ismarried = atom.ismarried;
-            targetToBeDeleted.emergencyphone = atom.emergencyphone;
-            targetToBeDeleted.relationship = atom.relationship;
-            targetToBeDeleted.inmedicationnow = atom.inmedicationnow;
-            targetToBeDeleted.medication = atom.medication;
-          
-            
-            targetToBeDeleted.dob = atom.dob;
-            
-            targetToBeDeleted.diseases = atom.diseases;
-            _context.SaveChanges();
-            return RedirectToAction("Index");
-            
+            if (ViewBag.positionid == "1" || ViewBag.positionid == "2")
+            {
+                ViewBag.firstname = HttpContext.Session.GetString("firstname");
+                ViewBag.lastname = HttpContext.Session.GetString("lastname");
+                ViewBag.positionid = HttpContext.Session.GetString("positionid");
+                var targetToBeDeleted = _context.tblAtom.Where(x => x.atomid == atom.atomid).FirstOrDefault();
+                targetToBeDeleted.positionid = Convert.ToInt32("4");
+                targetToBeDeleted.firstname = atom.firstname;
+                targetToBeDeleted.middlename = atom.middlename;
+                targetToBeDeleted.lastname = atom.lastname;
+                targetToBeDeleted.healthid = atom.healthid;
+                targetToBeDeleted.phone = atom.phone;
+                targetToBeDeleted.email = atom.email;
+                targetToBeDeleted.sex = atom.sex;
+                targetToBeDeleted.height = atom.height;
+                targetToBeDeleted.weight = atom.weight;
+                targetToBeDeleted.ismarried = atom.ismarried;
+                targetToBeDeleted.emergencyphone = atom.emergencyphone;
+                targetToBeDeleted.relationship = atom.relationship;
+                targetToBeDeleted.inmedicationnow = atom.inmedicationnow;
+                targetToBeDeleted.medication = atom.medication;
+
+
+                targetToBeDeleted.dob = atom.dob;
+
+                targetToBeDeleted.diseases = atom.diseases;
+                _context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return RedirectToAction("Signin");
+
         }
 
         public IActionResult Signout()

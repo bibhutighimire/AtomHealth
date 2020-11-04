@@ -17,7 +17,8 @@ namespace AtomHealth.Controllers
             _context = context;
         }
         public IActionResult Index()
-        {           
+        {
+            ViewBag.atomid = HttpContext.Session.GetString("atomid");
             ViewBag.firstname = HttpContext.Session.GetString("firstname");
             ViewBag.lastname = HttpContext.Session.GetString("lastname");
             ViewBag.positionid = HttpContext.Session.GetString("positionid");

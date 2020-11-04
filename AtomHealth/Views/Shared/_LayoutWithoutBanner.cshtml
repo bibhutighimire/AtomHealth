@@ -38,108 +38,107 @@
                 @if (ViewBag.positionid == null)
                 {
 
-                    <ul class="navContainer">
-                        <li class="liSpace">
-                            <a asp-controller="Home" asp-action="Index">HOME</a>
-                        </li>
-                        <li>
-                            <a asp-controller="Services" asp-action="Index">SERVICES</a>
-                        </li>
-                        <li>
-                            <a asp-controller="Home" asp-action="Index">PATIENT</a>
-                        </li>
-                        <li>
-                            <a asp-controller="Home" asp-action="Index">TELEMEDICINE / EMR</a>
-                        </li>
-                        <li>
-                            <a asp-controller="Home" asp-action="Index">MEDICAL INSURANCE</a>
-                        </li>
-                    </ul>
-                    <div class="rightMenu">
+                <ul class="navContainer">
+                    <li class="liSpace">
+                        <a asp-controller="Home" asp-action="Index">HOME</a>
+                    </li>
+                    <li>
+                        <a asp-controller="Services" asp-action="Index">SERVICES</a>
+                    </li>
+                    <li>
+                        <a asp-controller="Home" asp-action="Index">PATIENT</a>
+                    </li>
+                    <li>
+                        <a asp-controller="Home" asp-action="Index">TELEMEDICINE / EMR</a>
+                    </li>
+                    <li>
+                        <a asp-controller="Home" asp-action="Index">MEDICAL INSURANCE</a>
+                    </li>
+                </ul>
+                <div class="rightMenu">
 
-                        <p style="color:white; font-size:14px;">Hi Visitor!</p><br />
+                    <p style="color:white; font-size:14px;">Hi Visitor!</p><br />
 
-                        <a asp-controller="SignupAtom" asp-action="Signin">Signin</a>
-                        <a asp-controller="SignupAtom" asp-action="CreateForUserWhoNeedHelp">Signup</a>
-                    </div>
+                    <a asp-controller="SignupAtom" asp-action="Signin">Signin</a>
+                    <a asp-controller="SignupAtom" asp-action="CreateForUserWhoNeedHelp">Signup</a>
+                </div>
                 }
 
                 @*Admin Login *@
                 @if (ViewBag.positionid == "1")
                 {
+              
 
-                    <ul class="navContainer">
-                        <li class="liSpace">
-                            <a asp-controller="Home" asp-action="Index">HOME</a>
-                        </li>
-                        <li>
-                            <a asp-controller="Services" asp-action="Index">SERVICES</a>
-                        </li>
-                        <li>
-                            <a asp-controller="SignupAtom" asp-action="Index">Show all Patient Data</a>
+                <ul class="navContainer">
+                    <li class="liSpace">
+                        <a asp-controller="Home" asp-action="Index">HOME</a>
+                    </li>
+                    <li>
+                        <a asp-controller="Services" asp-action="Index">SERVICES</a>
+                    </li>
+                    <li>
+                        <a asp-controller="SignupAtom" asp-action="Index">Show all Patient Data</a>
 
-                        </li>
+                    </li>
 
-                    </ul>
-                    <div class="rightMenu">
+                </ul>
+                <div class="rightMenu">
 
-                        <p style="color:white; font-size:14px;">Hi Visitor!</p><br />
+                    <p style="color:white; font-size:14px;">Hi Visitor!</p><br />
 
-                        <a asp-controller="SignupAtom" asp-action="Signout">Signout</a>
-                    </div>
-                }
-                    @*Employee Login with Position ID: 2*@
-                    @if (ViewBag.positionid == "2")
-                    {
-
-                        <ul class="navContainer">
-                            <li class="liSpace">
-                                <a asp-controller="Home" asp-action="Index">HOME</a>
-                            </li>
-                            <li>
-                                <a asp-controller="Services" asp-action="Index">SERVICES</a>
-                            </li>
-                            <li>
-                                <a asp-controller="SignupAtom" asp-action="Index">Show all Patient Data</a>
-
-                            </li>
-
-                        </ul>
-                        <div class="rightMenu">
-
-                            <p style="color:white; font-size:14px;">Hi @ViewBag.firstname!</p><br />
-
-                            <a asp-controller="SignupAtom" asp-action="Signout">Signout</a>
-                        </div>
-                    }
-
-                    @*Patient Login with Position ID: 4*@
-                    @if (ViewBag.positionid == "4")
-                    {
-
-                        <ul class="navContainer">
-                            <li class="liSpace">
-                                <a asp-controller="Home" asp-action="Index">HOME</a>
-                            </li>
-                            <li>
-                                <a asp-controller="Services" asp-action="Index">SERVICES</a>
-                            </li>
-                            <li>
-                                <a asp-area="" asp-controller="Profile" asp-action="Index">View Your Profile</a>
-
-                            </li>
-
-                        </ul>
-                        <div class="rightMenu">
-
-                            <p style="color:white; font-size:14px;">Hi @ViewBag.firstname!</p><br />
-
-                            <a asp-controller="SignupAtom" asp-action="Signout">Signout</a>
-                        </div>
-                    }
-
-
+                    <a asp-controller="SignupAtom" asp-action="Signout">Signout</a>
                 </div>
+                }
+                @*Employee Login with Position ID: 2*@
+                @if (ViewBag.positionid == "2")
+                    {
+             
+                <ul class="navContainer">
+                    <li class="liSpace">
+                        <a asp-controller="Home" asp-action="Index">HOME</a>
+                    </li>
+                    <li>
+                        <a asp-controller="Services" asp-action="Index">SERVICES</a>
+                    </li>
+                    <li>
+                        <a asp-controller="SignupAtom" asp-action="Index">Show all Patient Data</a>
+
+                    </li>
+
+                </ul>
+                <div class="rightMenu">
+
+                    <p style="color:white; font-size:14px;">Hi @ViewBag.firstname!</p><br />
+
+                    <a asp-controller="SignupAtom" asp-action="Signout">Signout</a>
+                </div>
+                    }
+
+                @*Patient Login with Position ID: 4*@
+                @if (ViewBag.positionid == "4")
+                    {
+           
+                <ul class="navContainer">
+                    <li class="liSpace">
+                        <a asp-controller="Home" asp-action="Index">HOME</a>
+                    </li>
+                    <li>
+                        <a asp-controller="Services" asp-action="Index">SERVICES</a>
+                    </li>
+                    <li>
+                        <a asp-controller="Atom" asp-route-id="@ViewBag.atomid" asp-action="Profile">View Your Profile</a>
+                    </li>
+                </ul>
+                <div class="rightMenu">
+
+                    <p style="color:white; font-size:14px;">Hi @ViewBag.firstname!</p><br />
+
+                    <a asp-controller="SignupAtom" asp-action="Signout">Signout</a>
+                </div>
+                    }
+
+
+            </div>
         </div>
       
 
