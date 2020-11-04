@@ -76,7 +76,7 @@ li a {
     min-height: 660px;
 }
 .containerBox {
-  
+  height:682px;
 }
 
 .footer {
@@ -101,6 +101,7 @@ p .footerParagraph {
 }
 .midSector {
     margin:0 auto;
+    height:auto;
 }
 .bottom-left {
     position: absolute;
@@ -126,7 +127,7 @@ p .footerParagraph {
     position: relative;
     bottom: 112px;
     width: 900px;
-    height: 250px;
+    
     display: flex;
     align-content: space-evenly;
 }
