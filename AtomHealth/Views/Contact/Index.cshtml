@@ -1,0 +1,30 @@
+﻿<link rel="stylesheet" href="~/css/layoutpage.css" />
+@*<link rel="stylesheet" href="~/css/contact.css" />*@
+
+@{
+    ViewData["Title"] = "Contact Us";
+    Layout = "~/Views/Shared/_LayoutForSubPages.cshtml";
+}
+
+
+
+<h1 style="color:deepskyblue; font-size:24px; font-weight:bold">Contact Form</h1>
+<hr />
+<p1 style="color:deepskyblue; font-size:16px;">Say hello to us if you do not have any concerns!</p1>
+
+<div class="containerforcontactform">
+    <form action="/">
+        <label>Full Name</label>
+        <input type="text" id="firstname" name="firstname" placeholder="Your Full Name..">
+
+        <label for="email">Email</label>
+        <input type="text" id="email" name="email" placeholder="Your Email Address..">
+
+        
+
+        <label for="subject">Subject</label>
+        <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+
+        <input type="submit" value="Submit">
+    </form>
+</div>

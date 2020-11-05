@@ -39,48 +39,76 @@ namespace AtomHealth.Controllers
         [HttpGet]
         public IActionResult Signin()
         {
-
+            
+           
+           
             return View();
         }
-       
+
+        [HttpGet]
+        public IActionResult SigninWithSession()
+        {
+
+            ViewBag.email = HttpContext.Session.GetString("email");
+            ViewBag.password = HttpContext.Session.GetString("password");
+            ViewBag.problem = "Invalid Email Address or Password. Try again!";
+            return View();
+        }
+
         [HttpPost]
         public IActionResult SigninPost(string email, string password)
         {
-            //checks if user is patient
-            var rightAtom = _context.tblAtom.Where(x => x.email == email && x.password == password).FirstOrDefault();
-            
-            if(rightAtom!=null)
+            if(email!=null && password != null)
             {
-                ViewBag.firstname = rightAtom.firstname;
-                ViewBag.lastname = rightAtom.lastname;
-                ViewBag.positionid = rightAtom.positionid;
-                HttpContext.Session.SetString("firstname", rightAtom.firstname);
-                ViewBag.firstname = HttpContext.Session.GetString("firstname");
-                HttpContext.Session.SetString("lastname", rightAtom.lastname);
-                ViewBag.lastname = HttpContext.Session.GetString("lastname");
-                HttpContext.Session.SetString("positionid", Convert.ToString(rightAtom.positionid));
-                ViewBag.positionid = HttpContext.Session.GetString("positionid");
-                HttpContext.Session.SetString("atomid", Convert.ToString(rightAtom.atomid));
-                ViewBag.atomid = HttpContext.Session.GetString("atomid");
-                return View();
-            }
-            //checks if user is employee
-            var rightEmployee =_context.tblEmployee.Where(x => x.email == email && x.password == password).FirstOrDefault();
-            if (rightEmployee != null)
-            {
-                ViewBag.firstname = rightEmployee.firstname;
-                ViewBag.lastname = rightEmployee.lastname;
-                ViewBag.positionid = rightEmployee.positionid;
-                HttpContext.Session.SetString("firstname", rightEmployee.firstname);
-                ViewBag.firstname = HttpContext.Session.GetString("firstname");
-                HttpContext.Session.SetString("lastname", rightEmployee.lastname);
-                ViewBag.lastname = HttpContext.Session.GetString("lastname");
-                HttpContext.Session.SetString("positionid", Convert.ToString(rightEmployee.positionid));
-                ViewBag.positionid = HttpContext.Session.GetString("positionid");
-                return View();
+                //checks if user is patient
+                var rightAtom = _context.tblAtom.Where(x => x.email == email && x.password == password).FirstOrDefault();
 
+                if (rightAtom != null)
+                {
+                    ViewBag.firstname = rightAtom.firstname;
+                    ViewBag.lastname = rightAtom.lastname;
+                    ViewBag.positionid = rightAtom.positionid;
+                    HttpContext.Session.SetString("firstname", rightAtom.firstname);
+                    ViewBag.firstname = HttpContext.Session.GetString("firstname");
+                    HttpContext.Session.SetString("lastname", rightAtom.lastname);
+                    ViewBag.lastname = HttpContext.Session.GetString("lastname");
+                    HttpContext.Session.SetString("positionid", Convert.ToString(rightAtom.positionid));
+                    ViewBag.positionid = HttpContext.Session.GetString("positionid");
+                    HttpContext.Session.SetString("atomid", Convert.ToString(rightAtom.atomid));
+                    ViewBag.atomid = HttpContext.Session.GetString("atomid");
+                    return View();
+                }
+                //checks if user is employee
+                var rightEmployee = _context.tblEmployee.Where(x => x.email == email && x.password == password).FirstOrDefault();
+                if (rightEmployee != null)
+                {
+                    ViewBag.firstname = rightEmployee.firstname;
+                    ViewBag.lastname = rightEmployee.lastname;
+                    ViewBag.positionid = rightEmployee.positionid;
+                    HttpContext.Session.SetString("firstname", rightEmployee.firstname);
+                    ViewBag.firstname = HttpContext.Session.GetString("firstname");
+                    HttpContext.Session.SetString("lastname", rightEmployee.lastname);
+                    ViewBag.lastname = HttpContext.Session.GetString("lastname");
+                    HttpContext.Session.SetString("positionid", Convert.ToString(rightEmployee.positionid));
+                    ViewBag.positionid = HttpContext.Session.GetString("positionid");
+                    return View();
+
+                }
+                else
+                {
+                    HttpContext.Session.SetString("email", email);
+                    HttpContext.Session.SetString("password", password);
+                    return RedirectToAction("SigninWithSession");
+                }
+                
             }
-                return RedirectToAction("Home");
+            else
+            {
+                HttpContext.Session.SetString("email", email);
+                HttpContext.Session.SetString("password", password);
+                return RedirectToAction("SigninWithSession");
+            }
+            
         }
 
         [HttpGet]
