@@ -39,9 +39,6 @@ namespace AtomHealth.Controllers
         [HttpGet]
         public IActionResult Signin()
         {
-            
-           
-           
             return View();
         }
 
@@ -56,6 +53,7 @@ namespace AtomHealth.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult SigninPost(string email, string password)
         {
             if(email!=null && password != null)
@@ -96,6 +94,7 @@ namespace AtomHealth.Controllers
                 }
                 else
                 {
+
                     HttpContext.Session.SetString("email", email);
                     HttpContext.Session.SetString("password", password);
                     return RedirectToAction("SigninWithSession");
