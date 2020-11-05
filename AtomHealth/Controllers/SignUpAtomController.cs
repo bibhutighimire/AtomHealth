@@ -135,42 +135,100 @@ namespace AtomHealth.Controllers
             }
             return RedirectToAction("Signin");
         }
-      [HttpGet]
+        [HttpGet]
+        public IActionResult CreateForUserWhoNeedHelpBlank()
+        {
+            
+            ViewBag.checkyouremail = HttpContext.Session.GetString("checkyouremail");
+            
+            ViewBag.positionid = HttpContext.Session.GetString("positionid");
+            return View();
+        }
+        [HttpGet]
         public IActionResult CreateForUserWhoNeedHelp()
         {
+            ViewBag.duplicateemail= HttpContext.Session.GetString("duplicateemail");
             ViewBag.checkyouremail = HttpContext.Session.GetString("checkyouremail");
             ViewBag.firstname = HttpContext.Session.GetString("firstname");
+            ViewBag.middlename = HttpContext.Session.GetString("middlename");
             ViewBag.lastname = HttpContext.Session.GetString("lastname");
+            ViewBag.email = HttpContext.Session.GetString("email");
+            ViewBag.password = HttpContext.Session.GetString("password");
             ViewBag.positionid = HttpContext.Session.GetString("positionid");
             return View();
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult CreateForUserWhoNeedHelp(Atom atom)
         {
-           
-                HttpContext.Session.SetString("checkyouremail", "Please check your email for validation");
-                //ViewBag.checkyouremail = HttpContext.Session.GetString("checkyouremail");
-                ViewBag.firstname = HttpContext.Session.GetString("firstname");
-                ViewBag.lastname = HttpContext.Session.GetString("lastname");
-                ViewBag.positionid = HttpContext.Session.GetString("positionid");
-                Atom tblAtom = new Atom();
-                tblAtom.positionid = Convert.ToInt32("4");
-                tblAtom.firstname = atom.firstname;
-                tblAtom.middlename = atom.middlename;
-                tblAtom.lastname = atom.lastname;
-                tblAtom.healthid = atom.healthid;
-                tblAtom.phone = atom.phone;
-                tblAtom.email = atom.email;
+            if (atom.firstname != null && atom.lastname != null && atom.email != null && atom.password != null)
+            {
+                var duplicateTarget = _context.tblAtom.Where(x => x.email == atom.email).FirstOrDefault();
+                if(duplicateTarget==null)
+                {
+                    HttpContext.Session.SetString("checkyouremail", "Please check your email for validation");
+                    //ViewBag.checkyouremail = HttpContext.Session.GetString("checkyouremail");
+                    ViewBag.firstname = HttpContext.Session.GetString("firstname");
+                    ViewBag.lastname = HttpContext.Session.GetString("lastname");
+                    ViewBag.positionid = HttpContext.Session.GetString("positionid");
+                    Atom tblAtom = new Atom();
+                    tblAtom.positionid = Convert.ToInt32("4");
+                    tblAtom.firstname = atom.firstname;
+                    tblAtom.middlename = atom.middlename;
+                    tblAtom.lastname = atom.lastname;
+                    tblAtom.healthid = atom.healthid;
+                    tblAtom.phone = atom.phone;
+                    tblAtom.email = atom.email;
+                    tblAtom.password = atom.password;
+                   
+                    tblAtom.registrationdate = DateTime.Now;
+                    tblAtom.dob = atom.dob;
+                    tblAtom.registeredby = tblAtom.firstname;
+                    _context.tblAtom.Add(tblAtom);
+                    _context.SaveChanges();
+                    ViewBag.Success = "You are signed up successfully. Please check your email for verification.";
+                    HttpContext.Session.SetString("checkyouremail", "Please check your email for validation");
                
-                tblAtom.password = atom.password;
-                tblAtom.registrationdate = DateTime.Now;
-                tblAtom.dob = atom.dob;
-                tblAtom.registeredby = tblAtom.firstname;
-
-                _context.tblAtom.Add(tblAtom);
-                _context.SaveChanges();               
-            
-            return RedirectToAction("CreateForUserWhoNeedHelp");
+                return RedirectToAction("CreateForUserWhoNeedHelpBlank");
+                }
+                else
+                {
+                    HttpContext.Session.SetString("firstname", atom.firstname);
+                    if (atom.middlename != null)
+                    {
+                        HttpContext.Session.SetString("middlename", atom.middlename);
+                    }
+                    else
+                    {
+                        HttpContext.Session.SetString("middlename", "");
+                    }
+                    HttpContext.Session.SetString("lastname", atom.lastname);
+                    HttpContext.Session.SetString("email", atom.email);
+                    HttpContext.Session.SetString("password", atom.password);
+                    ViewBag.FirstName = atom.firstname;
+                    ViewBag.MiddleName = atom.middlename;
+                    ViewBag.LastName = atom.lastname;
+                    ViewBag.Email = atom.email;
+                    ViewBag.Password = atom.password;
+                    HttpContext.Session.SetString("duplicateemail", "This email address already exists.");
+                   
+                    return RedirectToAction("CreateForUserWhoNeedHelp");
+                }
+                //return View();
+            }
+            else
+            {
+                // All expected data not provided, so this will be our error state.
+                //ViewBag.Error = "Please fill up all the fields.";
+                // Store our data to re-add to the form.
+                ViewBag.FirstName = atom.firstname;
+                ViewBag.MiddleName = atom.middlename;
+                ViewBag.LastName = atom.lastname;
+                ViewBag.Email = atom.email;
+                ViewBag.Password = atom.password;
+                //ViewBag.Password = atom.confirmpassword;
+            }
+            return View();
         }
 
         [HttpGet]

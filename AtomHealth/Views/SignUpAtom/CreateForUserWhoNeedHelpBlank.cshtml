@@ -1,59 +1,52 @@
 ﻿@model AtomHealth.Models.Atom
+
 @{
     ViewData["Title"] = "Sign Up";
     Layout = "~/Views/Shared/_LayoutWithoutBanner.cshtml";
 }
-<h1 style="color:deepskyblue; font-size:large; font-weight:bold">Please Sign Up Below!</h1>
-@*@{
-    if (ViewBag.Success != null)
-    {
-        <p class="alert-success">Success! @(ViewBag.Success)</p>
-    }
-    else if (ViewBag.Error != null)
-    {
-        <p class="alert-danger">Error! @(ViewBag.Error)</p>
-    }
-}*@
+
+    <h1 style="color:deepskyblue; font-size:large; font-weight:bold">Please Sign Up Below!</h1>
+
+
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="CreateForUserWhoNeedHelp" method="post">
+        <form asp-action="CreateForUserWhoNeedHelp">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
             <div class="form-group">
                 <label asp-for="firstname" class="control-label"></label>
-                <input asp-for="firstname" class="form-control" value="@ViewBag.firstname" />
+                <input asp-for="firstname" class="form-control" />
                 <span asp-validation-for="firstname" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="middlename" class="control-label"></label>
-                <input asp-for="middlename" class="form-control" value="@ViewBag.middlename"   />
+                <input asp-for="middlename" class="form-control" />
                 <span asp-validation-for="middlename" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="lastname" class="control-label"></label>
-                <input asp-for="lastname" class="form-control" value="@ViewBag.lastname"  />
+                <input asp-for="lastname" class="form-control" />
                 <span asp-validation-for="lastname" class="text-danger"></span>
             </div>
+
             <div class="form-group">
                 <label asp-for="email" class="control-label"></label>
-                <input asp-for="email" class="form-control" value="@ViewBag.email"  />
+                <input asp-for="email" class="form-control" />
                 <span asp-validation-for="email" class="text-danger"></span>
             </div>
-            @if(ViewBag.duplicateemail!= "null")
-            { 
-        <p style="color:red;">@ViewBag.duplicateemail</p>
-            }
 
             <div class="form-group">
                 <label asp-for="password" class="control-label"></label>
-                <input asp-for="password" class="form-control" value="@ViewBag.password"  />
+                <input asp-for="password" class="form-control" />
                 <span asp-validation-for="password" class="text-danger"></span>
             </div>
 
             <div class="form-group">
-                <input type="submit" value="Sign Up" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
         <p style="color:red; font-size:larger; font-weight:bold">@ViewBag.checkyouremail</p>
     </div>
 </div>
+
