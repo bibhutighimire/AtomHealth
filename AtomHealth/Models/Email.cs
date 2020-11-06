@@ -7,10 +7,11 @@ namespace AtomHealth.Models
 {
     public class Email
     {
+        public int emailid { get; set; }
         public string To { get; set; }
-        public string From { get; set; }
-        public string EmailAddress { get; set; }
-        public string Message { get; set; }
+        public string Subject { get; set; }
+        //public string EmailAddress { get; set; }
+        public string Body { get; set; }
 
     }
 }
