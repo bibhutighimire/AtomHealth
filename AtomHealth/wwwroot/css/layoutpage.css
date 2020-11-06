@@ -4,9 +4,9 @@
     margin:0 auto;
     padding:25px;
 }
-.container {
+.containerImage {
     width: 100%;
-    margin: 25px auto;   
+    margin: 35px auto;
 }
 .topHeader {
     height: 110px;
@@ -53,15 +53,18 @@
 li a {
     margin-right: 25px;
     font-size: large;
-    color: deepskyblue;
+    color: #42a5ff;
     text-decoration: none;
     margin-top: 25px;
 }
 .rightMenu {
-    height: 67px;
-    padding:10px;
-    background-color: deepskyblue;
-    float:right;
+    
+    padding: 15px;
+    background-color: #42a5ff;
+    display:flex;
+    flex-direction:column;
+    height:100px;
+
 }
     .rightMenu a {
         margin-right: 15px;
@@ -69,6 +72,10 @@ li a {
         text-decoration:none;
         color:white;
     }
+.signinoutLink {
+    display:flex;
+    flex-direction:row;
+}
 .bodyContainer {
     width: 65%;
     margin: 20px auto;
@@ -84,7 +91,7 @@ li a {
     margin: 0 auto;
     padding: 25px;
     height: 30px;
-    background-color: deepskyblue;
+    background-color: #42a5ff;
 }
 p .footerParagraph {
     width: 65%;
@@ -104,8 +111,9 @@ p .footerParagraph {
     height:auto;
 }
 .bottom-left {
-    position: absolute;
-    bottom: 400px;
+    position: relative;
+    bottom: 524px;
+    width:476px;
     left: 400px;
     border: 2px solid white;
     border-radius: 15px;
@@ -113,7 +121,7 @@ p .footerParagraph {
 }
     .bottom-left h1 {
         font-size: 35px;
-        color: deepskyblue;
+        color: #42a5ff;
     }
     .bottom-left p {
         width: 449px;
@@ -125,7 +133,7 @@ p .footerParagraph {
 .bottom-bottom {
     margin: 0 auto;
     position: relative;
-    bottom: 112px;
+    bottom: 490px;
     width: 1122px;
     
     display: flex;
@@ -143,7 +151,7 @@ p .footerParagraph {
     .blockBox h1 {
         font-size: 23px;
         text-decoration: underline;
-        color: deepskyblue;
+        color: #42a5ff;
         text-align:center;
         
     }
@@ -207,7 +215,7 @@ input[type=text], select, textarea {
 }
 
 .containerforcontactform form label {
-    color: deepskyblue;
+    color: #42a5ff;
     text-align: left;
     float: left;
     margin: 0px;
@@ -215,7 +223,7 @@ input[type=text], select, textarea {
 }
 
 input[type=submit] {
-    background-color: deepskyblue;
+    background-color: #42a5ff;
     color: white;
     padding: 12px 20px;
     border: none;

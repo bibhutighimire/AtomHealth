@@ -13,14 +13,14 @@ input[type=text], select, textarea {
     color: black;
 }
 .containerforcontactform form label {
-    color: deepskyblue;
+    color: #42a5ff;
     text-align: left;
     float: left;
     margin: 0px;
     padding: 0px;
 }
 input[type=submit] {
-    background-color: deepskyblue;
+    background-color: #42a5ff;
     color: white;
     padding: 12px 20px;
     border: none;

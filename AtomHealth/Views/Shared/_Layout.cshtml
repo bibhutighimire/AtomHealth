@@ -4,16 +4,23 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - AtomHealth</title>
-    @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-        <link rel="stylesheet" href="~/css/site.css" />*@
-    <link rel="stylesheet" href="~/css/layoutpage.css" />
     <link rel="stylesheet" href="~/css/reset.css" />
+    <link rel="stylesheet" href="~/css/layoutpage.css" />
+    <environment include="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/jquery-validate/jquery.validate.js"></script>
+        <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+        <script src="~/lib/bootstrap/js/bootstrap.js"></script>
+    </environment>
+
+
 </head>
 <body>
     <header>
         <div class="headerContainer">
             <div class="topHeader">
-                <div class="logoHolder"><img src="~/images/4.jpg" style="width:190px; height:100px" /> </div>
+                <div class="logoHolder"><img src="~/images/logo.png" style="width:190px; height:100px" /> </div>
                 <div class="workDay">
                     <p style="font-weight:bold">Monday - Friday 08:00 - 20:00</p>
                     <p> Saturday and Sunday - CLOSED</p>
@@ -27,7 +34,7 @@
                     <p>Edmonton, Alberta</p>
                 </div>
                 <div class="socialMedia">
-                    <a href="https://www.linkedin.com/" target="_blank"><img src="~/images/linkedin.png" style="width:30px; height:30px; margin-right:10px;" /></a> 
+                    <a href="https://www.linkedin.com/" target="_blank"><img src="~/images/linkedin.png" style="width:30px; height:30px; margin-right:10px;" /></a>
                     <a href="https://www.facebook.com/" target="_blank"><img src="~/images/facebook.png" style="width:30px; height:30px;margin-right:10px;" /></a>
                     <a href="https://www.instagram.com/" target="_blank"><img src="~/images/instagram.png" style="width:30px; height:30px;margin-right:10px;" /></a>
                     <a href="https://www.twitter.com/" target="_blank"><img src="~/images/twitter.png" style="width:30px; height:30px" /></a>
@@ -36,7 +43,7 @@
             <div class="bottomHeader">
                 @*Visitor Login *@
                 @if (ViewBag.positionid == null)
-                {
+    {
 
                 <ul class="navContainer">
                     <li class="liSpace">
@@ -61,86 +68,88 @@
                         <a asp-controller="Contact" asp-action="Index">CONTACT US</a>
                     </li>
                 </ul>
-                    <div class="rightMenu">
+                <div class="rightMenu">
 
-                        <p style="color:white; font-size:14px;">Hi Visitor!</p><br />
-
+                    <p style="color:white; font-size:14px;">Hi Visitor!</p>
+                    <div class="signinoutLink">
                         <a asp-controller="SignupAtom" asp-action="Signin">Signin</a>
                         <a asp-controller="SignupAtom" asp-action="CreateForUserWhoNeedHelp">Signup</a>
                     </div>
-                }
+
+                </div>
+    }
 
                 @*Admin Login *@
                 @if (ViewBag.positionid == "1")
-                {
+    {
 
-                    <ul class="navContainer">
-                        <li class="liSpace">
-                            <a asp-controller="Home" asp-action="Index">HOME</a>
-                        </li>
-                        <li>
-                            <a asp-controller="Services" asp-action="Index">SERVICES</a>
-                        </li>
-                        <li>
-                            <a asp-controller="SignupAtom" asp-action="Index">Show all Patient Data</a>
+                <ul class="navContainer">
+                    <li class="liSpace">
+                        <a asp-controller="Home" asp-action="Index">HOME</a>
+                    </li>
+                    <li>
+                        <a asp-controller="Services" asp-action="Index">SERVICES</a>
+                    </li>
+                    <li>
+                        <a asp-controller="SignupAtom" asp-action="Index">Show all Patient Data</a>
 
-                        </li>
+                    </li>
 
-                    </ul>
-                    <div class="rightMenu">
+                </ul>
+                <div class="rightMenu">
 
-                        <p style="color:white; font-size:14px;">Hi Visitor!</p><br />
+                    <p style="color:white; font-size:14px;">Hi Visitor!</p>
 
-                        <a asp-controller="SignupAtom" asp-action="Signout">Signout</a>
-                    </div>
-                }
+                    <a asp-controller="SignupAtom" asp-action="Signout">Signout</a>
+                </div>
+    }
                 @*Employee Login with Position ID: 2*@
                 @if (ViewBag.positionid == "2")
-                {
+    {
 
-                    <ul class="navContainer">
-                        <li class="liSpace">
-                            <a asp-controller="Home" asp-action="Index">HOME</a>
-                        </li>
-                        <li>
-                            <a asp-controller="Services" asp-action="Index">SERVICES</a>
-                        </li>
-                        <li>
-                            <a asp-controller="SignupAtom" asp-action="Index">Show all Patient Data</a>
+                <ul class="navContainer">
+                    <li class="liSpace">
+                        <a asp-controller="Home" asp-action="Index">HOME</a>
+                    </li>
+                    <li>
+                        <a asp-controller="Services" asp-action="Index">SERVICES</a>
+                    </li>
+                    <li>
+                        <a asp-controller="SignupAtom" asp-action="Index">Show all Patient Data</a>
 
-                        </li>
+                    </li>
 
-                    </ul>
-                    <div class="rightMenu">
+                </ul>
+                <div class="rightMenu">
 
-                        <p style="color:white; font-size:14px;">Hi @ViewBag.firstname!</p><br />
+                    <p style="color:white; font-size:14px;">Hi @ViewBag.firstname!</p>
 
-                        <a asp-controller="SignupAtom" asp-action="Signout">Signout</a>
-                    </div>
-                }
+                    <a asp-controller="SignupAtom" asp-action="Signout">Signout</a>
+                </div>
+    }
 
                 @*Patient Login with Position ID: 4*@
                 @if (ViewBag.positionid == "4")
-                {
+    {
 
-                    <ul class="navContainer">
-                        <li class="liSpace">
-                            <a asp-controller="Home" asp-action="Index">HOME</a>
-                        </li>
-                        <li>
-                            <a asp-controller="Services" asp-action="Index">SERVICES</a>
-                        </li>
-                        <li>
-                            <a asp-controller="Atom" asp-route-id="@ViewBag.atomid" asp-action="Profile">View Your Profile</a>
-                        </li>
-                    </ul>
-                    <div class="rightMenu">
+                <ul class="navContainer">
+                    <li class="liSpace">
+                        <a asp-controller="Home" asp-action="Index">HOME</a>
+                    </li>
+                    <li>
+                        <a asp-controller="Services" asp-action="Index">SERVICES</a>
+                    </li>
+                    <li>
+                        <a asp-controller="Atom" asp-route-id="@ViewBag.atomid" asp-action="Profile">View Your Profile</a>
+                    </li>
+                </ul>
+                <div class="rightMenu">
 
-                        <p style="color:white; font-size:14px;">Hi @ViewBag.firstname!</p><br />
+                    <p style="color:white; font-size:14px;">Hi @ViewBag.firstname!</p>
 
-                        <a asp-controller="SignupAtom" asp-action="Signout">Signout</a>
-                    </div>
-                }
+                    <a asp-controller="SignupAtom" asp-action="Signout">Signout</a>
+                </div>
+    }
 
 
             </div>
@@ -150,7 +159,7 @@
     </header>
     <div class="containerBox">
 
-        <div class="container">
+        <div class="containerImage">
             <img src="~/images/banner.jpg" style="width:100%; height:550px;" />
         </div>
 

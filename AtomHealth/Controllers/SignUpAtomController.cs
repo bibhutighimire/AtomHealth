@@ -22,7 +22,10 @@ namespace AtomHealth.Controllers
         {
             _context = context;
         }
- 
+        //public string SessionFxn()
+        //{
+        //    return 
+        //}
         public IActionResult Index()
         {
             ViewBag.positionid = HttpContext.Session.GetString("positionid");
@@ -37,12 +40,14 @@ namespace AtomHealth.Controllers
         }
 
         [HttpGet]
+  
         public IActionResult Signin()
         {
             return View();
         }
 
         [HttpGet]
+      
         public IActionResult SigninWithSession()
         {
 
@@ -53,7 +58,8 @@ namespace AtomHealth.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
+     
+
         public IActionResult SigninPost(string email, string password)
         {
             if(email!=null && password != null)
@@ -103,9 +109,11 @@ namespace AtomHealth.Controllers
             }
             else
             {
+                ViewBag.email = email;
+                ViewBag.password = password;
                 HttpContext.Session.SetString("email", email);
                 HttpContext.Session.SetString("password", password);
-                return RedirectToAction("SigninWithSession");
+                return RedirectToAction("Signin");
             }
             
         }
@@ -185,7 +193,7 @@ namespace AtomHealth.Controllers
             return View();
         }
         [HttpPost]
-        [ValidateAntiForgeryToken]
+    
         public IActionResult CreateForUserWhoNeedHelp(Atom atom)
         {
             if (atom.firstname != null && atom.lastname != null && atom.email != null && atom.password != null)

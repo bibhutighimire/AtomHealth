@@ -4,17 +4,22 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - AtomHealth</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    @*<link rel="stylesheet" href="~/css/site.css" />*@
-    <link rel="stylesheet" href="~/css/layoutpage.css" />
     <link rel="stylesheet" href="~/css/reset.css" />
+    <link rel="stylesheet" href="~/css/layoutpage.css" />
+    <environment include="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/jquery-validate/jquery.validate.js"></script>
+        <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+        <script src="~/lib/bootstrap/js/bootstrap.js"></script>
+    </environment>
+
 </head>
 <body>
     <header>
         <div class="headerContainer">
             <div class="topHeader">
-                @*<div class="logoHolder"><img src="~/images/logo.jpg" style="width:100px; height:100px" /> </div>*@
-                <div class="logoHolder"><img src="~/images/3.jpg" style="width:190px; height:100px" /> </div>
+                <div class="logoHolder"><img src="~/images/logo.png" style="width:190px; height:100px" /> </div>
                 <div class="workDay">
                     <p style="font-weight:bold">Monday - Friday 08:00 - 20:00</p>
                     <p> Saturday and Sunday - CLOSED</p>
@@ -62,13 +67,15 @@
                         <a asp-controller="Contact" asp-action="Index">CONTACT US</a>
                     </li>
                 </ul>
-                    <div class="rightMenu">
+                <div class="rightMenu">
 
-                        <p style="color:white; font-size:14px;">Hi Visitor!</p><br />
-
+                    <p style="color:white; font-size:14px;">Hi Visitor!</p>
+                    <div class="signinoutLink">
                         <a asp-controller="SignupAtom" asp-action="Signin">Signin</a>
                         <a asp-controller="SignupAtom" asp-action="CreateForUserWhoNeedHelp">Signup</a>
                     </div>
+
+                </div>
                 }
 
                 @*Admin Login *@
@@ -91,7 +98,7 @@
                     </ul>
                     <div class="rightMenu">
 
-                        <p style="color:white; font-size:14px;">Hi Visitor!</p><br />
+                        <p style="color:white; font-size:14px;">Hi Visitor!</p>
 
                         <a asp-controller="SignupAtom" asp-action="Signout">Signout</a>
                     </div>
@@ -115,7 +122,7 @@
                     </ul>
                     <div class="rightMenu">
 
-                        <p style="color:white; font-size:14px;">Hi @ViewBag.firstname!</p><br />
+                        <p style="color:white; font-size:14px;">Hi @ViewBag.firstname!</p>
 
                         <a asp-controller="SignupAtom" asp-action="Signout">Signout</a>
                     </div>
@@ -138,7 +145,7 @@
                     </ul>
                     <div class="rightMenu">
 
-                        <p style="color:white; font-size:14px;">Hi @ViewBag.firstname!</p><br />
+                        <p style="color:white; font-size:14px;">Hi @ViewBag.firstname!</p>
 
                         <a asp-controller="SignupAtom" asp-action="Signout">Signout</a>
                     </div>

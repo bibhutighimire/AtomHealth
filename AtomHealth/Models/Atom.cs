@@ -22,11 +22,14 @@ namespace AtomHealth.Models
         [StringLength(100)]
         [Display(Name = "Last Name")]
         public string lastname { get; set; }
+        [Required(ErrorMessage = "Health ID can not be blank.")]
         public long healthid { get; set; }
+        [Required(ErrorMessage = "Phone number can not be blank.")]
+        [DataType(DataType.PhoneNumber, ErrorMessage = "Please Enter Valid Phone Number.")]
         public long phone { get; set; }
         [Required(ErrorMessage = "Email Address can not be blank.")]
         [Display(Name = "Email Address")]
-        [DataType(DataType.EmailAddress,ErrorMessage ="Please Enter Valid Email Address")]
+        [DataType(DataType.EmailAddress,ErrorMessage ="Please Enter Valid Email Address.")]
         
         public string email { get; set; }
         public string sex { get; set; }
@@ -42,12 +45,12 @@ namespace AtomHealth.Models
         [Required(ErrorMessage = "Password can not be blank.")]
         [DataType(DataType.Password)]
         public string password { get; set; }
-        // [NotMapped]
+        //[NotMapped]
         //[Display(Name = "Confirm Password")]
         //[Required(ErrorMessage = "Password can not be blank.")]
         //[DataType(DataType.Password)]
         //[Compare("Password", ErrorMessage = "Passwords do not match.")]
-        // [NotMapped]
+       
         //public string confirmpassword { get; set; }
         public DateTime registrationdate { get; set; }
         public DateTime dob { get; set; }

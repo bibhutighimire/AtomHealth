@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_LayoutWithoutBanner.cshtml";
 }
 
-    <h1 style="color:deepskyblue; font-size:large; font-weight:bold">Signin</h1>
+<h1 style="color:#42a5ff; font-size:large; font-weight:bold">Signin</h1>
 
 
 <hr />
@@ -13,22 +13,22 @@
     <div class="col-md-4">
         <form asp-action="SigninPost">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-           
+
             <div class="form-group">
                 Email
                 <input asp-for="email" class="form-control" />
                 <span asp-validation-for="email" class="text-danger"></span>
             </div>
             <div class="form-group">
-               Password
+                Password
                 <input asp-for="password" type="password" class="form-control" />
                 <span asp-validation-for="password" class="text-danger"></span>
             </div>
-           
+            <div>   <p style="color:red; font-size:18px;">@ViewBag.problem1</p></div>
+            <div>   <p style="color:red; font-size:18px;">@ViewBag.Error</p></div>
             <div class="form-group">
                 <input type="submit" value="Sign In" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
-
