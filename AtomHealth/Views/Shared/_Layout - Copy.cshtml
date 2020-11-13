@@ -3,7 +3,6 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <title>@ViewData["Title"] - AtomHealth</title>
     <link rel="stylesheet" href="~/css/reset.css" />
     <link rel="stylesheet" href="~/css/layoutpage.css" />
@@ -23,15 +22,12 @@
 
         <div class="headerContainer">
             <div class="topnav">
-               <div class="logoHolder"><img src="~/images/logo.png" /> </div> 
-               
+                <a href="#home" class="active">@*<div class="logoHolder"><img src="~/images/logo.png" /> </div>*@ Logo
+                </a>
                 <div id="myLinks">
-                    <a asp-controller="Home" asp-action="Index">HOME</a>
-                    <a asp-controller="Home" asp-action="Index">OUR VISION</a>
-                    <a asp-controller="Home" asp-action="Index">OUR SOLUTION</a>
-                    <a asp-controller="Home" asp-action="Index">JOIN US</a>
-                    <a asp-controller="Home" asp-action="Index">FAQ</a>
-                    <a asp-controller="Home" asp-action="Index">CONTACT US</a>
+                    <a href="#news">News</a>
+                    <a href="#contact">Contact</a>
+                    <a href="#about">About</a>
                 </div>
                 <a href="javascript:void(0);" class="icon" onclick="myFunction()">
                     <i class="fa fa-bars"></i>
@@ -42,7 +38,7 @@
                 @*Hamburger Menu Start*@
 
                 @*Hamburger Menu End*@
-                @*<div class="socialmediaAndSignin">
+                <div class="socialmediaAndSignin">
                     <div class="headerLinks">
                         <ul>
                             <li class="liSpace">
@@ -76,11 +72,11 @@
                         </div>
 
                     </div>
-                </div>*@
+                </div>
 
             </div>
             <div class="bottomHeader">
-                @*Visitor Login*@ 
+                @*Visitor Login *@
                 @if (ViewBag.positionid == null)
                 {
 
@@ -110,7 +106,7 @@
 
                 }
 
-                @*Admin Login*@ 
+                @*Admin Login *@
                 @if (ViewBag.positionid == "1")
                 {
 
@@ -185,17 +181,13 @@
 
             </div>
         </div>
-            @*</div>*@
 
 
     </header>
     <div class="containerBox">
 
-        <div class="containerImageMobile">
-            <img src="~/images/bannermobile.jpg" />
-        </div>
         <div class="containerImage">
-            <img src="~/images/banner.jpg" />
+            <img src="~/images/banner.jpg" style="width:100%; height:550px;" />
         </div>
 
         <div class="bottom-left">

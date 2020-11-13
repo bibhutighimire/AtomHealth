@@ -5,36 +5,27 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using System.Net.Mail;
 using AtomHealth.Models;
+using static AtomHealth.Models.SendEmail;
+using System.Net;
+using System.Net.Http;
+using Newtonsoft.Json;
 
 namespace AtomHealth.Controllers
 {
-    public class EmailController : Controller
+    public class SendEmailController : Controller
     {
+        [HttpGet]
         public IActionResult Index()
         {
+
+
             return View();
+
         }
-        //[BindProperty]
-        //public Email sendmail { get; set; }
-        //[HttpPost]
-        //public async Task OnPost()
-        //{
-        //    string To = sendmail.To;
-        //    string From = sendmail.From;
-        //    string Message = sendmail.Message;
-        //    MailMessage mailmessage = new MailMessage();
-        //    mailmessage.To.Add(To);
-        //    //mailmessage.From = From;
-        //    mailmessage.Body = Message;
-        //    //mailmessage.Sender = From;
-        //    mailmessage.IsBodyHtml = false;
-        //    mailmessage.From = new MailAddress("ghimirebibhuti@gmail.com");
 
 
-
-        //}
         [HttpPost]
-        public IActionResult Index(Email em)
+        public IActionResult Index(SendEmail em)
         {
             string to = em.To;
             string subject = em.Subject;

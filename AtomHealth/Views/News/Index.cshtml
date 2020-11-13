@@ -1,0 +1,29 @@
+﻿@model IEnumerable<AtomHealth.Models.News.Article>
+<link rel="stylesheet" href="~/css/news.css" />
+@{
+    ViewData["Title"] = "News";
+    Layout = "~/Views/Shared/_LayoutWithoutBanner.cshtml";
+}
+
+<h1>Health News of Canada</h1>
+<div class="row">
+    @foreach (var item in Model)
+    {
+
+        <div class="leftcolumnNews">
+            <div class="cardNews">
+                <h2>@Html.DisplayFor(modelItem => item.title)</h2>
+                <h5>Author:  @Html.DisplayFor(modelItem => item.author)</h5>
+                <h5> Date: @Html.DisplayFor(modelItem => item.publishedAt)</h5>
+
+
+                <p> @Html.DisplayFor(modelItem => item.description)</p>
+                <p> @Html.DisplayFor(modelItem => item.content)</p>
+                <a href=" @Html.DisplayFor(modelItem => item.url)" target="_blank">Click here to read more..</a>
+                <p> Source: @Html.DisplayFor(modelItem => item.source.name)</p>
+            </div>
+            <div class="fakeimg"><img src="@Html.DisplayFor(modelItem => item.urlToImage)" alt="imageofcontent" /></div>
+        </div>
+
+    }
+</div>

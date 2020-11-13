@@ -5,13 +5,13 @@ using System.Threading.Tasks;
 
 namespace AtomHealth.Models
 {
-    public class Email
+    public class SendEmail
     {
-        public int emailid { get; set; }
+
         public string To { get; set; }
         public string Subject { get; set; }
-        //public string EmailAddress { get; set; }
         public string Body { get; set; }
+
 
     }
 }

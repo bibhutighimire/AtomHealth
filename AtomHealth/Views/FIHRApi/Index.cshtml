@@ -1,0 +1,39 @@
+﻿@model IEnumerable<AtomHealth.Models.FIHRApi.Example>
+<link rel="stylesheet" href="~/css/fihrapi.css" />
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutWithoutBanner.cshtml";
+}
+
+<h1>FIHR API Data</h1>
+
+<div class="box">
+    @foreach (var item in Model)
+    {
+        <div class="boxSmall">
+
+            <p>ID: @Html.DisplayFor(modelItem => item.id)</p>
+            <p>Name: @Html.DisplayFor(modelItem => item.name)</p>
+            <p>URL: <a href="@Html.DisplayFor(modelItem => item.resource_url)">Click here for resource <a /></p>
+            <p> API Version: @Html.DisplayFor(modelItem => item.api_version)</p>
+            <p>Status: @Html.DisplayFor(modelItem => item.status)</p>
+            <p> EHR: @Html.DisplayFor(modelItem => item.ehr)</p>
+            <p>Location Name: @Html.DisplayFor(modelItem => item.locations)</p>
+            <p> City: @Html.DisplayFor(modelItem => item.locations[0].address.city)</p>
+            <p> Line 1: @Html.DisplayFor(modelItem => item.locations[0].address.line)</p>
+            <p> Postal Code: @Html.DisplayFor(modelItem => item.locations[0].address.postalCode)</p>
+            <p> State: @Html.DisplayFor(modelItem => item.locations[0].address.state)</p>
+
+
+            @*<p> Address Line:@Html.DisplayFor(modelItem => item.location.address.line)</p>
+                <p>City: @Html.DisplayFor(modelItem => item.address.city)</p>
+                <p> Postal: @Html.DisplayFor(modelItem => item.address.postalCode)</p>
+                <p>State: @Html.DisplayFor(modelItem => item.address.state)</p>*@
+            <p>Logo: <img src="@Html.DisplayFor(modelItem => item.logo)" style="height:50px;width:50px;" alt="imageofcontent" /></p>
+
+        </div>
+    }
+
+</div>
+

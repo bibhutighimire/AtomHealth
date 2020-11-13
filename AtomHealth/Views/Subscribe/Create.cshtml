@@ -1,0 +1,35 @@
+﻿@model AtomHealth.Models.Subscribe
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_LayoutWithoutBanner.cshtml";
+}
+
+
+
+    <h1 style="color:#42a5ff; font-size:24px; font-weight:bold">Subscribe for Newsletters</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+               Email Address:
+                <input asp-for="email" class="form-control" />
+                <span asp-validation-for="email" class="text-danger"></span>
+            </div>
+            @if (ViewBag.msg != null)
+            {
+                <p style="color:red; font-weight:bold">@ViewBag.msg</p>
+            }
+
+            @if (ViewBag.alreadysub != null)
+            {
+                <p style="color:red; font-weight:bold">@ViewBag.alreadysub</p>
+            }
+            <div class="form-group">
+                <input type="submit" value="Subscribe" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
