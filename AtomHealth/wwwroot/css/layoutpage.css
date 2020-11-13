@@ -77,7 +77,7 @@ margin-top: 25px;
 }
 
 li a {
-margin-right: 25px;
+margin-right: 20px;
 font-size: large;
 color: #42a5ff;
 text-decoration: none;
@@ -424,14 +424,17 @@ float: right;
 @media only screen and (min-width: 350px) {
     /* For mobile: */
     .headerContainer {
-        width: 100%;
+       
         padding: 30px 30px 0 30px;
     }
 
     .topHeader {
         display: none;
     }
-
+    .logoHolder {
+        float:right;
+        margin-bottom:25px;
+    }
     .logoHolder img {
         width: 160px;
         height: 70px;

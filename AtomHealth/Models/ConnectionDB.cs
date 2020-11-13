@@ -17,7 +17,7 @@ namespace AtomHealth.Models
         public DbSet<Position> tblPosition { get; set; }
         public DbSet<Employee> tblEmployee { get; set; }
         public DbSet<Subscribe> tblSubscribe { get; set; }
-        public DbSet<FIHRApi> FIHRApi { get; set; }
+      
 
 
     }
