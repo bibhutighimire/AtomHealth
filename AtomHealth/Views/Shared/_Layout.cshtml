@@ -7,6 +7,8 @@
     <title>@ViewData["Title"] - AtomHealth</title>
     <link rel="stylesheet" href="~/css/reset.css" />
     <link rel="stylesheet" href="~/css/layoutpage.css" />
+    <link rel="stylesheet" href="~/css/desktopmenu.css" />
+    <link rel="stylesheet" href="~/css/containerbox.css" />
     <link rel="stylesheet" href="~/css/hamburger.css" />
     @*<environment include="Development">*@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -16,71 +18,68 @@
     <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
     @*</environment>*@
-
-
 </head>
 <body>
-    <header>
+    <div class="bigWrap">
+        <header>
 
-        <div class="headerContainer">
-            <nav role="navigation">
-                <div id="menuToggle">
-                    <!--
+            <div class="headerContainer">
+                <nav role="navigation">
+                    <div id="menuToggle">
+                        <!--
                     A fake / hidden checkbox is used as click reciever,
                     so you can use the :checked selector on it.
                     -->
-                    <input type="checkbox" />
+                        <input type="checkbox" />
 
-                    <!--
+                        <!--
                     Some spans to act as a hamburger.
 
                     They are acting like a real hamburger,
                     not that McDonalds stuff.
                     -->
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
 
-                    <!--
+                        <!--
                     Too bad the menu has to be inside of the button
                     but hey, it's pure CSS magic.
                     -->
-                    <ul id="menu">
-                        <li><a asp-controller="Home" asp-action="Index">HOME</a></li>
-                        <li> <a asp-controller="Home" asp-action="Index">OUR VISION</a></li>
-                        <li><a asp-controller="Home" asp-action="Index">OUR SOLUTION</a></li>
-                        <li><a asp-controller="Home" asp-action="Index">JOIN US</a></li>
-                        <li><a asp-controller="FAQ" asp-action="Index">FAQ</a></li>
-                        <li><a asp-controller="Contact" asp-action="Index">CONTACT US</a></li>
-                        <li>
-                            <div class="socialMedia">
-                                <a href="https://www.linkedin.com/" target="_blank"><img src="~/images/linkedin.png" style="width:30px; height:30px; margin-right:10px;" /></a>
-                                <a href="https://www.facebook.com/" target="_blank"><img src="~/images/facebook.png" style="width:30px; height:30px;margin-right:10px;" /></a>
-                                <a href="https://www.instagram.com/" target="_blank"><img src="~/images/instagram.png" style="width:30px; height:30px;margin-right:10px;" /></a>
-                                <a href="https://www.twitter.com/" target="_blank"><img src="~/images/twitter.png" style="width:30px; height:30px" /></a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="signinoutLink">
-                                <a style="padding-right:18px; border-right: 2px solid #42a5ff;" asp-controller="SignupAtom" asp-action="Signin">Signin   </a>
-                                <a asp-controller="SignupAtom" asp-action="CreateForUserWhoNeedHelp">Signup</a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-            <div class="logoHolder"><img src="~/images/logo.png" alt="logoimage" /> </div>
-            <div class="topnav">
+                        <ul id="menu">
+                            <li><a asp-controller="Home" asp-action="Index">HOME</a></li>
+                            <li> <a asp-controller="Home" asp-action="Index">OUR VISION</a></li>
+                            <li><a asp-controller="Home" asp-action="Index">OUR SOLUTION</a></li>
+                            <li><a asp-controller="Home" asp-action="Index">JOIN US</a></li>
+                            <li><a asp-controller="FAQ" asp-action="Index">FAQ</a></li>
+                            <li><a asp-controller="Contact" asp-action="Index">CONTACT US</a></li>
+                            <li>
+                                <div class="socialMedia">
+                                    <a href="https://www.linkedin.com/" target="_blank"><img src="~/images/linkedin.png" style="width:30px; height:30px; margin-right:10px;" /></a>
+                                    <a href="https://www.facebook.com/" target="_blank"><img src="~/images/facebook.png" style="width:30px; height:30px;margin-right:10px;" /></a>
+                                    <a href="https://www.instagram.com/" target="_blank"><img src="~/images/instagram.png" style="width:30px; height:30px;margin-right:10px;" /></a>
+                                    <a href="https://www.twitter.com/" target="_blank"><img src="~/images/twitter.png" style="width:30px; height:30px" /></a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="signinoutLink">
+                                    <a style="padding-right:10px; border-right: 2px solid #42a5ff;" asp-controller="SignupAtom" asp-action="Signin">Signin   </a>
+                                    <a style="padding-left:10px;" asp-controller="SignupAtom" asp-action="CreateForUserWhoNeedHelp">Signup</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <div class="logoHolder"><img src="~/images/logo.png" alt="logoimage" /> </div>
 
-                </div>
 
                 <div class="bottomHeader">
                     @*Visitor Login*@
                     @if (ViewBag.positionid == null)
                     {
 
-                        <ul class="navContainer">
-                            <li class="liSpace">
+                        <ul>
+                            <li>
                                 <a asp-controller="Home" asp-action="Index">HOME</a>
                             </li>
                             <li>
@@ -106,11 +105,11 @@
                     }
 
                     @*Admin Login*@
-                    @if (ViewBag.positionid == "1")
+                    @*@if (ViewBag.positionid == "1")
                     {
 
-                        <ul class="navContainer">
-                            <li class="liSpace">
+                        <ul>
+                            <li >
                                 <a asp-controller="Home" asp-action="Index">HOME</a>
                             </li>
                             <li>
@@ -129,12 +128,12 @@
                             <a asp-controller="SignupAtom" asp-action="Signout">Signout</a>
                         </div>
                     }
-                    @*Employee Login with Position ID: 2*@
+                    Employee Login with Position ID: 2
                     @if (ViewBag.positionid == "2")
                     {
 
-                        <ul class="navContainer">
-                            <li class="liSpace">
+                        <ul >
+                            <li >
                                 <a asp-controller="Home" asp-action="Index">HOME</a>
                             </li>
                             <li>
@@ -154,7 +153,7 @@
                         </div>
                     }
 
-                    @*Patient Login with Position ID: 4*@
+                    Patient Login with Position ID: 4
                     @if (ViewBag.positionid == "4")
                     {
 
@@ -175,70 +174,69 @@
 
                             <a asp-controller="SignupAtom" asp-action="Signout">Signout</a>
                         </div>
-                    }
+                    }*@
 
 
                 </div>
-        </div>
-        @*</div>*@
+            </div>
 
+        </header>
+        <div class="containerBox">
 
-    </header>
-    <div class="containerBox">
+            <div class="containerImageMobile">
+                <img src="~/images/bannermobile.jpg" />
+            </div>
+            <div class="containerImage">
+                <img src="~/images/banner.jpg" />
+            </div>
 
-        <div class="containerImageMobile">
-            <img src="~/images/bannermobile.jpg" />
-        </div>
-        <div class="containerImage">
-            <img src="~/images/banner.jpg" />
-        </div>
+            <div class="bottom-left">
+                <h1>ATOM Health empowers you</h1>
+                <p>Every player in the healthcare sector has one common goal- improved patient outcome. We enable that.</p>
+                <a href="/">Learn More</a>
+            </div>
+            <div class="midSector">
+                <div class="bottom-bottom">
+                    <div class="blockBox">
+                        <h1>Patients</h1><br />
+                        <p>Your vital healthcare information stored under your unique digital health ID. Owned by you, verified by your family physician and you choose who views it..Learn more</p>
+                    </div>
 
-        <div class="bottom-left">
-            <h1>ATOM Health empowers you</h1>
-            <p>Every player in the healthcare sector has one common goal- improved patient outcome. We enable that.</p>
-            <a href="/">Learn More</a>
-        </div>
-        <div class="midSector">
-            <div class="bottom-bottom">
-                <div class="blockBox">
-                    <h1>Patients</h1><br />
-                    <p>Your vital healthcare information stored under your unique digital health ID. Owned by you, verified by your family physician and you choose who views it..Learn more</p>
+                    <div class="blockBox">
+                        <h1>Doctors </h1><br />
+                        <p>Changing times call for newer, functional solutions. As a physician your concern is the best possible outcome for your patients, we take care of the "HOW"..Learn more)</p>
+                    </div>
+
+                    <div class="blockBox">
+                        <h1>Corporations</h1><br />
+                        <p>Whether you are a telemedicine company, EMR/EHR company or HMO, all your actions and goals are centred around patient well-being. We help you simplify HIE..Learn more</p>
+                    </div>
+
+                    <div class="blockBox">
+                        <h1>Medical insurance companies</h1><br />
+                        <p>As virtual and in-person care blend into one, improved patient outcome becomes a shared responsibility. We help reduced the burden with a secure, encrypted digital health ID..Learn more</p>
+                    </div>
+
                 </div>
-
-                <div class="blockBox">
-                    <h1>Doctors </h1><br />
-                    <p>Changing times call for newer, functional solutions. As a physician your concern is the best possible outcome for your patients, we take care of the "HOW"..Learn more)</p>
-                </div>
-
-                <div class="blockBox">
-                    <h1>Corporations</h1><br />
-                    <p>Whether you are a telemedicine company, EMR/EHR company or HMO, all your actions and goals are centred around patient well-being. We help you simplify HIE..Learn more</p>
-                </div>
-
-                <div class="blockBox">
-                    <h1>Medical insurance companies</h1><br />
-                    <p>As virtual and in-person care blend into one, improved patient outcome becomes a shared responsibility. We help reduced the burden with a secure, encrypted digital health ID..Learn more</p>
-                </div>
-
             </div>
         </div>
-    </div>
 
 
 
 
 
 
-    <main role="main" class="pb-3">
-        <div class="bodyContainer">
-            @RenderBody()
+        <main role="main" class="pb-3">
+            <div class="bodyContainer">
+                @RenderBody()
+            </div>
+        </main>
+
+        <div class="footer">
+            <p class="footerParagraph">&copy; 2020 - AtomHealth - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a></p>
         </div>
-    </main>
-
-    <div class="footer">
-        <p class="footerParagraph">&copy; 2020 - AtomHealth - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a></p>
     </div>
-   
 </body>
+
 </html>
 

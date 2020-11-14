@@ -1,0 +1,242 @@
+﻿
+.containerBox {
+    width: 100%;
+}
+.containerImageMobile {
+    width: 100%;
+    margin: 0 auto;
+}
+
+    .containerImageMobile img {
+        height: 400px;
+        width: 100%;
+        margin: 0 auto;
+        border-radius: 8px;
+        padding: 4px;
+        border: 4px solid lightgray;
+    }
+
+.containerImage {
+    width: 100%;
+    margin: 35px auto;
+}
+
+    .containerImage img {
+        height: 550px;
+        width: 100%;
+    }
+.midSector {
+    margin: 0 auto;
+    height: auto;
+}
+
+.bottom-left {
+  
+    bottom: 524px;
+    width: 476px;
+    left: 400px;
+    border: 2px solid white;
+    border-radius: 15px;
+    padding: 17px;
+}
+
+    .bottom-left h1 {
+        font-size: 35px;
+        color: #42a5ff;
+    }
+
+    .bottom-left p {
+        width: 449px;
+        margin-top: 10px;
+        font-size: 20px;
+        color: black;
+    }
+
+    .bottom-left a {
+        background-color: #42a5ff;
+        padding: 12px;
+        border-radius: 7px;
+        margin-top: 10px;
+        font-size: 20px;
+        color: white;
+        margin-bottom: 5px;
+        text-decoration: none;
+    }
+
+.bottom-bottom {
+    margin: 0 auto;
+    position: relative;
+    bottom: 490px;
+    width: 1122px;
+    display: flex;
+    align-content: space-evenly;
+}
+
+.blockBox {
+    background-color: white;
+    color: gray;
+    border-radius: 15px;
+    padding: 12px;
+    margin-right: 25px;
+    border: 8px solid lightgrey;
+}
+
+    .blockBox h1 {
+        font-size: 23px;
+        text-decoration: underline;
+        color: #42a5ff;
+        text-align: center;
+    }
+
+    .blockBox p {
+        font-size: 18px;
+    }
+@media only screen and (min-width: 350px) {
+    .containerBox {
+        width: 100%;
+        padding: 0 15px;
+        margin: 0 auto;
+    }
+
+    .containerImageMobile {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+        .containerImageMobile img {
+            height: 400px;
+            width: 100%;
+            margin: 0 auto;
+            border-radius: 8px;
+            padding: 4px;
+            border: 4px solid lightgray;
+        }
+    .bottom-left {
+        bottom: 524px;
+        width: 100%;
+        left: 400px;
+        border: 2px solid white;
+        border-radius: 15px;
+        padding: 17px;
+    }
+
+        .bottom-left h1 {
+            font-size: 35px;
+            color: #42a5ff;
+        }
+
+        .bottom-left p {
+            width: 100%;
+            margin-top: 10px;
+            font-size: 20px;
+            color: black;
+        }
+
+        .bottom-left a {
+            background-color: #42a5ff;
+            padding: 12px;
+            border-radius: 7px;
+            margin-top: 10px;
+            font-size: 20px;
+            color: white;
+            margin-bottom: 5px;
+            text-decoration: none;
+        }
+
+    .midSector {
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .bottom-bottom {
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        bottom: 0px;
+    }
+
+    .blockBox {
+        background-color: white;
+        color: gray;
+        border-radius: 15px;
+        width: 85%;
+        padding: 20px;
+        border: 15px solid lightgrey;
+        margin: 15px auto;
+    }
+
+        .blockBox h1 {
+            font-size: 20px;
+            text-decoration: underline;
+            color: #42a5ff;
+            text-align: center;
+        }
+
+        .blockBox p {
+            font-size: 16px;
+        }
+    .containerImage {
+        display: none;
+        visibility: hidden;
+    }
+
+        .containerImage img {
+            display: none;
+            visibility: hidden;
+        }
+
+}
+
+@media screen and (min-width: 800px) {
+
+    .bottom-left {
+        position: relative;
+        bottom: 524px;
+        width: 476px;
+        left: 400px;
+        border: 2px solid white;
+        border-radius: 15px;
+        padding: 17px;
+    }
+
+        .bottom-left h1 {
+            font-size: 35px;
+            color: #42a5ff;
+        }
+
+        .bottom-left p {
+            width: 449px;
+            margin-top: 10px;
+            font-size: 20px;
+            color: black;
+        }
+
+        .bottom-left a {
+            background-color: #42a5ff;
+            padding: 12px;
+            border-radius: 7px;
+            margin-top: 10px;
+            font-size: 20px;
+            color: white;
+            margin-bottom: 5px;
+            text-decoration: none;
+        }
+
+    .bottom-bottom {
+        margin: 0 auto;
+        position: relative;
+        bottom: 490px;
+        width: 1122px;
+        display: flex;
+        align-content: space-evenly;
+    }
+
+    .blockBox {
+        background-color: white;
+        color: gray;
+        border-radius: 15px;
+        padding: 12px;
+        margin-right: 25px;
+        border: 8px solid lightgrey;
+    }

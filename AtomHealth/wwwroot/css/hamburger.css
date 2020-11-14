@@ -107,8 +107,8 @@ body {
  */
 #menu {
     position: absolute;
-    width: 300px;
-    margin: -100px 0 0 -28px;
+    width: 335px;
+    margin: -100px 0 0 -86px;
     padding: 50px;
     padding-top: 125px;
     background: #ededed;
@@ -121,7 +121,7 @@ body {
 }
 
     #menu li {
-        padding: 10px 0;
+        padding: 10px 35px;
         font-size: 22px;
     }
 
@@ -130,4 +130,10 @@ body {
  */
 #menuToggle input:checked ~ ul {
     transform: none;
+}
+
+@media screen and (min-width: 800px) {
+    #menuToggle {
+        display:none;
+    }
 }
