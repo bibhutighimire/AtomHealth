@@ -1,0 +1,87 @@
+﻿html {
+    font-size: 14px;
+   
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color:floralwhite;
+    width:70%;
+    height:auto;
+    margin:0 auto;
+    padding:5px;
+}
+.logoHolder  {
+    width: 1330px;
+    height: 175px;
+    background-color:#62a9bf;
+}
+.logoHolder img {
+    width: 1330px;
+    height: 175px;
+}
+.container {
+    min-height:600px;
+}
+.containerImgHolder img {
+    width: 100%;
+    height: auto;
+    margin: 15px auto;
+}
+.colorfulTexts {
+    color:darkgreen;
+    font-size:large;
+   
+}
+.noncolorfulTexts {
+    color: black;
+    font-size: medium;
+   
+    margin:15px 0;
+}
+.footer-box {
+    background-color: #62a9bf;
+    width: 98%;
+    margin: 40px auto;
+    padding: 45px;
+}
+
+#customers {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom:25px;
+}
+
+    #customers td, #customers th {
+        border: 1px solid gray;
+        padding: 8px;
+    }
+
+    #customers tr:nth-child(even) {
+        background-color: #62a9bf;
+    }
+
+    #customers tr:hover {
+        background-color: #ddd;
+    }
+
+    #customers th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #62a9bf;
+        color: white;
+        border: 1px solid gray;
+    }
+.treqBtn a {
+    background-color: #62a9bf;
+    padding: 20px;
+    border-radius: 12px;
+    color: black;
+    text-decoration: none;
+    border: 1px solid gray;
+    margin-top:32px;
+}
+.calculationBtn {
+    margin-bottom:30px;
+}

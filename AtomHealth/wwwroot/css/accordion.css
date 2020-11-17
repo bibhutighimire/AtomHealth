@@ -26,11 +26,13 @@
     display: none;
     background-color: white;
     overflow: hidden;
-    margin-top:12px;
+    margin-top: 12px;
+    text-align: left;
 }
 .panel p{
     font-size:18px;
     line-height:20px;
     color:gray;
     margin-bottom:15px;
+    text-align:left;
 }

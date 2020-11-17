@@ -68,9 +68,7 @@ namespace AtomHealth.Controllers
             targetToBeDeleted.emergencyphone = atom.emergencyphone;
             targetToBeDeleted.relationship = atom.relationship;
             targetToBeDeleted.inmedicationnow = atom.inmedicationnow;
-            targetToBeDeleted.medication = atom.medication;
-       
-            
+            targetToBeDeleted.medication = atom.medication;       
             targetToBeDeleted.dob = atom.dob;
             
             targetToBeDeleted.diseases = atom.diseases;

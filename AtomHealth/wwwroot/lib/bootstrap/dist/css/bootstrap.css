@@ -554,21 +554,21 @@ pre code {
 }
 
 @media (min-width: 576px) {
-  .container {
-    max-width: 540px;
-  }
+    .container {
+        width: 100%;
+    }
 }
 
 @media (min-width: 768px) {
-  .container {
-    max-width: 720px;
-  }
+    .container {
+        width: 100%;
+    }
 }
 
 @media (min-width: 992px) {
-  .container {
-    max-width: 960px;
-  }
+    .container {
+        width: 100%;
+    }
 }
 
 @media (min-width: 1200px) {
@@ -4462,11 +4462,12 @@ input[type="button"].btn-block {
 }
 
 .navbar-light .navbar-nav .nav-link {
-  color: rgba(0, 0, 0, 0.5);
+  color: white;
 }
 
 .navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .nav-link:focus {
-  color: rgba(0, 0, 0, 0.7);
+  color: white;
+  font-weight:bold;
 }
 
 .navbar-light .navbar-nav .nav-link.disabled {
