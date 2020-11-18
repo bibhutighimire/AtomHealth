@@ -113,7 +113,7 @@ input[type=submit] {
     }
 /* Provide sufficient contrast against white background */
 a {
-    color: darkblue;
+    color: #007bff;
 }
 
 .btn-primary {
@@ -133,16 +133,17 @@ a {
     height: auto;
 }
 
-.bottom-left {
+/*.bottom-left {
     border: 2px solid white;
     border-radius: 15px;
     padding: 17px;
-}
+}*/
 
-    .bottom-left h1 {
-        font-size: 25px;
-        color: #42a5ff;
-    }
+.bottom-left h1 {
+    font-size: 25px;
+    color: #42a5ff;
+    margin-top: 10px;
+}
 
     .bottom-left p {
         margin: 15px 0 25px 0;
@@ -166,6 +167,10 @@ a {
     display: flex;
     flex-direction: column;
     align-content: space-evenly;
+}
+
+.welcometext {
+    margin-top: 15px;
 }
 
 .blockBox {
@@ -221,156 +226,7 @@ html {
     }
 }
 
-@media (min-width: 960px) {
-    .container {
-        max-width: 100%;
-    }
-    .midSector {
-        margin: 0 auto;
-        height: auto;
-      
-    }
-    .navbar-light .navbar-nav .nav-link {
-        color: white;
-        background-color: #42a5ff;
-        font-size: 15px;
-        padding: 12px;
-        margin-bottom: 1.5px;
-        display: flex;
-        flex-direction: column;
-        float: right;
-    }
-    .bottom-left {
-        bottom: 424px;
-        position: absolute;
-        width: 353px;
-        left: 120px;
-        top: 221px;
-        border: 2px solid white;
-        border-radius: 15px;
-        padding: 17px;
-        height: 280px;
-    }
-    .bottom-bottom {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-    }
 
-    .blockBox {
-        margin: 5px;
-    }
-
-        .blockBox h1 {
-            font-size: 25px;
-        }
-
-        .blockBox p {
-            font-size: 18px;
-        }
-}
-
-@media (min-width: 990px) {
-    .container {
-        max-width: 90%;
-    }
-
-    .midSector {
-        margin: 0 auto;
-        height: auto;
-       
-    }
-    .bottom-left {
-        bottom: 424px;
-        position: absolute;
-        width: 353px;
-        left: 120px;
-        top: 221px;
-        border: 2px solid white;
-        border-radius: 15px;
-        padding: 17px;
-        height: 280px;
-    }
-    .navbar-light .navbar-nav .nav-link {
-        color: white;
-        background-color: #42a5ff;
-        font-size: 15px;
-        padding: 12px;
-        margin-bottom: 1.5px;
-        display: flex;
-        flex-direction: column;
-        float: right;
-    }
-
-    .bottom-bottom {
-        display: flex;
-        flex-direction: row;
-        justify-content:space-evenly;
-    }
-
-    .blockBox {
-        margin: 5px;
-    }
-
-        .blockBox h1 {
-            font-size: 25px;
-        }
-
-        .blockBox p {
-            font-size: 18px;
-        }
-}
-@media (min-width: 1024px) {
-    .container {
-        max-width: 80%;
-    }
-
-    .midSector {
-        margin: 0 auto;
-        height: auto;
-       
-    }
-
-    .navbar-light .navbar-nav .nav-link {
-        color: white;
-        background-color: #42a5ff;
-        font-size: 15px;
-        padding: 12px;
-        margin-bottom: 1.5px;
-        display: flex;
-        flex-direction: column;
-        float: right;
-    }
-
-    .bottom-bottom {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-    }
-
-    .blockBox {
-        margin: 5px;
-    }
-
-        .blockBox h1 {
-            font-size: 25px;
-        }
-
-        .blockBox p {
-            font-size: 18px;
-        }
-    .bottom-left {
-        bottom: 424px;
-        position: absolute;
-        width: 353px;
-        left: 220px;
-        top: 221px;
-        border: 2px solid white;
-        border-radius: 15px;
-        padding: 17px;
-        height: 280px;
-    }
-}
 
 @media (min-width: 767px) {
     html {
@@ -431,10 +287,7 @@ html {
         width: 353px;
         left: 150px;
         top:221px;
-        border: 2px solid white;
-        border-radius: 15px;
-        padding: 17px;
-        height:280px;
+       height:280px;
     }
 
         .bottom-left h1 {
@@ -505,4 +358,154 @@ body {
 }
 .containerFooter {
     background-color: #42a5ff;
+}
+.footerparagraph {
+    margin-left:10px;
+}
+
+@media (min-width: 960px) {
+    .container {
+        max-width: 100%;
+    }
+
+    .midSector {
+        margin: 0 auto;
+        height: auto;
+    }
+
+    .navbar-light .navbar-nav .nav-link {
+        color: white;
+        background-color: #42a5ff;
+        font-size: 15px;
+        padding: 12px;
+        margin-bottom: 1.5px;
+        display: flex;
+        flex-direction: column;
+        float: right;
+    }
+
+    .bottom-left {
+        bottom: 424px;
+        position: absolute;
+        width: 353px;
+        left: 120px;
+        top: 221px;
+        height: 280px;
+    }
+
+    .bottom-bottom {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .blockBox {
+        margin: 5px;
+    }
+
+        .blockBox h1 {
+            font-size: 25px;
+        }
+
+        .blockBox p {
+            font-size: 18px;
+        }
+}
+
+@media (min-width: 990px) {
+    .container {
+        max-width: 90%;
+    }
+
+    .midSector {
+        margin: 0 auto;
+        height: auto;
+    }
+
+    .bottom-left {
+        bottom: 424px;
+        position: absolute;
+        width: 353px;
+        left: 120px;
+        top: 221px;
+        height: 280px;
+    }
+
+    .navbar-light .navbar-nav .nav-link {
+        color: white;
+        background-color: #42a5ff;
+        font-size: 15px;
+        padding: 12px;
+        margin-bottom: 1.5px;
+        display: flex;
+        flex-direction: column;
+        float: right;
+    }
+
+    .bottom-bottom {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+
+    .blockBox {
+        margin: 5px;
+    }
+
+        .blockBox h1 {
+            font-size: 25px;
+        }
+
+        .blockBox p {
+            font-size: 18px;
+        }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        max-width: 80%;
+    }
+
+    .midSector {
+        margin: 0 auto;
+        height: auto;
+    }
+
+    .navbar-light .navbar-nav .nav-link {
+        color: white;
+        background-color: #42a5ff;
+        font-size: 15px;
+        padding: 12px;
+        margin-bottom: 1.5px;
+        display: flex;
+        flex-direction: column;
+        float: right;
+    }
+
+    .bottom-bottom {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .blockBox {
+        margin: 5px;
+    }
+
+        .blockBox h1 {
+            font-size: 25px;
+        }
+
+        .blockBox p {
+            font-size: 18px;
+        }
+
+    .bottom-left {
+        bottom: 424px;
+        position: absolute;
+        width: 353px;
+        left: 380px;
+        top: 280px;
+        height: 280px;
+    }
 }

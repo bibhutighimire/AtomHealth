@@ -46,22 +46,22 @@
                         <div class="navLinks">
                             <ul class="navbar-nav flex-grow-1">
                                 <li class="nav-item">
-                                    <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">HOME</a>
+                                    <a class="nav-link" asp-controller="Home" asp-action="Index">HOME</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">OUR VISION</a>
+                                    <a class="nav-link" asp-controller="OurSolution" asp-action="Index">OUR SOLUTION</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">OUR SOLUTION</a>
+                                    <a class="nav-link" asp-controller="JoinUs" asp-action="Index">JOIN US</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" asp-area="" asp-controller="Subscribe" asp-action="Index">JOIN US</a>
+                                    <a class="nav-link" asp-controller="FAQ" asp-action="Index">FAQ</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" asp-area="" asp-controller="FAQ" asp-action="Index">FAQ</a>
+                                    <a class="nav-link" asp-controller="Contact" asp-action="Index">CONTACT US</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" asp-area="" asp-controller="Contact" asp-action="Index">CONTACT US</a>
+                                    <a class="nav-link" asp-controller="News" asp-action="Index">HEALTH NEWS</a>
                                 </li>
 
                             </ul>
@@ -84,7 +84,9 @@
 
     <footer class="border-top footer text-muted">
         <div class="containerFooter">
-            &copy; 2020 - AtomHealth - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            <p class="footerparagraph">
+                &copy; 2020 - AtomHealth - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            </p>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
