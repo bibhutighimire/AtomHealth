@@ -11,7 +11,9 @@ for details on configuring this project to bundle and minify static web assets. 
     height: 65px;
     width: 120px;
 }
-
+.rightMenu {
+    padding:10px;
+}
 .socialMedia {
     margin: 25px 25px 25px 0;
     display: flex;
@@ -36,8 +38,20 @@ for details on configuring this project to bundle and minify static web assets. 
     color: #42a5ff;
     justify-content: flex-end;
     font-size: 15px;
-    margin: 10px 0;
+    margin: 10px 0 10px 0;
+    background-color: white;
+    padding: 15px;
 }
+
+    .signinoutLink a {
+        display: flex;
+        flex-direction: row;
+        height: 20px;
+        color: #42a5ff;
+        justify-content: flex-end;
+        font-size: 15px;
+          
+    }
 
 .navbar-collapse {
     padding: 7px;
@@ -186,7 +200,7 @@ a {
     }
 
 .navLinks {
-    background-color: #42a5ff;
+    
 }
 
     .navLinks ul li a {
