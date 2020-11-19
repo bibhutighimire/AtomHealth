@@ -1,7 +1,8 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 .container {
-    width: 100%;
+    width: 97%;
+ 
 }
 .homepageText {
    
@@ -267,53 +268,147 @@ html {
         }
 }
 
-@media (min-width: 990px) {
-    .container {
-        max-width: 90%;
-    }
-
-    .midSector {
-        margin: 0 auto;
-        height: auto;
-       
-    }
-    .bottom-left {
-        bottom: 424px;
-        position: absolute;
-        width: 353px;
-        left: 350px;
-        top: 280px;
-        height: 280px;
-    }
-    .navbar-light .navbar-nav .nav-link {
-        color: white;
-        background-color: #42a5ff;
-        font-size: 15px;
-        padding: 12px;
-        margin-bottom: 1.5px;
-        display: flex;
-        flex-direction: column;
-        float: right;
-    }
-
-    .bottom-bottom {
-        display: flex;
-        flex-direction: row;
-        justify-content:space-evenly;
-    }
-
-    .blockBox {
-        margin: 5px;
-    }
-
-        .blockBox h1 {
-            font-size: 25px;
+    @media (min-width: 990px) {
+        .container {
+            max-width: 90%;
         }
 
-        .blockBox p {
-            font-size: 18px;
+        .midSector {
+            margin: 0 auto;
+            height: auto;
         }
-}
+
+        .bottom-left {
+            bottom: 424px;
+            position: absolute;
+            width: 353px;
+            left: 350px;
+            top: 280px;
+            height: 280px;
+        }
+
+        .navbar-light .navbar-nav .nav-link {
+            color: white;
+            background-color: #42a5ff;
+            font-size: 15px;
+            padding: 12px;
+            margin-bottom: 1.5px;
+            display: flex;
+            flex-direction: column;
+            float: right;
+        }
+
+        .bottom-bottom {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+        }
+
+        .blockBox {
+            margin: 5px;
+        }
+
+            .blockBox h1 {
+                font-size: 25px;
+            }
+
+            .blockBox p {
+                font-size: 18px;
+            }
+    }
+
+   
+    @media (min-width: 767px) {
+        html {
+            font-size: 14px;
+        }
+
+        .bottom-bottom {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .blockBox {
+            margin: 5px;
+        }
+
+
+            .blockBox h1 {
+                font-size: 20px;
+            }
+
+            .blockBox p {
+                font-size: 15px;
+            }
+
+        .navbar-light .navbar-nav .nav-link {
+            color: white;
+            background-color: #42a5ff;
+            font-size: 14px;
+            padding: 12px;
+            margin-bottom: 1.5px;
+            display: flex;
+            flex-direction: column;
+            float: right;
+        }
+
+        .container {
+            width: 100%;
+        }
+
+            .container a img {
+                height: 100px;
+                width: 180px;
+            }
+
+        .text-center {
+            width: 100%;
+        }
+
+            .text-center img {
+                height: 450px;
+                width: 100%;
+            }
+
+        .bottom-left {
+            bottom: 424px;
+            position: absolute;
+            width: 320px;
+            left: 148px;
+            top: 280px;
+            height: 280px;
+        }
+
+            .bottom-left h1 {
+                font-size: 35px;
+                color: #42a5ff;
+            }
+
+            .bottom-left p {
+                width: 353px;
+                margin-top: 10px;
+                font-size: 20px;
+                color: black;
+            }
+
+            .bottom-left a {
+                background-color: #42a5ff;
+                padding: 12px;
+                border-radius: 7px;
+                margin-top: 10px;
+                font-size: 20px;
+                color: white;
+                margin-bottom: 5px;
+                text-decoration: none;
+            }
+
+        .midSector {
+            margin: 0 auto;
+            height: auto;
+        }
+    }
+
 @media (min-width: 1024px) {
     .container {
         max-width: 80%;
@@ -322,7 +417,6 @@ html {
     .midSector {
         margin: 0 auto;
         height: auto;
-       
     }
 
     .navbar-light .navbar-nav .nav-link {
@@ -353,144 +447,67 @@ html {
         .blockBox p {
             font-size: 18px;
         }
-    .bottom-left {
-        bottom: 424px;
-        position: absolute;
-        width: 353px;
-        left: 350px;
-        top: 280px;
-        height: 280px;
-    }
-}
-
-@media (min-width: 767px) {
-    html {
-        font-size: 14px;
-    }
-
-    .bottom-bottom {
-        display: flex;
-        flex-direction: row;
-        justify-content:space-between;
-    }
-
-  .blockBox {
-        margin: 5px;
-    }
-
-
-        .blockBox h1 {
-            font-size: 20px;
-        }
-
-        .blockBox p {
-            font-size: 15px;
-        }
-
-    .navbar-light .navbar-nav .nav-link {
-        color: white;
-        background-color: #42a5ff;
-        font-size: 14px;
-        padding: 12px;
-        margin-bottom: 1.5px;
-        display: flex;
-        flex-direction: column;
-        float: right;
-    }
-
-    .container {
-        width: 100%;
-    }
-
-        .container a img {
-            height: 100px;
-            width: 180px;
-        }
-
-    .text-center {
-        width: 100%;
-    }
-
-        .text-center img {
-            height: 450px;
-            width: 100%;
-        }
 
     .bottom-left {
         bottom: 424px;
         position: absolute;
         width: 353px;
-        left: 350px;
+        left: 365px;
         top: 280px;
         height: 280px;
     }
+}
 
-        .bottom-left h1 {
-            font-size: 35px;
-            color: #42a5ff;
-        }
 
-        .bottom-left p {
-            width: 353px;
-            margin-top: 10px;
-            font-size: 20px;
-            color: black;
-        }
-
-        .bottom-left a {
-            background-color: #42a5ff;
-            padding: 12px;
-            border-radius: 7px;
-            margin-top: 10px;
-            font-size: 20px;
-            color: white;
-            margin-bottom: 5px;
-            text-decoration: none;
-        }
-    .midSector {
-        margin: 0 auto;
-        height: auto;
-       
+@media (min-width: 1100px) {
+    .bottom-left {
+        bottom: 424px;
+        position: absolute;
+        width: 353px;
+        left: 600px;
+        top: 280px;
+        height: 280px;
     }
 }
 
-.border-top {
-    border-top: 1px solid #e5e5e5;
-}
+    .border-top {
+        border-top: 1px solid #e5e5e5;
+    }
 
-.border-bottom {
-    border-bottom: 1px solid #e5e5e5;
-}
+    .border-bottom {
+        border-bottom: 1px solid #e5e5e5;
+    }
 
-.box-shadow {
-    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
-}
+    .box-shadow {
+        box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+    }
 
-button.accept-policy {
-    font-size: 1rem;
-    line-height: inherit;
-}
+    button.accept-policy {
+        font-size: 1rem;
+        line-height: inherit;
+    }
 
-/* Sticky footer styles
+    /* Sticky footer styles
 -------------------------------------------------- */
-html {
-    position: relative;
-    min-height: 100%;
-}
+    html {
+        position: relative;
+        min-height: 100%;
+    }
 
-body {
-    /* Margin bottom by footer height */
-    /*margin-bottom: 60px;*/
-}
+    body {
+        /* Margin bottom by footer height */
+        /*margin-bottom: 60px;*/
+    }
 
-.footer {
-   
-    bottom: 0;
-    width: 100%;
-    margin:0 auto;
-    white-space: nowrap;
-    line-height: 60px; /* Vertically center the text there */
-}
-.containerFooter {
-    background-color: #42a5ff;
-}
+    .footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        margin: 10px auto 0 auto;
+        white-space: nowrap;
+        line-height: 60px; /* Vertically center the text there */
+    }
+
+    .containerFooter {
+        background-color: #42a5ff;
+    }
