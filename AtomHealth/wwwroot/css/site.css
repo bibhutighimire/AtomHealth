@@ -41,7 +41,7 @@ for details on configuring this project to bundle and minify static web assets. 
     font-size: 15px;
     margin: 10px 0 10px 0;
     background-color: white;
-    padding: 15px;
+    padding: 20px 10px 34px 0px;
 }
 
     .signinoutLink a {
@@ -51,6 +51,8 @@ for details on configuring this project to bundle and minify static web assets. 
         color: #42a5ff;
         justify-content: flex-end;
         font-size: 15px;
+        text-align:center;
+        font-weight:bold;
           
     }
 
@@ -201,7 +203,7 @@ a {
     }
 
 .navLinks {
-    
+
 }
 
     .navLinks ul li a {

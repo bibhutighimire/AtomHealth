@@ -4185,19 +4185,21 @@ input[type="button"].btn-block {
 }
 
 .navbar-nav {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  padding-left: 0;
-  margin-bottom: 0;
-  list-style: none;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    background-color: #42a5ff;
 }
 
-.navbar-nav .nav-link {
-  padding-right: 0;
-  padding-left: 0;
-}
+    .navbar-nav .nav-link {
+        padding-right: 0;
+        padding-left: 0;
+        background-color: #42a5ff;
+    }
 
 .navbar-nav .dropdown-menu {
   position: static;
