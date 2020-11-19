@@ -207,7 +207,7 @@ html {
 
 @media (min-width: 576px) {
     .container {
-        max-width: 100%;
+        max-width: 97%;
     }
 
     .navbar-light .navbar-nav .nav-link {
@@ -345,8 +345,8 @@ html {
         .navbar-light .navbar-nav .nav-link {
             color: white;
             background-color: #42a5ff;
-            font-size: 14px;
-            padding: 12px;
+            font-size: 12px;
+            padding: 10px;
             margin-bottom: 1.5px;
             display: flex;
             flex-direction: column;
