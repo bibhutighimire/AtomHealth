@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 
     @*<environment include="Development">*@
-  
+
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
     <script src="~/lib/jquery/dist/jquery.js"></script>
     <script src="~/lib/jquery-validate/jquery.validate.js"></script>
@@ -51,6 +51,7 @@
                                         <li class="nav-item">
                                             <a class="nav-link" asp-controller="Home" asp-action="Index">HOME</a>
                                         </li>
+
                                         <li class="nav-item">
                                             <a class="nav-link" asp-controller="OurSolution" asp-action="Index">OUR SOLUTION</a>
                                         </li>
@@ -74,96 +75,79 @@
                                 @*Admin Login*@
                                 @if (ViewBag.positionid == "1")
                                 {
-                                    {
-                                        <div class="signinoutLink">
-                                            <p style="color:white; font-size:14px;">Hi @ViewBag.firstname!</p>
-                                            <a asp-controller="SignupAtom" asp-action="Signout">Signout</a>
-                                        </div>
+                                    <div class="signinoutLink">
+                                        <p style="color:white; font-size:14px;">Hi Visitor!</p>
+                                        <a asp-controller="SignupAtom" asp-action="Signout">Signout</a>
+                                    </div>
 
-                                        <ul class="navbar-nav flex-grow-1">
-                                            <li class="nav-item">
-                                                <a class="nav-link" asp-controller="Home" asp-action="Index">HOME</a>
-                                            </li>
+                                    <ul class="navbar-nav flex-grow-1">
+                                        <li class="nav-item">
+                                            <a class="nav-link" asp-controller="Home" asp-action="Index">HOME</a>
+                                        </li>
 
-                                            <li class="nav-item">
-                                                <a class="nav-link" asp-controller="OurSolution" asp-action="Index">OUR SOLUTION</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" asp-controller="SignupAtom" asp-action="Index">Show all Patient Data</a>
-                                            </li>
-                                        </ul>
+                                        <li class="nav-item">
+                                            <a class="nav-link" asp-controller="OurSolution" asp-action="Index">OUR SOLUTION</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" asp-controller="SignupAtom" asp-action="Index">Show all Patient Data</a>
+                                        </li>
+                                    </ul>
 
-                                        <div class="rightMenu">
+                                }
+                                @*Employee Login with Position ID: 2*@
 
-                                            <p style="color:white; font-size:14px;">Hi Visitor!</p>
+                                @if (ViewBag.positionid == "2")
+                                {
+                                    <div class="signinoutLink">
+                                        <p style="color:white; font-size:14px;">Hi Visitor!</p>
+                                        <a asp-controller="SignupAtom" asp-action="Signout">Signout</a>
+                                    </div>
+                                    <ul class="navbar-nav flex-grow-1">
+                                        <li class="nav-item">
+                                            <a class="nav-link" asp-controller="Home" asp-action="Index">HOME</a>
+                                        </li>
 
-                                            <a asp-controller="SignupAtom" asp-action="Signout">Signout</a>
-                                        </div>
+                                        <li class="nav-item">
+                                            <a class="nav-link" asp-controller="OurSolution" asp-action="Index">OUR SOLUTION</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" asp-controller="SignupAtom" asp-action="Index">Show all Patient Data</a>
+                                        </li>
+                                    </ul>
 
-                                    }
-                                    @*Employee Login with Position ID: 2*@
+                                }
+                                @*Patient Login with Position ID: 4*@
+                                @if (ViewBag.positionid == "4")
+                                {
+                                    <div class="signinoutLink">
+                                        <p style="color:white; font-size:14px;">Hi Visitor!</p>
+                                        <a asp-controller="SignupAtom" asp-action="Signout">Signout</a>
+                                    </div>
 
-                                    @if (ViewBag.positionid == "2")
-                                    {
-                                        {
-                                            <div class="signinoutLink">
-                                                <p style="color:white; font-size:14px;">Hi @ViewBag.firstname!</p>
-                                                <a asp-controller="SignupAtom" asp-action="Signout">Signout</a>
-                                            </div>
+                                    <ul class="navbar-nav flex-grow-1">
+                                        <li class="nav-item">
+                                            <a class="nav-link" asp-controller="Home" asp-action="Index">HOME</a>
+                                        </li>
 
-                                            <ul class="navbar-nav flex-grow-1">
-                                                <li class="nav-item">
-                                                    <a class="nav-link" asp-controller="Home" asp-action="Index">HOME</a>
-                                                </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" asp-controller="OurSolution" asp-action="Index">OUR SOLUTION</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" asp-controller="Atom" asp-route-id="@ViewBag.atomid" asp-action="Profile">View Your Profile</a>
+                                        </li>
+                                    </ul>
 
-                                                <li class="nav-item">
-                                                    <a class="nav-link" asp-controller="OurSolution" asp-action="Index">OUR SOLUTION</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link" asp-controller="SignupAtom" asp-action="Index">Show all Patient Data</a>
-                                                </li>
-                                            </ul>
-
-                                            <div class="rightMenu">
-
-                                                <p style="color:white; font-size:14px;">Hi @ViewBag.firstname!</p>
-
-                                                <a asp-controller="SignupAtom" asp-action="Signout">Signout</a>
-                                            </div>
-
-                                        }
-                                        @*Patient Login with Position ID: 4*@
-                                        @if (ViewBag.positionid == "4")
-                                        {
-                                            <div class="signinoutLink">
-                                                <p style="color:white; font-size:14px;">Hi @ViewBag.firstname!</p>
-                                                <a asp-controller="SignupAtom" asp-action="Signout">Signout</a>
-                                            </div>
-                                            <ul class="navbar-nav flex-grow-1">
-                                                <li class="nav-item">
-                                                    <a class="nav-link" asp-controller="Home" asp-action="Index">HOME</a>
-                                                </li>
-
-                                                <li class="nav-item">
-                                                    <a class="nav-link" asp-controller="OurSolution" asp-action="Index">OUR SOLUTION</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link" asp-controller="Atom" asp-route-id="@ViewBag.atomid" asp-action="Profile">View Your Profile</a>
-                                                </li>
-                                            </ul>
-
-
-                                        }
+                                }
 
 
                             </div>
 
                         </div>
 
-                    </div>
 
+
+                    </div>
                 </div>
-            </div>
         </nav>
     </header>
 
@@ -175,9 +159,9 @@
 
     <footer class="border-top footer text-muted">
         <div class="containerFooter">
-           
-                &copy; 2020 - AtomHealth - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-           
+
+            &copy; 2020 - AtomHealth - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
@@ -187,4 +171,5 @@
 </body>
 
 </html>
+
 

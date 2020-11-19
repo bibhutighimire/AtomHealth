@@ -75,7 +75,12 @@
 
                             @*Admin Login*@
                             @if (ViewBag.positionid == "1")
-                            {<ul class="navbar-nav flex-grow-1">
+                            {
+                                <div class="signinoutLink">
+                                    <p style="color:white; font-size:14px;">Hi Visitor!</p>
+                                    <a asp-controller="SignupAtom" asp-action="Signout">Signout</a>
+                                </div>
+                                <ul class="navbar-nav flex-grow-1">
                                     <li class="nav-item">
                                         <a class="nav-link" asp-controller="Home" asp-action="Index">HOME</a>
                                     </li>
@@ -88,18 +93,17 @@
                                     </li>
                                 </ul>
 
-                                <div class="rightMenu">
-
-                                    <p style="color:white; font-size:14px;">Hi Visitor!</p>
-
-                                    <a asp-controller="SignupAtom" asp-action="Signout">Signout</a>
-                                </div>
 
                             }
                             @*Employee Login with Position ID: 2*@
 
                             @if (ViewBag.positionid == "2")
-                            {<ul class="navbar-nav flex-grow-1">
+                            {
+                                <div class="signinoutLink">
+                                    <p style="color:white; font-size:14px;">Hi Visitor!</p>
+                                    <a asp-controller="SignupAtom" asp-action="Signout">Signout</a>
+                                </div>
+                                <ul class="navbar-nav flex-grow-1">
                                     <li class="nav-item">
                                         <a class="nav-link" asp-controller="Home" asp-action="Index">HOME</a>
                                     </li>
@@ -112,17 +116,14 @@
                                     </li>
                                 </ul>
 
-                                <div class="rightMenu">
-
-                                    <p style="color:white; font-size:14px;">Hi @ViewBag.firstname!</p>
-
-                                    <a asp-controller="SignupAtom" asp-action="Signout">Signout</a>
-                                </div>
-
                             }
                             @*Patient Login with Position ID: 4*@
                             @if (ViewBag.positionid == "4")
                             {
+                                <div class="signinoutLink">
+                                    <p style="color:white; font-size:14px;">Hi Visitor!</p>
+                                    <a asp-controller="SignupAtom" asp-action="Signout">Signout</a>
+                                </div>
                                 <ul class="navbar-nav flex-grow-1">
                                     <li class="nav-item">
                                         <a class="nav-link" asp-controller="Home" asp-action="Index">HOME</a>
@@ -135,13 +136,6 @@
                                         <a class="nav-link" asp-controller="Atom" asp-route-id="@ViewBag.atomid" asp-action="Profile">View Your Profile</a>
                                     </li>
                                 </ul>
-
-                                <div class="rightMenu">
-
-                                    <p style="color:white; font-size:14px;">Hi @ViewBag.firstname!</p>
-
-                                    <a asp-controller="SignupAtom" asp-action="Signout">Signout</a>
-                                </div>
 
                             }
 

@@ -66,7 +66,7 @@ namespace AtomHealth.Controllers
             if (email != null && password != null)
             {
                 //checks if user is patient
-                var rightAtom = _context.tblAtom.Where(x => x.email == email && x.password == encoder.Encode(password).FirstOrDefault());
+                var rightAtom = _context.tblAtom.Where(x => x.email == email && x.password == Convert.ToString(encoder.Encode(password)).FirstOrDefault());
 
                 if (rightAtom != null)
                 {
