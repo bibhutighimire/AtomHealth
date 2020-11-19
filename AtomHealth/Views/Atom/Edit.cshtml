@@ -83,11 +83,7 @@
                 <input asp-for="medication" class="form-control" />
                 <span asp-validation-for="medication" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="password" class="control-label"></label>
-                <input asp-for="password" class="form-control" />
-                <span asp-validation-for="password" class="text-danger"></span>
-            </div>
+          
             
             <div class="form-group">
                 <label asp-for="dob" class="control-label"></label>
@@ -108,6 +104,6 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-route-id="@ViewBag.atomid" asp-action="Profile">Back to List</a>
 </div>
 

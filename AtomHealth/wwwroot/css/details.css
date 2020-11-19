@@ -1,14 +1,14 @@
 ﻿#customer {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
- width:50%;
- margin-bottom:34px;
+ width:100%;
+ margin-bottom:34px auto;
 }
 
     #customer td {
         border: 1px solid #ddd;
         padding: 8px;
         width: 70%;
-        border: 1px solid gray;
+        border: 2px solid black;
         margin-bottom: 25px;
     }
     #customer th {
@@ -17,7 +17,7 @@
         width: 20%;
     }
     #customer tr:nth-child(even) {
-        background-color: #62a9bf;
+        background-color: #ddd;
     }
 
     #customer tr:hover {
@@ -28,9 +28,9 @@
         padding-top: 12px;
         padding-bottom: 12px;
         text-align: left;
-        background-color: lightblue;
+        
         color: black;
-        border: 1px solid gray;
+        border: 2px solid black;
     }
 .treqBtn a {
     background-color: #62a9bf;
