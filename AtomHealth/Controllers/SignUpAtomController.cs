@@ -6,7 +6,7 @@ using AtomHealth.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using System.Net;
-
+using Scrypt;
 using System.Net.Sockets;
 using System.Threading;
 using System.Net.NetworkInformation;
@@ -196,6 +196,7 @@ namespace AtomHealth.Controllers
     
         public IActionResult CreateForUserWhoNeedHelp(Atom atom)
         {
+            ScryptEncoder encoder = new ScryptEncoder();
             if (atom.firstname != null && atom.lastname != null && atom.email != null && atom.password != null)
             {
                 var duplicateTarget = _context.tblAtom.Where(x => x.email == atom.email).FirstOrDefault();
@@ -214,8 +215,8 @@ namespace AtomHealth.Controllers
                     tblAtom.healthid = atom.healthid;
                     tblAtom.phone = atom.phone;
                     tblAtom.email = atom.email;
-                    tblAtom.password = atom.password;
-                   
+                    //tblAtom.password = atom.password;
+                    tblAtom.password = encoder.Encode(atom.password);
                     tblAtom.registrationdate = DateTime.Now;
                     tblAtom.dob = atom.dob;
                     tblAtom.registeredby = tblAtom.firstname;
