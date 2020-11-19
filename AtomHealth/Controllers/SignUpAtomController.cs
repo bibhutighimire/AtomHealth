@@ -62,10 +62,11 @@ namespace AtomHealth.Controllers
         //Add password hash codition for sign in
         public IActionResult SigninPost(string email, string password)
         {
-            if(email!=null && password != null)
+            ScryptEncoder encoder = new ScryptEncoder();
+            if (email != null && password != null)
             {
                 //checks if user is patient
-                var rightAtom = _context.tblAtom.Where(x => x.email == email && x.password == password).FirstOrDefault();
+                var rightAtom = _context.tblAtom.Where(x => x.email == email && x.password == encoder.Encode(password).FirstOrDefault());
 
                 if (rightAtom != null)
                 {
