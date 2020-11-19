@@ -59,7 +59,7 @@ namespace AtomHealth.Controllers
 
         [HttpPost]
      
-
+        //Add password hash codition for sign in
         public IActionResult SigninPost(string email, string password)
         {
             if(email!=null && password != null)
