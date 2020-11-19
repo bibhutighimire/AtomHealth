@@ -1,4 +1,5 @@
-﻿@{
+﻿<link rel="stylesheet" href="~/css/site.css" />
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -16,43 +17,45 @@
     <div class="bottom-bottom">
         <div class="blockBox">
             <h1>Patients</h1><br />
-            <p>Your vital healthcare information stored under your unique digital health ID. Owned by you, verified by your family physician and you choose who views it..Learn more</p>
+            <p>Your vital healthcare information stored under your unique digital health ID. Owned by you, verified by your family physician and you choose who views it..<a asp-controller="Patient" asp-action="Index" style="font-weight:bold">Learn More</a></p>
         </div>
 
         <div class="blockBox">
             <h1>Doctors </h1><br />
-            <p>Changing times call for newer, functional solutions. As a physician your concern is the best possible outcome for your patients, we take care of the "HOW"..Learn more)</p>
+            <p>Changing times call for newer, functional solutions. As a physician your concern is the best possible outcome for your patients, we take care of the "HOW"..<a asp-controller="Doctor" asp-action="Index" style="font-weight:bold">Learn More</a></p>
         </div>
 
         <div class="blockBox">
             <h1>Corporations</h1><br />
-            <p>Whether you are a telemedicine company, EMR/EHR company or HMO, all your actions and goals are centred around patient well-being. We help you simplify HIE..Learn more</p>
+            <p>Whether you are a telemedicine company, EMR/EHR company or HMO, all your actions and goals are centred around patient well-being. We help you simplify HIE..<a asp-controller="EMR" asp-action="Index" style="font-weight:bold">Learn More</a></p>
         </div>
 
         <div class="blockBox">
             <h1>Medical insurance companies</h1><br />
-            <p>As virtual and in-person care blend into one, improved patient outcome becomes a shared responsibility. We help reduced the burden with a secure, encrypted digital health ID..Learn more</p>
+            <p>As virtual and in-person care blend into one, improved patient outcome becomes a shared responsibility. We help reduced the burden with a secure, encrypted digital health ID..<a asp-controller="Insurance" asp-action="Index" style="font-weight:bold">Learn More</a></p>
         </div>
 
     </div>
+
 </div>
-<div class="homepageText">
-<h1 style="color:#42a5ff; font-size:24px; font-weight:bold">Welcome to ATOM Health</h1>
-<hr />
-<p style="font-size:18px; line-height:20px; margin-bottom:15px;">
-    In today's times when technology evolves everyday, a healthcare provider's responsibility extends way beyond providing care. Collaborative care between different specialists is the norm and access to relevant health information is critical to diagnosis and management. At Atom Health, we collect verified vital health information and store it in a secure encrypted digital health ID or "ATOM" of each patient.
 
+<div class="welcometext">
 
+    <h1 style="color:#42a5ff; font-size:24px; font-weight:bold">Welcome to ATOM Health</h1>
+    <hr />
+    <p style="font-size:18px; line-height:20px; margin-bottom:15px;">
+        In today's times when technology evolves everyday, a healthcare provider's responsibility extends way beyond providing care. Collaborative care between different specialists is the norm and access to relevant health information is critical to diagnosis and management. At Atom Health, we collect verified vital health information and store it in a secure encrypted digital health ID or "ATOM" of each patient.
+
+</div>
+
+<div class="welcometext">
     <h1 style="color:#42a5ff; font-size:24px; font-weight:bold">Our Vision</h1>
     <hr />
 
-<p style="font-size:18px; line-height:20px; margin-bottom:15px;">
-    The future of healthcare is a good balance of in-person care and telehealth consults. To make the process seamless, to keep the care uninterrupted and to ensure best possible outcomes, sharing of vital health information in a timely manner is critical. While the physician is the custodian of the medical records, the patient is an aware, responsible citizen who wants to actively participate in maintaining his/her health.
-</p>
-<p style="font-size:18px; line-height:20px; margin-bottom:15px;">
-    "Atom" is a unique digital health ID, secure and encrypted, that stores a patient's vital health information, curated with the help of their physician.
-</p>
-    </div>
-
-
-
+    <p style="font-size:18px; line-height:20px; margin-bottom:15px;">
+        The future of healthcare is a good balance of in-person care and telehealth consults. To make the process seamless, to keep the care uninterrupted and to ensure best possible outcomes, sharing of vital health information in a timely manner is critical. While the physician is the custodian of the medical records, the patient is an aware, responsible citizen who wants to actively participate in maintaining his/her health.
+    </p>
+    <p style="font-size:18px; line-height:20px; margin-bottom:15px;">
+        "Atom" is a unique digital health ID, secure and encrypted, that stores a patient's vital health information, curated with the help of their physician.
+    </p>
+</div>

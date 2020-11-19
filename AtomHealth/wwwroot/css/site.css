@@ -133,11 +133,11 @@ a {
     height: auto;
 }
 
-.bottom-left {
+/*.bottom-left {
     border: 2px solid white;
     border-radius: 15px;
     padding: 17px;
-}
+}*/
 
     .bottom-left h1 {
         font-size: 25px;
@@ -244,11 +244,8 @@ html {
         bottom: 424px;
         position: absolute;
         width: 353px;
-        left: 120px;
-        top: 221px;
-        border: 2px solid white;
-        border-radius: 15px;
-        padding: 17px;
+        left: 350px;
+        top: 280px;
         height: 280px;
     }
     .bottom-bottom {
@@ -284,11 +281,8 @@ html {
         bottom: 424px;
         position: absolute;
         width: 353px;
-        left: 120px;
-        top: 221px;
-        border: 2px solid white;
-        border-radius: 15px;
-        padding: 17px;
+        left: 350px;
+        top: 280px;
         height: 280px;
     }
     .navbar-light .navbar-nav .nav-link {
@@ -363,11 +357,8 @@ html {
         bottom: 424px;
         position: absolute;
         width: 353px;
-        left: 220px;
-        top: 221px;
-        border: 2px solid white;
-        border-radius: 15px;
-        padding: 17px;
+        left: 350px;
+        top: 280px;
         height: 280px;
     }
 }
@@ -427,14 +418,11 @@ html {
 
     .bottom-left {
         bottom: 424px;
-        position:absolute;
+        position: absolute;
         width: 353px;
-        left: 633px;
-        top:221px;
-        border: 2px solid white;
-        border-radius: 15px;
-        padding: 17px;
-        height:280px;
+        left: 350px;
+        top: 280px;
+        height: 280px;
     }
 
         .bottom-left h1 {
@@ -492,7 +480,7 @@ html {
 
 body {
     /* Margin bottom by footer height */
-    margin-bottom: 60px;
+    /*margin-bottom: 60px;*/
 }
 
 .footer {
