@@ -29,7 +29,7 @@ namespace AtomHealth.Controllers
 
                 return View(targetToBeDeleted);
             }
-            return RedirectToAction("Signin");
+            return RedirectToAction("Signin", "SignUpAtom");
         }
 
         [HttpGet]
@@ -45,7 +45,7 @@ namespace AtomHealth.Controllers
                 var targetToBeDeleted = _context.tblAtom.Where(x => x.atomid == id).FirstOrDefault();
                 return View(targetToBeDeleted);
             }
-            return RedirectToAction("Signin");
+            return RedirectToAction("Signin", "SignUpAtom");
         }
 
         [HttpPost]
@@ -81,7 +81,7 @@ namespace AtomHealth.Controllers
                 _context.SaveChanges();
                 return RedirectToAction("Profile","Atom", new { id = atom.atomid });
             }
-            return RedirectToAction("Signin");
+            return RedirectToAction("Signin", "SignUpAtom");
 
         }
 
