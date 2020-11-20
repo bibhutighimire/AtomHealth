@@ -85,21 +85,21 @@ namespace AtomHealth.Controllers
                     return View();
                 }
                 //checks if user is employee
-                var rightEmployee = _context.tblEmployee.Where(x => x.email == email && x.password == password).FirstOrDefault();
-                if (rightEmployee != null)
-                {
-                    ViewBag.firstname = rightEmployee.firstname;
-                    ViewBag.lastname = rightEmployee.lastname;
-                    ViewBag.positionid = rightEmployee.positionid;
-                    HttpContext.Session.SetString("firstname", rightEmployee.firstname);
-                    ViewBag.firstname = HttpContext.Session.GetString("firstname");
-                    HttpContext.Session.SetString("lastname", rightEmployee.lastname);
-                    ViewBag.lastname = HttpContext.Session.GetString("lastname");
-                    HttpContext.Session.SetString("positionid", Convert.ToString(rightEmployee.positionid));
-                    ViewBag.positionid = HttpContext.Session.GetString("positionid");
-                    return View();
+                //var rightEmployee = _context.tblEmployee.Where(x => x.email == email && x.password == password).FirstOrDefault();
+                //if (rightEmployee != null)
+                //{
+                //    ViewBag.firstname = rightEmployee.firstname;
+                //    ViewBag.lastname = rightEmployee.lastname;
+                //    ViewBag.positionid = rightEmployee.positionid;
+                //    HttpContext.Session.SetString("firstname", rightEmployee.firstname);
+                //    ViewBag.firstname = HttpContext.Session.GetString("firstname");
+                //    HttpContext.Session.SetString("lastname", rightEmployee.lastname);
+                //    ViewBag.lastname = HttpContext.Session.GetString("lastname");
+                //    HttpContext.Session.SetString("positionid", Convert.ToString(rightEmployee.positionid));
+                //    ViewBag.positionid = HttpContext.Session.GetString("positionid");
+                //    return View();
 
-                }
+                //}
                 else
                 {
 
