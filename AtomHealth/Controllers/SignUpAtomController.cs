@@ -11,13 +11,11 @@ using System.Net.Sockets;
 using System.Threading;
 using System.Net.NetworkInformation;
 using System.Management;
-
 namespace AtomHealth.Controllers
 {
     public class SignUpAtomController : Controller
     {
         private readonly ConnectionDB _context;
-
         public SignUpAtomController(ConnectionDB context)
         {
             _context = context;
@@ -29,7 +27,7 @@ namespace AtomHealth.Controllers
         public IActionResult Index()
         {
             ViewBag.positionid = HttpContext.Session.GetString("positionid");
-            if (ViewBag.positionid=="1" || ViewBag.positionid == "2")
+            if (ViewBag.positionid == "1" || ViewBag.positionid == "2")
             {
                 ViewBag.firstname = HttpContext.Session.GetString("firstname");
                 ViewBag.lastname = HttpContext.Session.GetString("lastname");
@@ -38,29 +36,24 @@ namespace AtomHealth.Controllers
             }
             return RedirectToAction("Signin");
         }
-
         [HttpGet]
-  
+
         public IActionResult Signin()
         {
             return View();
         }
-
         [HttpGet]
-      
+
         public IActionResult SigninWithSession()
         {
-
             ViewBag.email = HttpContext.Session.GetString("email");
             ViewBag.password = HttpContext.Session.GetString("password");
             ViewBag.problem = "Invalid Email Address or Password. Try again!";
             return View();
         }
-
         [HttpPost]
-     
-        //Add password hash codition for sign in
 
+        //Add password hash codition for sign in
         public IActionResult SigninPost(string email, string password)
         {
             ScryptEncoder encoder = new ScryptEncoder();
@@ -69,7 +62,6 @@ namespace AtomHealth.Controllers
                 //checks if user is patient
                 var rightAtom = _context.tblAtom.Where(x => x.email == email).FirstOrDefault();
                 bool isValid = encoder.Compare(password, rightAtom.password);
-
                 if (rightAtom != null && isValid)
                 {
                     ViewBag.firstname = rightAtom.firstname;
@@ -99,16 +91,14 @@ namespace AtomHealth.Controllers
                     HttpContext.Session.SetString("positionid", Convert.ToString(rightEmployee.positionid));
                     ViewBag.positionid = HttpContext.Session.GetString("positionid");
                     return View();
-
                 }
                 else
                 {
-
                     HttpContext.Session.SetString("email", email);
                     HttpContext.Session.SetString("password", password);
                     return RedirectToAction("SigninWithSession");
                 }
-                
+
             }
             else
             {
@@ -118,9 +108,8 @@ namespace AtomHealth.Controllers
                 HttpContext.Session.SetString("password", password);
                 return RedirectToAction("Signin");
             }
-            
-        }
 
+        }
         [HttpGet]
         public IActionResult Create()
         {
@@ -145,7 +134,6 @@ namespace AtomHealth.Controllers
                 ViewBag.lastname = HttpContext.Session.GetString("lastname");
                 ViewBag.positionid = HttpContext.Session.GetString("positionid");
                 Atom tblAtom = new Atom();
-
                 tblAtom.positionid = Convert.ToInt32("4");
                 tblAtom.firstname = atom.firstname;
                 tblAtom.middlename = atom.middlename;
@@ -161,12 +149,10 @@ namespace AtomHealth.Controllers
                 tblAtom.relationship = atom.relationship;
                 tblAtom.inmedicationnow = atom.inmedicationnow;
                 tblAtom.medication = atom.medication;
-
                 tblAtom.password = atom.password;
                 tblAtom.registrationdate = DateTime.Now;
                 tblAtom.dob = atom.dob;
                 tblAtom.registeredby = tblAtom.firstname;
-
                 _context.tblAtom.Add(tblAtom);
                 _context.SaveChanges();
                 return RedirectToAction("Index");
@@ -176,16 +162,16 @@ namespace AtomHealth.Controllers
         [HttpGet]
         public IActionResult CreateForUserWhoNeedHelpBlank()
         {
-            
+
             ViewBag.checkyouremail = HttpContext.Session.GetString("checkyouremail");
-            
+
             ViewBag.positionid = HttpContext.Session.GetString("positionid");
             return View();
         }
         [HttpGet]
         public IActionResult CreateForUserWhoNeedHelp()
         {
-            ViewBag.duplicateemail= HttpContext.Session.GetString("duplicateemail");
+            ViewBag.duplicateemail = HttpContext.Session.GetString("duplicateemail");
             ViewBag.checkyouremail = HttpContext.Session.GetString("checkyouremail");
             ViewBag.firstname = HttpContext.Session.GetString("firstname");
             ViewBag.middlename = HttpContext.Session.GetString("middlename");
@@ -196,14 +182,14 @@ namespace AtomHealth.Controllers
             return View();
         }
         [HttpPost]
-    
+
         public IActionResult CreateForUserWhoNeedHelp(Atom atom)
         {
             ScryptEncoder encoder = new ScryptEncoder();
             if (atom.firstname != null && atom.lastname != null && atom.email != null && atom.password != null)
             {
                 var duplicateTarget = _context.tblAtom.Where(x => x.email == atom.email).FirstOrDefault();
-                if(duplicateTarget==null)
+                if (duplicateTarget == null)
                 {
                     HttpContext.Session.SetString("checkyouremail", "Please check your email for validation");
                     //ViewBag.checkyouremail = HttpContext.Session.GetString("checkyouremail");
@@ -227,8 +213,8 @@ namespace AtomHealth.Controllers
                     _context.SaveChanges();
                     ViewBag.Success = "You are signed up successfully. Please check your email for verification.";
                     HttpContext.Session.SetString("checkyouremail", "Please check your email for validation");
-               
-                return RedirectToAction("CreateForUserWhoNeedHelpBlank");
+
+                    return RedirectToAction("CreateForUserWhoNeedHelpBlank");
                 }
                 else
                 {
@@ -250,7 +236,7 @@ namespace AtomHealth.Controllers
                     ViewBag.Email = atom.email;
                     ViewBag.Password = atom.password;
                     HttpContext.Session.SetString("duplicateemail", "This email address already exists.");
-                   
+
                     return RedirectToAction("CreateForUserWhoNeedHelp");
                 }
                 //return View();
@@ -269,7 +255,6 @@ namespace AtomHealth.Controllers
             }
             return View();
         }
-
         [HttpGet]
         public IActionResult Delete(int id)
         {
@@ -280,7 +265,6 @@ namespace AtomHealth.Controllers
                 ViewBag.lastname = HttpContext.Session.GetString("lastname");
                 ViewBag.positionid = HttpContext.Session.GetString("positionid");
                 var targetToBeDeleted = _context.tblAtom.Where(x => x.atomid == id).FirstOrDefault();
-
                 return View(targetToBeDeleted);
             }
             return RedirectToAction("Signin");
@@ -301,7 +285,6 @@ namespace AtomHealth.Controllers
             }
             return RedirectToAction("Signin");
         }
-
         [HttpGet]
         public IActionResult Details(int id)
         {
@@ -312,12 +295,10 @@ namespace AtomHealth.Controllers
                 ViewBag.lastname = HttpContext.Session.GetString("lastname");
                 ViewBag.positionid = HttpContext.Session.GetString("positionid");
                 var targetToBeDeleted = _context.tblAtom.Where(x => x.atomid == id).FirstOrDefault();
-
                 return View(targetToBeDeleted);
             }
             return RedirectToAction("Signin");
         }
-
         [HttpGet]
         public IActionResult Edit(int id)
         {
@@ -332,7 +313,6 @@ namespace AtomHealth.Controllers
             }
             return RedirectToAction("Signin");
         }
-
         [HttpPost]
         public IActionResult Edit(Atom atom)
         {
@@ -358,18 +338,13 @@ namespace AtomHealth.Controllers
                 targetToBeDeleted.relationship = atom.relationship;
                 targetToBeDeleted.inmedicationnow = atom.inmedicationnow;
                 targetToBeDeleted.medication = atom.medication;
-
-
                 targetToBeDeleted.dob = atom.dob;
-
                 targetToBeDeleted.diseases = atom.diseases;
                 _context.SaveChanges();
                 return RedirectToAction("Index");
             }
             return RedirectToAction("Signin");
-
         }
-
         public IActionResult Signout()
         {
             HttpContext.Session.Clear();
@@ -379,13 +354,7 @@ namespace AtomHealth.Controllers
             ViewBag.firstname = null;
             ViewBag.lastname = null;
             ViewBag.positionid = null;
-
             return RedirectToAction("Signin");
-
         }
-
-
-
-
     }
 }
