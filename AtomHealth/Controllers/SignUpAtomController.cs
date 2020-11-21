@@ -165,7 +165,7 @@ namespace AtomHealth.Controllers
 
             ViewBag.checkyouremail = HttpContext.Session.GetString("checkyouremail");
 
-            ViewBag.positionid = HttpContext.Session.GetString("positionid");
+           // ViewBag.positionid = HttpContext.Session.GetString("positionid");
             return View();
         }
         [HttpGet]

@@ -21,7 +21,26 @@ for details on configuring this project to bundle and minify static web assets. 
     flex-direction: row;
     justify-content: flex-end;
 }
-
+.tabWrap {
+    border: 2px solid lightgray;
+    padding: 10px;
+    border-radius: 7px;
+}
+.joinUsBtn button {
+    background-color: #42a5ff;
+    color: white;
+    font-weight: bold;
+    margin:10px 20px 25px 0px;
+    padding:15px;
+    border-radius:7px;
+}
+.w3-container p{
+    font-size:17px;
+}
+.w3-container h2 {
+    font-size: 22px;
+    color: #42a5ff;
+}
 .signInAndSocial {
     display: flex;
     flex-direction: column;

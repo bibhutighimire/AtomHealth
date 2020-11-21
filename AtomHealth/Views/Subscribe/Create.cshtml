@@ -1,5 +1,6 @@
-﻿@model AtomHealth.Models.Subscribe
-    <link rel="stylesheet" href="~/css/site.css" />
+﻿
+@model AtomHealth.Models.Subscribe
+<link rel="stylesheet" href="~/css/site.css" />
 @{
     ViewData["Title"] = "Create";
     Layout = "~/Views/Shared/_LayoutWithoutBanner.cshtml";
@@ -7,14 +8,75 @@
 
 
 
-    <h1 style="color:#42a5ff; font-size:24px; font-weight:bold">Subscribe for Newsletters</h1>
+<h1 style="color:#42a5ff; font-size:24px; font-weight:bold">Join Us</h1>
+<hr />
+<div class="tabWrap">
+    <div class="joinUsBtn">
+        <button class="tablink" onclick="openCity(event,'Patients')">Patients</button>
+        <button class="tablink" onclick="openCity(event,'Doctors')">Doctors</button>
+        <button class="tablink" onclick="openCity(event,'Corporations')">Corporations</button>
+        <button class="tablink" onclick="openCity(event,'MIC')">Medical Insurance Companies</button>
+
+    </div>
+
+    <hr />
+
+    <div id="Patients" class="w3-container city">
+        <h2>Patients</h2>
+        <p>
+            Your vital healthcare information stored under your unique digital health ID. Owned by you, verified by your family physician and you choose who views it.
+            Sign up with us, create your profile and our software generates a unique digital ID, specific to you. All your vital health information- including your medical conditions, medications, allergies, past medical history, family history, genetic history, is stored securely in this unique digital healthID assigned to you, much like a passport carrying your travel history. You have the view-only access key on you at all times and can share that with another healthcare provider, whether you are doing a virtual consult on telemedicine platform or you are in a walk-in clinic.  What's more? You can add family members or dependents and ensure their well-being too.
+            <a asp-controller="SignUpAtom" asp-action="CreateForUserWhoNeedHelp" style="font-weight:bold; color:#42a5ff">SIGN UP</a>  with us today to join us on this journey.
+</p>
+    </div>
+
+    <div id="Doctors" class="w3-container city" style="display:none">
+        <h2>Doctors</h2>
+        <p>
+            Changing times call for newer, functional solutions. Virtual care, being peripheral since a long time, suddenly found acceptance and adoption during these unprecedented times. 
+            As a physician, your Hippocratic Oath puts you in a position where you have to adopt new technology for the patients, while being mindful of their privacy rights, as you pursue your goal of patient well-being and best possible outcomes. 
+            As you juggle in-person clinical visits and virtual telemedicine visits, we help you maintain your peace of mind by enabling simple, concise health information sharing. 
+            Improved patient outcomes, reduced liability and more reliable decision-making for a patient are just a few benefits. Ask your telehealth provider to connect with us to enable secure data access.
+            <a asp-controller="SignUpAtom" asp-action="CreateForUserWhoNeedHelp" style="font-weight:bold; color:#42a5ff">SIGN UP</a> with us today to join us on this journey.
+        </p>
+    </div>
+
+    <div id="Corporations" class="w3-container city" style="display:none">
+        <h2>Corporations</h2>
+        <p>
+            Whether you are a telemedicine company, EMR/EHR company or HMO, all your actions and goals are centred around patient well-being. We help you simplify HIE through a secure, digital health ID that is unique to each patient. 
+            Our secure view-only access to the patient health information, not only improves patient satisfaction with your company, but also improves adherence and long-term relationship with physicians and patients. 
+            As a telehealth company, both sides of your market, physicians as well as patients will appreciate your commitment to patient well-being.
+            As an EMR/EHR company, you have hundreds of millions of patient medical records. All we need is small snippets from there to create our unique health ID. 
+            Because our common goal is to make the process of delivery of care hassle-free for the physicians.
+            As an HMO, good patient outcomes and stress-free physicians are drivers of your success, and we want to participate with you in value cocreation of sustainable care.
+            <a asp-controller="Contact" asp-action="Index" style="font-weight:bold; color:#42a5ff">Partner with us</a>
+        </p>
+    </div>
+
+    <div id="MIC" class="w3-container city" style="display:none">
+        <h2>Medical Insurance Companies</h2>
+        <p>
+            As virtual and in-person care blend into one, improved patient outcome becomes a shared responsibility.  Annually, misdiagnosis and complications related to incomplete medical history causes a loss of 20 million DALYs and billions of dollars. 
+            We hope to reduce this burden with a secure, encrypted digital health ID. This unique patient health ID can be used to share vital health information with the attending physician, thereby preventing adverse outcomes. 
+            We also help coordinate care and claims to streamline the process for you.
+            <a asp-controller="Contact" asp-action="Index" style="font-weight:bold; color:#42a5ff">Partner with us</a>
+        </p>
+    </div>
+</div>
+<hr />
+
+
+
+
+<h1 style="color:#42a5ff; font-size:24px; font-weight:bold">Subscribe for Newsletters</h1>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-               Email Address:
+                Email Address:
                 <input asp-for="email" class="form-control" />
                 <span asp-validation-for="email" class="text-danger"></span>
             </div>
@@ -33,3 +95,19 @@
         </form>
     </div>
 </div>
+
+<script>
+    function openCity(evt, cityName) {
+        var i, x, tablinks;
+        x = document.getElementsByClassName("city");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablink");
+        for (i = 0; i < x.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" w3-gray", "");
+        }
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.className += " w3-gray";
+    }
+</script>
