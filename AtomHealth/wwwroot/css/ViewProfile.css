@@ -1,0 +1,93 @@
+﻿/*Profile page css start*/
+.navbar-brand {
+    float: left;
+    padding: 15px 15px;
+    font-size: 18px;
+    line-height: 20px;
+    height:95px;
+}
+.panelbio {
+    margin-bottom: 20px;
+    /*margin-top:50px;*/
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+}
+
+/*.panelbio-body {
+    padding: 15px;
+}*/
+
+.bio-graph-heading {
+    background: #42a5ff;
+    color: #fff;
+    text-align: center;
+    font-style: italic;
+    padding: 10px 110px;
+    border-radius: 4px 4px 0 0;
+    -webkit-border-radius: 4px 4px 0 0;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.bio-graph-info {
+    color: #89817e;
+    padding: 15px;
+    /*background-color: whitesmoke;*/
+}
+
+    .bio-graph-info h1 {
+        font-size: 25px;
+        font-weight: 300;
+        margin: 0 0 20px;
+        color: #42a5ff;
+    }
+
+.bio-row {
+    width: 50%;
+    float: left;
+    margin-bottom: 10px;
+    padding: 0 15px;
+}
+
+    .bio-row p span {
+        width: 100px;
+        display: inline-block;
+        font-weight: bold;
+    }
+
+
+
+.bio-desk {
+    
+    float: left;
+    margin-bottom: 10px;
+    padding: 0 15px;
+}
+
+.bio-row p span {
+    
+    font-weight: bold;
+}
+
+    .bio-desk h4 {
+        font-size: 18px;
+        font-weight: 400; 
+        color: #42a5ff;
+    }
+
+@media (min-width: 1024px) {
+    .panelbio {
+        margin-bottom: 20px;
+        margin-top:0;
+        background-color: #fff;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+        box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    }
+}
+
+    /*Profile page css end*/
