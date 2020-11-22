@@ -1,0 +1,123 @@
+USE [dbAtomHealth]
+GO
+/****** Object:  Table [dbo].[tblAtom]    Script Date: 11/21/2020 10:46:01 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tblAtom](
+	[atomid] [int] IDENTITY(1,1) NOT NULL,
+	[firstname] [varchar](100) NULL,
+	[middlename] [varchar](100) NULL,
+	[lastname] [varchar](100) NULL,
+	[healthid] [bigint] NULL,
+	[phone] [bigint] NULL,
+	[email] [varchar](100) NULL,
+	[sex] [varchar](50) NULL,
+	[height] [decimal](5, 2) NULL,
+	[weight] [int] NULL,
+	[ismarried] [varchar](100) NULL,
+	[emergencyphone] [bigint] NULL,
+	[relationship] [varchar](100) NULL,
+	[medication] [text] NULL,
+	[dob] [date] NULL,
+	[registrationdate] [datetime] NULL,
+	[registeredby] [varchar](100) NULL,
+	[diseases] [varchar](1000) NULL,
+	[positionid] [int] NULL,
+	[password] [nvarchar](500) NULL,
+	[inmedicationnow] [varchar](50) NULL,
+ CONSTRAINT [PK_tblAtom] PRIMARY KEY CLUSTERED 
+(
+	[atomid] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[tblEmployee]    Script Date: 11/21/2020 10:46:02 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tblEmployee](
+	[employeeid] [int] IDENTITY(1,1) NOT NULL,
+	[firstname] [varchar](100) NULL,
+	[middlename] [varchar](100) NULL,
+	[lastname] [varchar](100) NULL,
+	[email] [varchar](100) NULL,
+	[phone] [bigint] NULL,
+	[dob] [date] NULL,
+	[registeredby] [varchar](50) NULL,
+	[registrationdate] [date] NULL,
+	[positionid] [int] NULL,
+	[password] [varchar](50) NULL,
+	[sex] [varchar](100) NULL,
+ CONSTRAINT [PK_tblEmployee] PRIMARY KEY CLUSTERED 
+(
+	[employeeid] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[tblPosition]    Script Date: 11/21/2020 10:46:02 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tblPosition](
+	[positionid] [int] IDENTITY(1,1) NOT NULL,
+	[positionname] [varchar](50) NULL,
+ CONSTRAINT [PK_tblPosition] PRIMARY KEY CLUSTERED 
+(
+	[positionid] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[tblSubscribe]    Script Date: 11/21/2020 10:46:02 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tblSubscribe](
+	[subscribeid] [int] NULL,
+	[email] [varchar](100) NULL
+) ON [PRIMARY]
+GO
+SET IDENTITY_INSERT [dbo].[tblAtom] ON 
+GO
+INSERT [dbo].[tblAtom] ([atomid], [firstname], [middlename], [lastname], [healthid], [phone], [email], [sex], [height], [weight], [ismarried], [emergencyphone], [relationship], [medication], [dob], [registrationdate], [registeredby], [diseases], [positionid], [password], [inmedicationnow]) VALUES (1, N'bibhuti', N'v', N'ghimire', 2587945635, 2407794705, N'bibu@ualberta.ca', N'female', CAST(158.56 AS Decimal(5, 2)), 130, N'1', 5875683085, N'husband', N'fdgg gggd btbrtb sdcsd , erve, ferfe', CAST(N'1991-02-14' AS Date), CAST(N'2020-10-29T00:00:00.000' AS DateTime), N'bibu', N'nothing, null, no problem, thank you god', 4, N'www', NULL)
+GO
+INSERT [dbo].[tblAtom] ([atomid], [firstname], [middlename], [lastname], [healthid], [phone], [email], [sex], [height], [weight], [ismarried], [emergencyphone], [relationship], [medication], [dob], [registrationdate], [registeredby], [diseases], [positionid], [password], [inmedicationnow]) VALUES (8, N'Miral', N'v', N'S', 4569871236, 78965412356, N'MIRAL@GMAIL.COM', N'Female', CAST(168.35 AS Decimal(5, 2)), 189, N'Married', 5478963542, N'Kids', N'i am in medicationa and this is the list of medication here', CAST(N'1985-10-20' AS Date), CAST(N'2020-10-30T08:09:12.297' AS DateTime), N'Miral', N'i do not have any , disease, thank, you , god mg 50gram, 32gm water', 4, N'www', NULL)
+GO
+INSERT [dbo].[tblAtom] ([atomid], [firstname], [middlename], [lastname], [healthid], [phone], [email], [sex], [height], [weight], [ismarried], [emergencyphone], [relationship], [medication], [dob], [registrationdate], [registeredby], [diseases], [positionid], [password], [inmedicationnow]) VALUES (9, N'miral', N'v', N's', 646464646, 84848484848484, N'bibhuti@ualberta.ca', N'Female', CAST(72.85 AS Decimal(5, 2)), 149, N'Married', 5489658745, N'Husband', N'i am in medicationa and this is the list of medication here', CAST(N'2020-10-20' AS Date), CAST(N'2020-10-30T08:10:55.203' AS DateTime), N'miral', N'i do not have any , disease, thank, you , god mg 50gram, 32gm water', 4, N'www', NULL)
+GO
+INSERT [dbo].[tblAtom] ([atomid], [firstname], [middlename], [lastname], [healthid], [phone], [email], [sex], [height], [weight], [ismarried], [emergencyphone], [relationship], [medication], [dob], [registrationdate], [registeredby], [diseases], [positionid], [password], [inmedicationnow]) VALUES (10, N'dddd', N'v', N'Ghimire', 343434343434, 5877784705, N'bibhuti@ualberta.ca', N'Female', CAST(89.53 AS Decimal(5, 2)), 345, N'm', 5877784705, N'jh', N'fgfg', CAST(N'2020-10-14' AS Date), CAST(N'2020-10-31T15:44:17.270' AS DateTime), N'dddd', N'gfgf', 4, N'www', NULL)
+GO
+INSERT [dbo].[tblAtom] ([atomid], [firstname], [middlename], [lastname], [healthid], [phone], [email], [sex], [height], [weight], [ismarried], [emergencyphone], [relationship], [medication], [dob], [registrationdate], [registeredby], [diseases], [positionid], [password], [inmedicationnow]) VALUES (11, N'dd', N'd', N'ddd', 334343434343, 43434343434, N'bibhuti@ualberta.ca', N'f', CAST(56.00 AS Decimal(5, 2)), 55, N'm', 65656, N'jh', N'fgfg', CAST(N'2020-10-21' AS Date), CAST(N'2020-10-31T16:21:14.247' AS DateTime), N'dd', N'fgfg', 4, N'www', NULL)
+GO
+INSERT [dbo].[tblAtom] ([atomid], [firstname], [middlename], [lastname], [healthid], [phone], [email], [sex], [height], [weight], [ismarried], [emergencyphone], [relationship], [medication], [dob], [registrationdate], [registeredby], [diseases], [positionid], [password], [inmedicationnow]) VALUES (12, N'AdminOneFirstNameedited', N'Sundar', N'Karki', 3434343434, 5877784705, N'rareram@hotmail.com', N'm', CAST(65.00 AS Decimal(5, 2)), 44, N'm', 56556, N'jh', N'fgfg', CAST(N'2020-10-29' AS Date), CAST(N'2020-10-31T16:29:05.363' AS DateTime), N'AdminOneFirstNameedited', N'fgfgf', 4, N'www', NULL)
+GO
+INSERT [dbo].[tblAtom] ([atomid], [firstname], [middlename], [lastname], [healthid], [phone], [email], [sex], [height], [weight], [ismarried], [emergencyphone], [relationship], [medication], [dob], [registrationdate], [registeredby], [diseases], [positionid], [password], [inmedicationnow]) VALUES (13, N'Bibhuti', N'v', N'Ghimire', 23232323, 5877784705, N'bibhuti@ualberta.ca', N'm', CAST(65.00 AS Decimal(5, 2)), 33, N'm', 6565656, N'jhj', N'fgf', CAST(N'2020-10-21' AS Date), CAST(N'2020-10-31T19:45:52.007' AS DateTime), N'Bibhuti', N'fgfg', 4, N'www', NULL)
+GO
+INSERT [dbo].[tblAtom] ([atomid], [firstname], [middlename], [lastname], [healthid], [phone], [email], [sex], [height], [weight], [ismarried], [emergencyphone], [relationship], [medication], [dob], [registrationdate], [registeredby], [diseases], [positionid], [password], [inmedicationnow]) VALUES (14, N'Bibhuti', N'k', N'Ghimire', 646464, 5877784705, N'bibhuti@ualberta.ca', N'm', CAST(78.36 AS Decimal(5, 2)), 182, N'Married', 5454544554, N'Husband', N'i am in medicationa and this is the list of medication here', CAST(N'2020-10-21' AS Date), CAST(N'2020-10-31T20:45:44.853' AS DateTime), N'Bibhuti', N'i do not have any , disease, thank, you , god mg 50gram, 32gm water', 4, N'www', NULL)
+GO
+INSERT [dbo].[tblAtom] ([atomid], [firstname], [middlename], [lastname], [healthid], [phone], [email], [sex], [height], [weight], [ismarried], [emergencyphone], [relationship], [medication], [dob], [registrationdate], [registeredby], [diseases], [positionid], [password], [inmedicationnow]) VALUES (29, N'Bibhuti', N'Kumari', N'Ghimire', 83581864, 2407794705, N'tammy@gmail.com', N'Female', CAST(5.30 AS Decimal(5, 2)), 105, N'Married', 2407794705, N'Husband', N'Medication Names: Acetaminophen, Adderall, Amitriptyline, Amlodipine, Amoxicillin, Ativan, Atorvastatin, Azithromycin', CAST(N'1963-03-14' AS Date), CAST(N'2020-11-20T21:52:39.560' AS DateTime), N'Bibhuti', N'Disease Names: Diabetes, Insulin, High Blood Pressure, Ankle Sprain, Diahhroea', 4, N'$s2$16384$8$1$GDQQ+dp8aCcDvP3KSAnirPjQ57baZsyNdLuo11Fa9YI=$4Lbi3uCy0dYX0aOkrZtXKlSrgz2wYjlZULo0vxxQL+Q=', N'Yes')
+GO
+SET IDENTITY_INSERT [dbo].[tblAtom] OFF
+GO
+SET IDENTITY_INSERT [dbo].[tblEmployee] ON 
+GO
+INSERT [dbo].[tblEmployee] ([employeeid], [firstname], [middlename], [lastname], [email], [phone], [dob], [registeredby], [registrationdate], [positionid], [password], [sex]) VALUES (1, N'Bibhuti', N'K', N'Ghimire', N'ghimirebibhuti@gmail.com', 5877784705, CAST(N'1991-02-14' AS Date), N'Bibhuti', CAST(N'2020-10-30' AS Date), 2, N'passbibhuti', NULL)
+GO
+SET IDENTITY_INSERT [dbo].[tblEmployee] OFF
+GO
+SET IDENTITY_INSERT [dbo].[tblPosition] ON 
+GO
+INSERT [dbo].[tblPosition] ([positionid], [positionname]) VALUES (1, N'admin')
+GO
+INSERT [dbo].[tblPosition] ([positionid], [positionname]) VALUES (2, N'employee')
+GO
+INSERT [dbo].[tblPosition] ([positionid], [positionname]) VALUES (3, N'doctor')
+GO
+INSERT [dbo].[tblPosition] ([positionid], [positionname]) VALUES (4, N'patient')
+GO
+SET IDENTITY_INSERT [dbo].[tblPosition] OFF
+GO

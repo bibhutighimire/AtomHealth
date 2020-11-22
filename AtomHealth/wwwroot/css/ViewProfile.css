@@ -55,7 +55,7 @@
 
     .bio-row p span {
         width: 100px;
-        display: inline-block;
+      padding-right:8px;
         font-weight: bold;
     }
 .bio-desk {
