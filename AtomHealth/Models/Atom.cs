@@ -35,11 +35,12 @@ namespace AtomHealth.Models
         public string sex { get; set; }
         //public string ipv6 { get; set; }
         public decimal height { get; set; }
+
         public int weight { get; set; }
         public string ismarried { get; set; }
         public long emergencyphone { get; set; }
         public string relationship { get; set; }
-        public int inmedicationnow { get; set; }
+        public string inmedicationnow { get; set; }
         public string medication { get; set; }
         [Display(Name = "Password")]
         [Required(ErrorMessage = "Password can not be blank.")]

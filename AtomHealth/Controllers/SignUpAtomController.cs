@@ -75,7 +75,7 @@ namespace AtomHealth.Controllers
                     ViewBag.positionid = HttpContext.Session.GetString("positionid");
                     HttpContext.Session.SetString("atomid", Convert.ToString(rightAtom.atomid));
                     ViewBag.atomid = HttpContext.Session.GetString("atomid");
-                    return View();
+                    return RedirectToAction("Profile", "Atom", new { id = rightAtom.atomid });
                 }
                 //checks if user is employee
                 var rightEmployee = _context.tblEmployee.Where(x => x.email == email && x.password == password).FirstOrDefault();

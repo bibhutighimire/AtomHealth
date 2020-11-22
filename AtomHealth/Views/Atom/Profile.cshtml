@@ -1,7 +1,8 @@
 ﻿@model AtomHealth.Models.Atom
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-<link rel="stylesheet" href="~/css/details.css" />
+@*<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">*@
+@*<link rel="stylesheet" href="~/css/details.css" />*@
+<link rel="stylesheet" href="~/css/site.css" />
 <link rel="stylesheet" href="~/css/ViewProfile.css" />
 @{
     ViewData["Title"] = "View Profile";
@@ -13,10 +14,10 @@
 <div class="panelbio">
 
     <div class="bio-graph-heading">
-        Your Profile
+        @ViewBag.firstname's  Profile
     </div>
     <div class="panelbio-body bio-graph-info">
-        <h1>Bio</h1>
+
         <div class="row">
             <div class="bio-row">
                 <p><span>First Name:</span>@Html.DisplayFor(model => model.firstname)</p>
@@ -31,7 +32,7 @@
                 <p><span>Date of Birth:</span>@Html.DisplayFor(model => model.dob)</p>
             </div>
             <div class="bio-row">
-                <p><span>Health ID:</span>@Html.DisplayNameFor(model => model.healthid)</p>
+                <p><span>Health ID:</span>@Html.DisplayFor(model => model.healthid)</p>
             </div>
             <div class="bio-row">
                 <p><span>Phone:</span>@Html.DisplayFor(model => model.phone)</p>
@@ -57,45 +58,47 @@
         </div>
 
     </div>
-
+    <br/>
     <div class="row">
         <div class="col-md-6">
-            <div class="panelbio">
-                <div class="panelbio-body">
-                    <div class="bio-desk">
-                        <h4 class="red">Emergency Contact</h4>
-                        <p><span>Emergency Phone Number:</span>&nbsp;&nbsp;@Html.DisplayFor(model => model.emergencyphone)</p>
-                        <p><span>Relationship with Emergency Contact:</span>&nbsp;&nbsp;@Html.DisplayFor(model => model.relationship)</p>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <div class="col-md-6">
-            <div class="panelbio">
-                <div class="panelbio-body">
-                    <div class="bio-desk">
-                        <h4 class="terques">Medications</h4>
-                        <p><span>In Medication Now?:</span>&nbsp;&nbsp;@Html.DisplayFor(model => model.inmedicationnow)</p>
-                        <p><span>Medication Details:</span>&nbsp;&nbsp;@Html.DisplayFor(model => model.medication)</p>
-                    </div>
+            <div class="panelbio-body">
+                <div class="bio-desk">
+                    <h4 class="red">Emergency Contact</h4>
+                    <p><span>Emergency Phone Number:</span>&nbsp;&nbsp;@Html.DisplayFor(model => model.emergencyphone)</p>
+                    <p><span>Relationship with Emergency Contact:</span>&nbsp;&nbsp;@Html.DisplayFor(model => model.relationship)</p>
                 </div>
             </div>
+
         </div>
+        <br />
         <div class="col-md-6">
-            <div class="panelbio">
-                <div class="panelbio-body">
-                    <div class="bio-desk">
-                        <h4 class="green">Diseases</h4>
-                        <p><span>Diseases:</span>@Html.DisplayFor(model => model.diseases)</p>
-                    </div>
+
+            <div class="panelbio-body">
+                <div class="bio-desk">
+                    <h4 class="terques">Medications</h4>
+                    <p><span>In Medication Now?</span>&nbsp;&nbsp;@Html.DisplayFor(model => model.inmedicationnow)</p>
+                    <p><span>Medication Details:</span>&nbsp;&nbsp;@Html.DisplayFor(model => model.medication)</p>
                 </div>
             </div>
+
+        </div>
+        <br />
+        <div class="col-md-6">
+
+            <div class="panelbio-body">
+                <div class="bio-desk">
+                    <h4 class="green">Diseases</h4>
+                    <p><span>Diseases:</span>@Html.DisplayFor(model => model.diseases)</p>
+                </div>
+            </div>
+
         </div>
     </div>
-        <br />
-        <br />
-        <div>
-            <a asp-action="Edit" asp-route-id="@ViewBag.atomid"><i class="fa fa-edit"></i> Edit profile</a>
-        </div>
+    <br />
+    <br />
+
+</div>
+<div class="bio-desk">
+    <a asp-action="Edit" asp-route-id="@ViewBag.atomid"><i class="fa fa-edit"></i> Edit profile</a>
 </div>

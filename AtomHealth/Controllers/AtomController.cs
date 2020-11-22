@@ -64,7 +64,7 @@ namespace AtomHealth.Controllers
                 targetToBeDeleted.lastname = atom.lastname;
                 targetToBeDeleted.healthid = atom.healthid;
                 targetToBeDeleted.phone = atom.phone;
-                targetToBeDeleted.email = atom.email;
+                //targetToBeDeleted.email = atom.email;
                 targetToBeDeleted.sex = atom.sex;
                 targetToBeDeleted.height = atom.height;
                 targetToBeDeleted.weight = atom.weight;

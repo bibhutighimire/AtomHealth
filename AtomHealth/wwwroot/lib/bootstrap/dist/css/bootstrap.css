@@ -1028,7 +1028,7 @@ pre code {
   .col-md-4 {
     -ms-flex: 0 0 33.333333%;
     flex: 0 0 33.333333%;
-    max-width: 33.333333%;
+    max-width: 100%;
   }
   .col-md-5 {
     -ms-flex: 0 0 41.666667%;
@@ -8152,7 +8152,7 @@ button.bg-dark:focus {
 .pb-3,
 .py-3 {
     padding-bottom: 1rem !important;
-    margin-bottom: 60px;
+    margin-bottom: 95px;
 }
 
 .pl-3,
