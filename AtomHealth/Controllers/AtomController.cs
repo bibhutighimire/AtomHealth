@@ -16,7 +16,7 @@ namespace AtomHealth.Controllers
             _context = context;
         }
         [HttpGet]
-        public IActionResult Profile(int id)
+        public IActionResult Profile(Guid id)
         {
             ViewBag.positionid = HttpContext.Session.GetString("positionid");
             if (ViewBag.positionid == "4")
@@ -33,7 +33,7 @@ namespace AtomHealth.Controllers
         }
 
         [HttpGet]
-        public IActionResult Edit(int id)
+        public IActionResult Edit(Guid id)
         {
             ViewBag.positionid = HttpContext.Session.GetString("positionid");
             if (ViewBag.positionid == "4")

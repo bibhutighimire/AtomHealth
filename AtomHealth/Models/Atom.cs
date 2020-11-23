@@ -9,7 +9,7 @@ namespace AtomHealth.Models
     [Table("tblAtom")]
     public class Atom
     {
-        public int atomid { get; set; }
+        public Guid atomid { get; set; }
         public int positionid { get; set; }
         [Required(ErrorMessage = "First Name can not be blank.")]
         [StringLength(100)]

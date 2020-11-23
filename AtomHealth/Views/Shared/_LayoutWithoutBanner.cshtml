@@ -75,18 +75,23 @@
                                 @*Admin Login*@
                                 @if (ViewBag.positionid == "1")
                                 {
-                            <div class="signinoutLink">
-                                <p style="color:#42a5ff; font-size:14px; font-weight:bold; padding-right:10px;">Hi  @ViewBag.firstname!</p>
-                                <a style="color:white; background-color:#42a5ff;     padding: 13px 13px 30px 13px; font-size:14px;" asp-controller="SignupAtom" asp-action="Signout">Signout</a>
-                            </div>
-
+                                    <div class="signinoutLink">
+                                        <p style="color:#42a5ff; font-size:14px; font-weight:bold; padding-right:10px;">Hi  @ViewBag.firstname!</p>
+                                        <a style="color:white; background-color:#42a5ff;     padding: 13px 13px 30px 13px; font-size:14px;" asp-controller="SignupAtom" asp-action="Signout">Signout</a>
+                                    </div>
                                     <ul class="navbar-nav flex-grow-1">
                                         <li class="nav-item">
                                             <a class="nav-link" asp-controller="Home" asp-action="Index">HOME</a>
                                         </li>
 
                                         <li class="nav-item">
-                                            <a class="nav-link" asp-controller="SignupAtom" asp-action="Index">Show all Patient Data</a>
+                                            <a class="nav-link" asp-controller="Patient" asp-action="Index">Patients</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" asp-controller="Subscribe" asp-action="Index">Subscribers</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" asp-controller="Employee" asp-action="Index">Employees</a>
                                         </li>
                                     </ul>
 
@@ -95,10 +100,10 @@
 
                                 @if (ViewBag.positionid == "2")
                                 {
-                            <div class="signinoutLink">
-                                <p style="color:#42a5ff; font-size:14px; font-weight:bold; padding-right:10px;">Hi  @ViewBag.firstname!</p>
-                                <a style="color:white; background-color:#42a5ff;     padding: 13px 13px 30px 13px; font-size:14px;" asp-controller="SignupAtom" asp-action="Signout">Signout</a>
-                            </div>
+                                    <div class="signinoutLink">
+                                        <p style="color:#42a5ff; font-size:14px; font-weight:bold; padding-right:10px;">Hi  @ViewBag.firstname!</p>
+                                        <a style="color:white; background-color:#42a5ff;     padding: 13px 13px 30px 13px; font-size:14px;" asp-controller="SignupAtom" asp-action="Signout">Signout</a>
+                                    </div>
                                     <ul class="navbar-nav flex-grow-1">
                                         <li class="nav-item">
                                             <a class="nav-link" asp-controller="Home" asp-action="Index">HOME</a>
@@ -113,10 +118,10 @@
                                 @*Patient Login with Position ID: 4*@
                                 @if (ViewBag.positionid == "4")
                                 {
-                            <div class="signinoutLink">
-                                <p style="color:#42a5ff; font-size:14px; font-weight:bold; padding-right:10px;">Hi  @ViewBag.firstname!</p>
-                                <a style="color:white; background-color:#42a5ff;     padding: 13px 13px 30px 13px; font-size:14px;" asp-controller="SignupAtom" asp-action="Signout">Signout</a>
-                            </div>
+                                    <div class="signinoutLink">
+                                        <p style="color:#42a5ff; font-size:14px; font-weight:bold; padding-right:10px;">Hi  @ViewBag.firstname!</p>
+                                        <a style="color:white; background-color:#42a5ff;     padding: 13px 13px 30px 13px; font-size:14px;" asp-controller="SignupAtom" asp-action="Signout">Signout</a>
+                                    </div>
 
                                     <ul class="navbar-nav flex-grow-1">
                                         <li class="nav-item">

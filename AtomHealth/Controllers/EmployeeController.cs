@@ -26,7 +26,7 @@ namespace AtomHealth.Controllers
         }
 
           [HttpGet]
-        public IActionResult Details(int id)
+        public IActionResult Details(Guid id)
         {
             ViewBag.firstname = HttpContext.Session.GetString("firstname");
             ViewBag.lastname = HttpContext.Session.GetString("lastname");
@@ -37,7 +37,7 @@ namespace AtomHealth.Controllers
         }
 
         [HttpGet]
-        public IActionResult Edit(int id)
+        public IActionResult Edit(Guid id)
         {
             ViewBag.firstname = HttpContext.Session.GetString("firstname");
             ViewBag.lastname = HttpContext.Session.GetString("lastname");

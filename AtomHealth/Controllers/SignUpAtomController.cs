@@ -256,7 +256,7 @@ namespace AtomHealth.Controllers
             return View();
         }
         [HttpGet]
-        public IActionResult Delete(int id)
+        public IActionResult Delete(Guid id)
         {
             ViewBag.positionid = HttpContext.Session.GetString("positionid");
             if (ViewBag.positionid == "1" || ViewBag.positionid == "2")
@@ -286,7 +286,7 @@ namespace AtomHealth.Controllers
             return RedirectToAction("Signin");
         }
         [HttpGet]
-        public IActionResult Details(int id)
+        public IActionResult Details(Guid id)
         {
             ViewBag.positionid = HttpContext.Session.GetString("positionid");
             if (ViewBag.positionid == "1" || ViewBag.positionid == "2")
@@ -300,7 +300,7 @@ namespace AtomHealth.Controllers
             return RedirectToAction("Signin");
         }
         [HttpGet]
-        public IActionResult Edit(int id)
+        public IActionResult Edit(Guid id)
         {
             ViewBag.positionid = HttpContext.Session.GetString("positionid");
             if (ViewBag.positionid == "1" || ViewBag.positionid == "2")
