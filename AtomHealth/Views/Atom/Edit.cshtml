@@ -70,15 +70,17 @@
                 <label asp-for="ismarried" class="control-label">Status</label>
                 <br />
                 @Html.RadioButtonFor(m => m.ismarried, "Married", Model.ismarried == "Married" ? "checked" : string.Empty)
-            <span>Married</span>
+                <span>Married</span>
                 @Html.RadioButtonFor(m => m.ismarried, "Unmarried", Model.ismarried == "Unmarried" ? "checked" : string.Empty)
-            <span>Unmarried</span>
-                @Html.RadioButtonFor(m => m.ismarried, "Divorced", Model.ismarried == "Divorced" ? "checked" : string.Empty)
-            <span>Divorced</span>
-                @Html.RadioButtonFor(m => m.ismarried, "Widowed", Model.ismarried == "Widowed" ? "checked" : string.Empty)
-            <span>Widowed</span>
-              
-              
+                <span>Unmarried</span>
+                @Html.RadioButtonFor(m => m.ismarried, "Single", Model.ismarried == "Single" ? "checked" : string.Empty)
+            <span>Single</span>
+                @*@Html.RadioButtonFor(m => m.ismarried, "Divorced", Model.ismarried == "Divorced" ? "checked" : string.Empty)
+        <span>Divorced</span>
+            @Html.RadioButtonFor(m => m.ismarried, "Widowed", Model.ismarried == "Widowed" ? "checked" : string.Empty)
+        <span>Widowed</span>*@
+
+
                 <span asp-validation-for="ismarried" class="text-danger"></span>
             </div>
             <div class="form-group">
