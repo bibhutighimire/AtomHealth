@@ -18,7 +18,7 @@ namespace AtomHealth.Controllers
         }
         public IActionResult Create()
         {
-            //ViewBag.Success = HttpContext.Session.GetString("checkyouremail");
+            ViewBag.Success = HttpContext.Session.GetString("checkyouremail");
             return View();
         }
 
@@ -35,7 +35,7 @@ namespace AtomHealth.Controllers
                 tblAdmin.password = encoder.Encode(admin.password);
                 _context.tblAdmin.Add(tblAdmin);
                 _context.SaveChanges();
-               // HttpContext.Session.SetString("checkyouremail", "Registration Successful! Please log in!");
+               HttpContext.Session.SetString("checkyouremail", "Admin Registration Successful! Please log in!");
                 return RedirectToAction("Create");
             }
             return RedirectToAction("Create");
