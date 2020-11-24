@@ -1,0 +1,33 @@
+﻿@model IEnumerable<AtomHealth.Models.Subscribe>
+    <link rel="stylesheet" href="~/css/site.css" />
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutWithoutBanner.cshtml";
+}
+
+<h1 style="color:#42a5ff; font-size:large; font-weight:bold"> List of all Subscribers</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+               Email Address
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.email)
+            </td>
+            <td>
+                
+                <a asp-action="Delete" asp-route-id="@item.subscribeid">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -19,10 +19,17 @@ namespace AtomHealth.Controllers
 
         public IActionResult Index()
         {
-            ViewBag.firstname = HttpContext.Session.GetString("firstname");
-            ViewBag.lastname = HttpContext.Session.GetString("lastname");
+            //ViewBag.firstname = HttpContext.Session.GetString("firstname");
+            //ViewBag.lastname = HttpContext.Session.GetString("lastname");
             ViewBag.positionid = HttpContext.Session.GetString("positionid");
-            return View(_context.tblAtom.ToList());
+            if (ViewBag.positionid == "1")
+            {
+                ViewBag.firstname = HttpContext.Session.GetString("firstname");
+
+                return View(_context.tblAtom.ToList());
+            }
+            return RedirectToAction("Signin", "SignUpAtom");
+           
         }
 
           [HttpGet]

@@ -19,8 +19,17 @@ namespace AtomHealth.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            ViewBag.positionid = HttpContext.Session.GetString("positionid");
+            if (ViewBag.positionid == "1")
+            {
+                ViewBag.firstname = HttpContext.Session.GetString("firstname");
+
+                return View(_context.tblSubscribe.ToList());
+            }
+            return RedirectToAction("Signin", "SignUpAtom");
+          
         }
+        [HttpGet]
         public IActionResult Create()
         {
           
@@ -42,10 +51,8 @@ namespace AtomHealth.Controllers
                 _context.tblSubscribe.Add(tblS);
                 _context.SaveChanges();
                 ViewBag.msg = " You are now Subscribed. Thanks!";
-
                 return View();
-            }
-           
+            }           
         }
     }
 }

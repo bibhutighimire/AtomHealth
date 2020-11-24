@@ -9,7 +9,7 @@ namespace AtomHealth.Models
     public class Subscribe
     { 
 
-        public int subscribeid { get; set; }
+        public Guid subscribeid { get; set; }
         [Required(ErrorMessage = "Email Address can not be blank.")]
         [Display(Name = "Email Address")]
         [DataType(DataType.EmailAddress, ErrorMessage = "Please Enter Valid Email Address.")]

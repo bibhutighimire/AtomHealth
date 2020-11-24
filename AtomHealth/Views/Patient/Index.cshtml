@@ -1,19 +1,142 @@
-﻿<link rel="stylesheet" href="~/css/site.css" />
+﻿@model IEnumerable<AtomHealth.Models.Atom>
+
 @{
-    ViewData["Title"] = "For Patients";
-    Layout = "~/Views/Shared/_LayoutForSubPages.cshtml";
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutWithoutBanner.cshtml";
 }
 
-<img src="~/images/patient.jpg" style="width:100%; height:350px; margin-bottom:20px; border-radius:15px; color:black" />
+<h1>Index</h1>
 
-<h1 style="color:#42a5ff; font-size:24px; font-weight:bold">Information to Patients</h1>
-<hr />
-<p style="font-size:18px; line-height:20px; margin-bottom:15px;">
-    Your vital healthcare information stored under your unique digital health ID. Owned by you, verified by your family physician and you choose who views it.
-    Sign up with us, create your profile and our software generates a unique digital ID, specific to you. All your vital health information- including your medical conditions, medications, allergies, past medical history, family history, genetic history, is stored securely in this unique digital healthID assigned to you, much like a passport carrying your travel history. You have the view-only access key on you at all times and can share that with another healthcare provider, whether you are doing a virtual consult on telemedicine platform or you are in a walk-in clinic.
-    What's more? You can add family members or dependents and ensure their well-being too.
+<p>
+    <a asp-action="Create">Create New</a>
 </p>
-<p style="font-size: 18px;
-        line-height: 20px;
-        margin-bottom: 15px;
-        color: black"><a style="font-weight: bold;" asp-controller="SignupAtom" asp-action="CreateForUserWhoNeedHelp">Signup</a> with us today to join us on this journey.</p>
+<table class="table">
+    <thead>
+        <tr>
+           
+            <th>
+                @Html.DisplayNameFor(model => model.firstname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.middlename)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.lastname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.healthid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.phone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sex)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.height)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.weight)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ismarried)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.emergencyphone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.relationship)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.inmedicationnow)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.medication)
+            </th>
+           
+            <th>
+                @Html.DisplayNameFor(model => model.registrationdate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.dob)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.registeredby)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.diseases)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.firstname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.middlename)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.lastname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.healthid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sex)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.height)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.weight)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ismarried)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.emergencyphone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.relationship)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.inmedicationnow)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.medication)
+            </td>
+           
+            <td>
+                @Html.DisplayFor(modelItem => item.registrationdate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dob)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.registeredby)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.diseases)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.atomid">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.atomid">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.atomid">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

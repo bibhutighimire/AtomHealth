@@ -48,7 +48,7 @@ namespace AtomHealth.Controllers
         {
             ViewBag.email = HttpContext.Session.GetString("email");
             ViewBag.password = HttpContext.Session.GetString("password");
-            ViewBag.problem = "Invalid Email Address or Password. Try again!";
+            ViewBag.problem = HttpContext.Session.GetString("problem");
             return View();
         }
         [HttpPost]
@@ -57,34 +57,74 @@ namespace AtomHealth.Controllers
         public IActionResult SigninPost(string email, string password)
         {
             ScryptEncoder encoder = new ScryptEncoder();
-            //if (email != null && password != null)
-            //{
+           
             //checks if user is patient
             var rightAtom = _context.tblAtom.Where(x => x.email == email).SingleOrDefault();
             if (rightAtom == null)
             {
-                /*ViewBag.Error = "Username or password is invalid.";*/
-                // ViewBag.email = email;
-                //ViewBag.password = password;
-                HttpContext.Session.SetString("invalidemail", "This email address doesn't exist.");
-                return RedirectToAction("SigninWithSession");
+                ViewBag.email = email;
+                ViewBag.password = password;
+               
+
             }
-            bool isValid = encoder.Compare(password, rightAtom.password);
-            if (isValid)
+            else
             {
-                ViewBag.firstname = rightAtom.firstname;
-                ViewBag.lastname = rightAtom.lastname;
-                ViewBag.positionid = rightAtom.positionid;
-                HttpContext.Session.SetString("firstname", rightAtom.firstname);
-                ViewBag.firstname = HttpContext.Session.GetString("firstname");
-                HttpContext.Session.SetString("lastname", rightAtom.lastname);
-                ViewBag.lastname = HttpContext.Session.GetString("lastname");
-                HttpContext.Session.SetString("positionid", Convert.ToString(rightAtom.positionid));
-                ViewBag.positionid = HttpContext.Session.GetString("positionid");
-                HttpContext.Session.SetString("atomid", Convert.ToString(rightAtom.atomid));
-                ViewBag.atomid = HttpContext.Session.GetString("atomid");
-                return RedirectToAction("Profile", "Atom", new { id = rightAtom.atomid });
+                bool isValid = encoder.Compare(password, rightAtom.password);
+                if (isValid)
+                {
+                    ViewBag.firstname = rightAtom.firstname;
+                    ViewBag.lastname = rightAtom.lastname;
+                    ViewBag.positionid = rightAtom.positionid;
+                    HttpContext.Session.SetString("firstname", rightAtom.firstname);
+                    ViewBag.firstname = HttpContext.Session.GetString("firstname");
+                    HttpContext.Session.SetString("lastname", rightAtom.lastname);
+                    ViewBag.lastname = HttpContext.Session.GetString("lastname");
+                    HttpContext.Session.SetString("positionid", Convert.ToString(rightAtom.positionid));
+                    ViewBag.positionid = HttpContext.Session.GetString("positionid");
+                    HttpContext.Session.SetString("atomid", Convert.ToString(rightAtom.atomid));
+                    ViewBag.atomid = HttpContext.Session.GetString("atomid");
+                    return RedirectToAction("Profile", "Atom", new { id = rightAtom.atomid });
+                }
+               
             }
+
+
+            //checks if user is Admin
+            var rightAdmin = _context.tblAdmin.Where(x => x.email == email).FirstOrDefault();
+            if (rightAdmin == null)
+            {
+                
+                ViewBag.email = email;
+                ViewBag.password = password;
+                
+               
+            }
+            else
+            {
+                bool isValidForAdmin = encoder.Compare(password, rightAdmin.password);
+                if (isValidForAdmin)
+                {
+
+                    ViewBag.positionid = rightAdmin.positionid;
+                    HttpContext.Session.SetString("firstname", "Admin");
+                    ViewBag.firstname = "Admin";
+                    HttpContext.Session.SetString("positionid", Convert.ToString(rightAdmin.positionid));
+                    ViewBag.positionid = HttpContext.Session.GetString("positionid");
+                    return RedirectToAction("Index", "Home");
+                }
+               
+            }
+            HttpContext.Session.SetString("problem", "Invalid Email Address or Password!");
+            return RedirectToAction("SigninWithSession");
+            //else
+            //{
+            //    HttpContext.Session.SetString("email", email);
+            //    HttpContext.Session.SetString("password", password);
+            //    return RedirectToAction("SigninWithSession");
+            //}
+        }
+
+
             //checks if user is employee
             /* var rightEmployee = _context.tblEmployee.Where(x => x.email == email && x.password == password).FirstOrDefault();
              if (rightEmployee != null)
@@ -107,17 +147,17 @@ namespace AtomHealth.Controllers
                  return RedirectToAction("SigninWithSession");
              }*/
             //}
-            else
-            {
-                /* ViewBag.error = "Username or password is invalid.";
-               return RedirectToAction("Signin");*/
-                ViewBag.email = email;
-                ViewBag.password = password;
-                HttpContext.Session.SetString("email", email);
-                HttpContext.Session.SetString("password", password);
-                return RedirectToAction("Signin");
-            }
-        }
+        //    else
+        //    {
+        //        /* ViewBag.error = "Username or password is invalid.";
+        //       return RedirectToAction("Signin");*/
+        //        ViewBag.email = email;
+        //        ViewBag.password = password;
+        //        HttpContext.Session.SetString("email", email);
+        //        HttpContext.Session.SetString("password", password);
+        //        return RedirectToAction("Signin");
+        //    }
+        //}
         [HttpGet]
         public IActionResult Create()
         {
