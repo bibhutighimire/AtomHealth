@@ -1,5 +1,5 @@
 ﻿<link rel="stylesheet" href="~/css/site.css" />
-
+@model ContactUs
 @{
     ViewData["Title"] = "Contact Us";
     Layout = "~/Views/Shared/_LayoutForSubPages.cshtml";
@@ -12,14 +12,18 @@
 <p1 style="color:#42a5ff; font-size:16px;">Say hello to us if you do not have any concerns!</p1>
 
 <div class="containerforcontactform">
-    <form action="/" style="margin-bottom:55px;">
-        <label>Full Name</label>
-        <input type="text" id="firstname" name="firstname" placeholder="Your Full Name..">
+    <form method="post" style="margin-bottom:55px;">
+        <label asp-for="@Model.FullName">Full Name</label>
+        <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Your Full Name..">
+        <span class="text-danger" asp-validation-for="@Model.FullName"></span>
 
-        <label for="email">Email</label>
+        <label asp-for="@Model.Email">Email</label>
         <input type="text" id="email" name="email" placeholder="Your Email Address..">
-        <label for="subject">Subject</label>
+        <span class="text-danger" asp-validation-for="@Model.Email"></span>
+
+        <label asp-for="@Model.Subject">Subject</label>
         <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+        <span class="text-danger" asp-validation-for="@Model.Subject"></span>
 
         <input type="submit" value="Submit">
     </form>
