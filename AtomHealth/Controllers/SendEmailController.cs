@@ -34,13 +34,13 @@ namespace AtomHealth.Controllers
             mm.To.Add(to);
             mm.Subject = subject;
             mm.Body = body;
-            mm.From = new MailAddress("ghimirebibhuti@gmail.com");
+            mm.From = new MailAddress("atomhealth1@gmail.com");
             mm.IsBodyHtml = false;
             SmtpClient smtp = new SmtpClient("smtp.gmail.com");
             smtp.Port = 587;
             smtp.UseDefaultCredentials = true;
             smtp.EnableSsl = true;
-            smtp.Credentials = new System.Net.NetworkCredential("ghimirebibhuti@gmail.com", "Ghimire1$");
+            smtp.Credentials = new System.Net.NetworkCredential("atomhealth1@gmail.com", "Atomhealth@2020");
             smtp.Send(mm);
             ViewBag.mailsentmessage = "Your message has been received. Thanks";
 

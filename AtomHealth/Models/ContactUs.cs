@@ -8,13 +8,15 @@ namespace AtomHealth.Models
 {
     public class ContactUs
     {
-        [Required]
-        public string FullName { get; set; }
+        [Required(ErrorMessage = "Name can not be blank.")]
+        public string Name { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Email Address can not be blank.")]
+        [Display(Name = "Email Address")]
+        [DataType(DataType.EmailAddress, ErrorMessage = "Please Enter Valid Email Address.")]
         public string Email { get; set; }
 
-        [Required]
-        public string Subject { get; set; }
+        [Required(ErrorMessage = "Please enter a message.")]
+        public string Message { get; set; }
     }
 }
