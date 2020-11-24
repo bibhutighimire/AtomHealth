@@ -12,18 +12,23 @@
 <h1>@ViewBag.Message</h1>
 <div class="containerforcontactform">
     <form method="post" style="margin-bottom:55px;">
-        <label asp-for="@Model.Name">Full Name</label>
-        <input type="text" class="form-control" id="name" name="name" placeholder="Your Full Name..">
-        <span class="text-danger" asp-validation-for="@Model.Name"></span>
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-        <label asp-for="@Model.Email">Email</label>
-        <input type="text" id="email" name="email" placeholder="Your Email Address..">
-        <span class="text-danger" asp-validation-for="@Model.Email"></span>
-
-        <label asp-for="@Model.Message">Message</label>
-        <textarea id="message" name="message" placeholder="Write something.." style="height:200px"></textarea>
-        <span class="text-danger" asp-validation-for="@Model.Message"></span>
-
-        <input type="submit" value="Submit">
-    </form>
+        <div>
+            Full Name
+            <input asp-for="Name" class="form-control" placeholder="Your Full Name..">
+            <span class="text-danger" asp-validation-for="@Model.Name"></span>
+        </div>
+        <div>
+            Email
+            <input asp-for="Email" class="form-control" placeholder="Your Email Address..">
+            <span class="text-danger" asp-validation-for="@Model.Email"></span>
+        </div>
+        <div>
+            Message
+            <textarea asp-for="Message" class="form-control" placeholder="Write something.." style="height:200px"></textarea>
+            <span class="text-danger" asp-validation-for="@Model.Message"></span>
+        </div>
+                <input type="submit" value="Submit">
+</form>
 </div>
