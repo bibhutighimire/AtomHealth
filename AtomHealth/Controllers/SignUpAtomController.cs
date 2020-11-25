@@ -11,6 +11,8 @@ using System.Net.Sockets;
 using System.Threading;
 using System.Net.NetworkInformation;
 using System.Management;
+using System.Net.Mail;
+
 namespace AtomHealth.Controllers
 {
     public class SignUpAtomController : Controller
@@ -262,6 +264,25 @@ namespace AtomHealth.Controllers
                     ViewBag.Success = "You are signed up successfully. Please check your email for verification.";
                     HttpContext.Session.SetString("checkyouremail", "Please check your email for validation");
 
+                    //email start
+                    string to = atom.email;
+                    string subject = "Welcome Subject";
+                    string body = "Welcome Body";
+                    MailMessage mm = new MailMessage();
+                    mm.To.Add(to);
+                    mm.Subject = subject;
+                    mm.Body = body;
+                    mm.From = new MailAddress("atomhealth1@gmail.com");
+                    mm.IsBodyHtml = false;
+                    SmtpClient smtp = new SmtpClient("smtp.gmail.com");
+                    smtp.Port = 587;
+                    smtp.UseDefaultCredentials = true;
+                    smtp.EnableSsl = true;
+                    smtp.Credentials = new System.Net.NetworkCredential("atomhealth1@gmail.com", "Atomhealth@2020");
+                    smtp.Send(mm);
+                    ViewBag.mailsentmessage = "Your message has been received. Thanks";
+                    
+                    //email end
                     return RedirectToAction("CreateForUserWhoNeedHelpBlank");
                 }
                 else

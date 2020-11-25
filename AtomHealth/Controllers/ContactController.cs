@@ -38,7 +38,7 @@ namespace AtomHealth.Controllers
 
                                   $"{ Environment.NewLine}" +
                                 $"Email: {vm.Email}{Environment.NewLine}" +
-                                  $"{ Environment.NewLine}" +
+                              
                                   $"{ Environment.NewLine}" +
                                 $"Message:{ Environment.NewLine}" +
                                  $"{vm.Message}";
