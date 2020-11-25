@@ -3,32 +3,51 @@
     ViewData["Title"] = "Contact Us";
     Layout = "~/Views/Shared/_LayoutForSubPages.cshtml";
 }
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
 <link rel="stylesheet" href="~/css/site.css" />
 
 
 <h1 style="color:#42a5ff; font-size:24px; font-weight:bold">Contact Form</h1>
 <hr />
-<p1 style="color:#42a5ff; font-size:16px;">Say hello to us if you do not have any concerns!</p1>
-<h1>@ViewBag.Message</h1>
-<div class="containerforcontactform">
-    <form method="post" style="margin-bottom:55px;">
-        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-        <div>
-            Full Name
-            <input asp-for="Name" class="form-control" placeholder="Your Full Name..">
-            <span class="text-danger" asp-validation-for="@Model.Name"></span>
-        </div>
-        <div>
-            Email
-            <input asp-for="Email" class="form-control" placeholder="Your Email Address..">
-            <span class="text-danger" asp-validation-for="@Model.Email"></span>
-        </div>
-        <div>
-            Message
-            <textarea asp-for="Message" class="form-control" placeholder="Write something.." style="height:200px"></textarea>
-            <span class="text-danger" asp-validation-for="@Model.Message"></span>
-        </div>
-                <input type="submit" value="Submit">
-</form>
+
+@if (ViewBag.Message == null)
+{
+    <p1 style="color:#42a5ff; font-size:16px;">Say hello to us if you do not have any concerns!</p1>
+    <div class="containerforcontactform">
+        <form method="post" style="margin-bottom:55px;">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div>
+                Full Name
+                <input asp-for="Name" class="form-control" placeholder="Your Full Name..">
+                <span class="text-danger" asp-validation-for="@Model.Name"></span>
+            </div>
+            <div>
+                Subject
+                <input asp-for="Subject" class="form-control" placeholder="Your Subject..">
+                <span class="text-danger" asp-validation-for="@Model.Subject"></span>
+            </div>
+            <div>
+                Email
+                <input asp-for="Email" class="form-control" placeholder="Your Email Address..">
+                <span class="text-danger" asp-validation-for="@Model.Email"></span>
+            </div>
+            <div>
+                Message
+                <textarea asp-for="Message" class="form-control" placeholder="Write something.." style="height:200px"></textarea>
+                <span class="text-danger" asp-validation-for="@Model.Message"></span>
+            </div>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+}
+<div>
+    @if (ViewBag.Message != null)
+    {
+        <h2>@ViewBag.Message</h2>
+
+
+    }
 </div>

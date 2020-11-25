@@ -6,66 +6,60 @@ using System.Net.Mail;
 using System.Threading.Tasks;
 using AtomHealth.Models;
 using Microsoft.AspNetCore.Mvc;
-
-
+using MimeKit;
 
 namespace AtomHealth.Controllers
 {
     public class ContactController : Controller
     {
+        [HttpGet]
         public IActionResult Index()
         {
             return View();
         }
-
-        [HttpGet]
-        public IActionResult ContactUs()
+        [HttpPost]
+        public IActionResult Index(ContactUs vm)
         {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    MailMessage msz = new MailMessage();
+                    msz.From = new MailAddress(vm.Email);//Email which you are getting 
+                                                         //from contact us page 
+                    msz.To.Add("atomhealth1@gmail.com");//Where mail will be sent 
+                    msz.Subject = vm.Subject;
+
+                    //msz.Body = vm.Name + " " + vm.Email + " " + vm.Message;
+                    msz.Body = $"This visitor:{vm.Name} with this email:{vm.Email} Send this message:{vm.Message}";
+                    
+                    SmtpClient smtp = new SmtpClient();
+
+                    smtp.Host = "smtp.gmail.com";
+
+                    smtp.Port = 587;
+
+                    smtp.Credentials = new System.Net.NetworkCredential
+                    ("atomhealth1@gmail.com", "Atomhealth@2020");
+
+                    smtp.EnableSsl = true;
+
+                    smtp.Send(msz);
+
+                    ModelState.Clear();
+                    ViewBag.Message = "Thank you for Contacting us. We will get back to you soon.";
+                }
+                catch (Exception ex)
+                {
+                    ModelState.Clear();
+                    ViewBag.Message = $" Sorry we are facing Problem here {ex.Message}";
+                }
+            }
+
             return View();
         }
-
-        [HttpPost]
-        public IActionResult ContactUs(ContactUs contactUs)
+        public IActionResult Error()
         {
-            
-            if(ModelState.IsValid)         
-                return View();
-
-            try
-            {
-                MailMessage mail = new MailMessage();
-                mail.From = new MailAddress("atomhealth1@gmail.com");
-                mail.To.Add("shailzasharma.85@gmail.com");
-                mail.Subject = contactUs.Message;
-
-                mail.IsBodyHtml = true;
-                string content = "Name: " + contactUs.Name;
-                content += "<br/> Message: " + contactUs.Email;
-                mail.Body = content;
-
-                //Create SMTP instance
-                SmtpClient smtpClient = new SmtpClient("smtp.gmail.com");
-
-                //Create Network credential
-                NetworkCredential networkCredential = new NetworkCredential("atomhealth1@gmail.com", "Atomhealth@2020");
-                smtpClient.UseDefaultCredentials = true;
-                smtpClient.Credentials = networkCredential;
-                smtpClient.Port = 587;
-                smtpClient.EnableSsl = true;
-                smtpClient.Send(mail);
-
-                ViewBag.Message = "Mail Sent";
-
-                ModelState.Clear();
-
-
-            }
-            catch(Exception ex)
-            {
-                
-                ViewBag.Message = ex.Message.ToString();
-            }
-
             return View();
         }
     }
