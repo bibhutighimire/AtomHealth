@@ -30,9 +30,19 @@ namespace AtomHealth.Controllers
                     msz.To.Add("atomhealth1@gmail.com");//Where mail will be sent 
                     msz.Subject = vm.Subject;
 
-                    //msz.Body = vm.Name + " " + vm.Email + " " + vm.Message;
-                    msz.Body = $"This visitor:{vm.Name} with this email:{vm.Email} Send this message:{vm.Message}";
-                    
+
+                    msz.Body =
+                                $"Hello! You have a NEW message from Atom Health Visitor's Page.{Environment.NewLine}" +
+                                $"{ Environment.NewLine}" +
+                                $"Name: {vm.Name}{Environment.NewLine}" +
+
+                                  $"{ Environment.NewLine}" +
+                                $"Email: {vm.Email}{Environment.NewLine}" +
+                                  $"{ Environment.NewLine}" +
+                                  $"{ Environment.NewLine}" +
+                                $"Message:{ Environment.NewLine}" +
+                                 $"{vm.Message}";
+
                     SmtpClient smtp = new SmtpClient();
 
                     smtp.Host = "smtp.gmail.com";
