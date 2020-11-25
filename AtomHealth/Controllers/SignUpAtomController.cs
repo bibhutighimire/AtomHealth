@@ -266,13 +266,24 @@ namespace AtomHealth.Controllers
 
                     //email start
                     string to = atom.email;
-                    string subject = "Welcome Subject";
-                    string body = "Welcome Body";
+                    string subject = "Welcome to Atom Health. Thanks for Signing up!";
+                    string body =
+                    $"Hello! {atom.firstname},{Environment.NewLine}" +
+                    $"{ Environment.NewLine}" +
+                               $"We are excited to see you sign up into Atom Health.In today's times when technology evolves everyday, a healthcare provider's responsibility extends way beyond providing care. Collaborative care between different specialists is the norm and access to relevant health information is critical to diagnosis and management. At Atom Health, we collect verified vital health information and store it in a secure encrypted digital health ID or ATOM of each patient.{Environment.NewLine}" +
+                               $"{ Environment.NewLine}" +
+                               $"{atom.firstname}, your vital healthcare information stored under your unique digital health ID. Owned by you, verified by your family physician and you choose who views it. Sign up with us, create your profile and our software generates a unique digital ID, specific to you. All your vital health information- including your medical conditions, medications, allergies, past medical history, family history, genetic history, is stored securely in this unique digital healthID assigned to you, much like a passport carrying your travel history. You have the view-only access key on you at all times and can share that with another healthcare provider, whether you are doing a virtual consult on telemedicine platform or you are in a walk-in clinic. What's more? You can add family members or dependents and ensure their well-being too.{Environment.NewLine}" +
+
+                                 $"{ Environment.NewLine}" +
+                               $"Lastly, thanks again for trusting our company with your healthcare information. Stay safe {atom.firstname}!{Environment.NewLine}" +
+                               $"{ Environment.NewLine}" +
+                        $"ATOM HEALTH TEAM";
+
                     MailMessage mm = new MailMessage();
                     mm.To.Add(to);
                     mm.Subject = subject;
                     mm.Body = body;
-                    mm.From = new MailAddress("atomhealth1@gmail.com");
+                    mm.From = new MailAddress("atomhealth1@gmail.com","Atom Health Team");
                     mm.IsBodyHtml = false;
                     SmtpClient smtp = new SmtpClient("smtp.gmail.com");
                     smtp.Port = 587;
